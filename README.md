@@ -1,5 +1,5 @@
 # Housing rentals' application
-A property rental application developed as part of a university project
+A property rental application developed as part of a university project - (2022)
 
 ## Languages 
 - Java,Eclipse window builder
@@ -12,3 +12,4 @@ A property rental application developed as part of a university project
 - Jason Bessier
 - Patrick Jeanjean
 - Kemit Carabin
+
