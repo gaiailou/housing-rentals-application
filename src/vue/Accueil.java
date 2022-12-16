@@ -32,7 +32,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 
 	private JPanel contentPane;
 	private JTextField txtSearch;
-	private JTextField textField;
+	private JTextField txtPasDeDonnes;
 	private JTextField textRevenu;
 	private JTable tableImpaye;
 	private JTextField textPerte;
@@ -42,6 +42,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 	private JLayeredPane layeredLocataires;
 	private JLayeredPane layeredLocations;
 	private JLayeredPane layeredDocuments;
+	private JLayeredPane layeredblabla;
 	private JTextField txtSearchDoc;
 	private JTextField textSearchLog;
 	private JTextField textSearchLoc;
@@ -145,13 +146,15 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredAccueil.add(panel11);
 		panel11.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_2 = new JLabel("Quelque chose");
+		JLabel lblNewLabel_2 = new JLabel("Joli graphique");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel11.add(lblNewLabel_2, BorderLayout.NORTH);
 		
-		textField = new JTextField();
-		panel11.add(textField, BorderLayout.CENTER);
-		textField.setColumns(10);
+		txtPasDeDonnes = new JTextField();
+		txtPasDeDonnes.setHorizontalAlignment(SwingConstants.CENTER);
+		txtPasDeDonnes.setText("Pas de donn\u00E9es");
+		panel11.add(txtPasDeDonnes, BorderLayout.CENTER);
+		txtPasDeDonnes.setColumns(10);
 		
 		JPanel panel12 = new JPanel();
 		panel12.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -408,6 +411,10 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		//Pour mettre l'accueil a la première page
 		contentPane.add(this.layeredAccueil, BorderLayout.CENTER);
 		
+		JLayeredPane blabla = new JLayeredPane();
+		contentPane.add(blabla, BorderLayout.CENTER);
+		blabla.setLayout(new BorderLayout(0, 0));
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -460,6 +467,8 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				location.setVisible(true);
 				location.moveToFront();
 				break;
+			case"New button":
+				rendreVisible(this.layeredblabla);
 		}
 		
 	}
@@ -502,6 +511,30 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				logement.moveToFront();
 				break;
 		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
