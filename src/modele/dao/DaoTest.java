@@ -145,7 +145,7 @@ public class DaoTest {
 		de.setLocataire(d.getLocataire());
 	}
 
-	public static void deleteContrat(Contrat c) {
-		DaoTest.CONTRATS.remove(c);
+	public static void deleteDocument(Document d) {
+		DaoTest.DOCUMENTS.remove(d);
 	}
 }
