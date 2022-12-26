@@ -4,24 +4,22 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Reglement {
-	private char[] idReglement = new char[5];
+	private String idReglement;
 	private String dateReglement;
 	private double montantReglement;
 	
-	public Reglement(char[] idReglement, String dateReglement, double montantReglement) {
+	public Reglement(String idReglement, String dateReglement, double montantReglement) {
 		super();
 		this.idReglement = idReglement;
 		this.dateReglement = dateReglement;
 		this.montantReglement = montantReglement;
 	}
+	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Arrays.hashCode(idReglement);
-		result = prime * result + Objects.hash(dateReglement, montantReglement);
-		return result;
+		return Objects.hash(dateReglement, idReglement, montantReglement);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -31,13 +29,13 @@ public class Reglement {
 			return false;
 		}
 		Reglement other = (Reglement) obj;
-		return Objects.equals(dateReglement, other.dateReglement) && Arrays.equals(idReglement, other.idReglement)
+		return Objects.equals(dateReglement, other.dateReglement) && Objects.equals(idReglement, other.idReglement)
 				&& Double.doubleToLongBits(montantReglement) == Double.doubleToLongBits(other.montantReglement);
 	}
-	public char[] getIdReglement() {
+	public String getIdReglement() {
 		return idReglement;
 	}
-	public void setIdReglement(char[] idReglement) {
+	public void setIdReglement(String idReglement) {
 		this.idReglement = idReglement;
 	}
 	public String getDateReglement() {
