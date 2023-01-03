@@ -35,22 +35,6 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 	private JTextField textFraiAcquisition;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AjouterLogement frame = new AjouterLogement();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public AjouterLogement() {
