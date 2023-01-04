@@ -25,6 +25,7 @@ import javax.swing.JCheckBox;
 import javax.swing.SwingConstants;
 
 public class AjouterLogement extends JInternalFrame implements ActionListener {
+	private JTextField textId;
 	private JTextField textSurface;
 	private JTextField textAdresse;
 	private JTextField textVille;
@@ -33,6 +34,7 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 	private JTextField textNomLogement;
 	private JTextField textPrixAcquisition;
 	private JTextField textFraiAcquisition;
+	private JTextField textCaution;
 
 	/**
 	 * Create the frame.
@@ -56,12 +58,28 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		JPanel panel_17 = new JPanel();
 		panel_Nom.add(panel_17);
 		
+		JLabel LabelId = new JLabel("Identifiant :");
+		panel_17.add(LabelId);
+		
+		textId = new JTextField();
+		textId.setColumns(10);
+		panel_17.add(textId);
+		
 		JLabel LabelNom = new JLabel("Nom du logement :");
 		panel_17.add(LabelNom);
 		
 		textNomLogement = new JTextField();
 		textNomLogement.setColumns(10);
 		panel_17.add(textNomLogement);
+		
+		
+		JLabel LabelCaution = new JLabel("Montant caution :");
+		panel_17.add(LabelCaution);
+		
+		textCaution = new JTextField();
+		textCaution.setColumns(10);
+		panel_17.add(textCaution);
+		
 		
 		JPanel panel_Description = new JPanel();
 		panel1.add(panel_Description);

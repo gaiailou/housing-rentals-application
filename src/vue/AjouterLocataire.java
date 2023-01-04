@@ -38,16 +38,13 @@ import java.awt.GridLayout;
 public class AjouterLocataire extends JInternalFrame implements ActionListener {
 	private JTextField textNom;
 	private JTextField textPrenom;
-	private JComboBox comboBoxType;
+	private JTextField textId;
+	private JComboBox comboCivilite;
 	private JTextField textDateNaissance;
 	private JTextField textNbFixe;
 	private JTextField textNbPortable;
-	private JTextField textIdLocataire;
-	private JTextField textProfession;
-	private JTextField textRevenu;
 	private JTextField textField;
-	
-	
+
 	public String getTextNom() {
 		return this.textNom.getText();
 	}
@@ -56,20 +53,28 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 		return this.textPrenom.getText();
 	}
 
-	public JComboBox getComboBoxType() {
-		return comboBoxType;
+	public String getTextId() {
+		return this.textId.getText();
 	}
 
-	public JTextField getTextDateNaissance() {
-		return textDateNaissance;
+	public String getComboCivilite() {
+		return this.comboCivilite.getSelectedItem().toString();
 	}
 
-	public JTextField getTextProfession() {
-		return textNbFixe;
+	public String getTextDateNaissance() {
+		return this.textDateNaissance.getText();
 	}
 
-	public JTextField getTextRevenu() {
-		return textNbPortable;
+	public String getTextNbFixe() {
+		return this.textNbFixe.getText();
+	}
+
+	public String getTextNbPortable() {
+		return this.textNbPortable.getText();
+	}
+
+	public String getTextField() {
+		return this.textField.getText();
 	}
 
 	/**
@@ -108,9 +113,9 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 		panel.add(panelType);
 		panelType.setLayout(new BorderLayout(0, 0));
 		
-		JLabel labelType = new JLabel("Type");
-		labelType.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panelType.add(labelType, BorderLayout.NORTH);
+		JLabel labelId = new JLabel("Identifiant");
+		labelId.setFont(new Font("Tahoma", Font.BOLD, 11));
+		panelType.add(labelId, BorderLayout.NORTH);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -122,12 +127,12 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		panel_4.add(panel_7);
 		
-		JLabel lblNewLabel_3 = new JLabel("Type de locataire  ");
+		JLabel lblNewLabel_3 = new JLabel("Identifiant du locataire  ");
 		panel_7.add(lblNewLabel_3);
 		
-		comboBoxType = new JComboBox();
-		comboBoxType.setModel(new DefaultComboBoxModel(new String[] {"Particulier", "Profesionnel"}));
-		panel_7.add(comboBoxType);
+		textId = new JTextField();
+		panel_7.add(textId);
+		textId.setColumns(10);
 		
 		JPanel panelInfoPerso = new JPanel();
 		panel.add(panelInfoPerso);
@@ -197,13 +202,6 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 		flowLayout_3.setAlignment(FlowLayout.LEADING);
 		panel_5.add(panelId);
 		
-		JLabel labelIdLocataire = new JLabel("Id Locataire          ");
-		panelId.add(labelIdLocataire);
-		
-		textIdLocataire = new JTextField();
-		panelId.add(textIdLocataire);
-		textIdLocataire.setColumns(10);
-		
 		JPanel panelCarteId = new JPanel();
 		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
@@ -252,60 +250,8 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 		
 		textNbPortable = new JTextField();
 		panelPortable.add(textNbPortable);
-		textNbPortable.setColumns(10);
+		textNbPortable.setColumns(10);		
 		
-		JLayeredPane layeredComplement = new JLayeredPane();
-		tabbedPane.addTab("Informations compl\u00E9mentaires", null, layeredComplement, null);
-		layeredComplement.setLayout(new BorderLayout(0, 0));
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		layeredComplement.add(scrollPane_1, BorderLayout.CENTER);
-		
-		JPanel panel_8 = new JPanel();
-		scrollPane_1.setViewportView(panel_8);
-		panel_8.setLayout(new BoxLayout(panel_8, BoxLayout.X_AXIS));
-		
-		JPanel panelSitPro = new JPanel();
-		panel_8.add(panelSitPro);
-		panelSitPro.setBorder(new EmptyBorder(10, 0, 0, 0));
-		panelSitPro.setLayout(new BorderLayout(0, 0));
-		
-		JLabel labelSitPro = new JLabel("Situation Profesionnelle");
-		labelSitPro.setVerticalAlignment(SwingConstants.TOP);
-		labelSitPro.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panelSitPro.add(labelSitPro, BorderLayout.NORTH);
-		
-		JPanel panelSitProf = new JPanel();
-		panelSitProf.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelSitPro.add(panelSitProf);
-		panelSitProf.setLayout(new BoxLayout(panelSitProf, BoxLayout.Y_AXIS));
-		
-		JPanel panelProfession = new JPanel();
-		FlowLayout flowLayout_1 = (FlowLayout) panelProfession.getLayout();
-		flowLayout_1.setAlignment(FlowLayout.LEFT);
-		panelSitProf.add(panelProfession);
-		
-		JLabel labelProfession = new JLabel("Profession            ");
-		panelProfession.add(labelProfession);
-		
-		textProfession = new JTextField();
-		textProfession.setColumns(10);
-		panelProfession.add(textProfession);
-		
-		JPanel panelRevenu = new JPanel();
-		FlowLayout flowLayout_2 = (FlowLayout) panelRevenu.getLayout();
-		flowLayout_2.setAlignment(FlowLayout.LEFT);
-		panelSitProf.add(panelRevenu);
-		
-		JLabel labelRevenu = new JLabel("Revenu mensuel  ");
-		panelRevenu.add(labelRevenu);
-		
-		textRevenu = new JTextField();
-		textRevenu.setColumns(10);
-		panelRevenu.add(textRevenu);
-		
-		JLabel labelDevise = new JLabel("\u20AC");
-		panelRevenu.add(labelDevise);
 		
 		JLayeredPane layeredGarants = new JLayeredPane();
 		tabbedPane.addTab("Garants", null, layeredGarants, null);
