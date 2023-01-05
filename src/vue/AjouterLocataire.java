@@ -219,9 +219,9 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 		panelNbTel.setBorder(new EmptyBorder(10, 0, 0, 0));
 		panelNbTel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel labelNuméroPerso = new JLabel("Num\u00E9ro de t\u00E9l\u00E9phone");
-		labelNuméroPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panelNbTel.add(labelNuméroPerso, BorderLayout.NORTH);
+		JLabel labelNumeroPerso = new JLabel("Num\u00E9ro de t\u00E9l\u00E9phone");
+		labelNumeroPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
+		panelNbTel.add(labelNumeroPerso, BorderLayout.NORTH);
 		
 		JPanel panelNumeroTel = new JPanel();
 		panelNumeroTel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -272,7 +272,7 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 				String txtNom =  this.getTextNom();
 				String txtPrenom = this.getTextPrenom();
 				String txtDDN = this.textDateNaissance.getText().toString();
-				bd = new CictOracleDataSource ("BLABLA", "motDePasse");
+				bd = new CictOracleDataSource ();
 				Connection cn = bd.getConnection() ;
 				String req = "insert into BSJ3657A.Locataire VALUES('GTGTGT', '" + this.getTextNom() + "', '"+ this.getTextPrenom() +"', 'M', '0988764551', '0972535892', 'mohamed.boughanem@iut-tlse3.fr', '17/09/1999', 'idP.jpg')";
 				java.sql.Statement stEns = cn.createStatement () ;
