@@ -12,14 +12,14 @@ public class CictOracleDataSource extends OracleDataSource {
 	private static CictOracleDataSource cOD = null;
 	private static final long serialVersionUID = 1L;
 	
-	public CictOracleDataSource (String nom, String mdp) throws SQLException {
+	public CictOracleDataSource () throws SQLException {
 		this.setURL ("jdbc:oracle:thin:@telline.univ-tlse3.fr" +":1521:etupre") ;
-		this.setUser (nom) ;
-		this.setPassword (mdp) ;
+		this.setUser ("PLM4280A") ;
+		this.setPassword ("$iutinfo") ;
 	}
 	
-	public static void creerAcces (String login, String mdp) throws SQLException{
-		CictOracleDataSource.cOD = new CictOracleDataSource (login, mdp) ;
+	public static void creerAcces () throws SQLException{
+		CictOracleDataSource.cOD = new CictOracleDataSource () ;
 		CictOracleDataSource.connection = CictOracleDataSource.cOD.getConnection();
 	}
 	

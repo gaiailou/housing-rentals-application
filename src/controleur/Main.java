@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			DataSource bd = new CictOracleDataSource ("PLM4280A", "$iutinfo") ;
+			DataSource bd = new CictOracleDataSource () ;
 			Connection cn = bd.getConnection() ;
 			System.out.println("Connexion au SGBD établie") ;
 			String req = "SELECT NOM_LOCATAIRE, PRENOM_LOCATAIRE FROM BSJ3657A.locataire";
