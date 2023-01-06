@@ -30,12 +30,13 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
 import controleur.CictOracleDataSource;
+import controleur.GestionAjouterLocataire;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
 
-public class AjouterLocataire extends JInternalFrame implements ActionListener {
+public class AjouterLocataire extends JInternalFrame {
 	private JTextField textNom;
 	private JTextField textPrenom;
 	private JTextField textId;
@@ -44,6 +45,7 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 	private JTextField textNbFixe;
 	private JTextField textNbPortable;
 	private JTextField textField;
+	private JButton btnAnnuler;
 
 	public String getTextNom() {
 		return this.textNom.getText();
@@ -81,17 +83,19 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public AjouterLocataire() {
+		GestionAjouterLocataire gal = new GestionAjouterLocataire(this);
+		
 		setBounds(100, 100, 577, 507);
 		
 		JPanel panelFooter = new JPanel();
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
-		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(this);
+		this.btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(gal);
 		panelFooter.add(btnAnnuler);
 		
 		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(this);
+		btnValider.addActionListener(gal);
 		panelFooter.add(btnValider);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -259,35 +263,14 @@ public class AjouterLocataire extends JInternalFrame implements ActionListener {
 		JLayeredPane layeredDocuments = new JLayeredPane();
 		tabbedPane.addTab("Documents", null, layeredDocuments, null);
 	}
-
 	public void actionPerformed(ActionEvent e) {
-		JButton btn =(JButton)e.getSource();
-		switch(btn.getText()) {
-			case"Annuler":
-				this.dispose();
-				break;
-			case"Valider":
-			DataSource bd;
-			try {
-				String txtNom =  this.getTextNom();
-				String txtPrenom = this.getTextPrenom();
-				String txtDDN = this.textDateNaissance.getText().toString();
-				bd = new CictOracleDataSource ();
-				Connection cn = bd.getConnection() ;
-				String req = "insert into BSJ3657A.Locataire VALUES('GTGTGT', '" + this.getTextNom() + "', '"+ this.getTextPrenom() +"', 'M', '0988764551', '0972535892', 'mohamed.boughanem@iut-tlse3.fr', '17/09/1999', 'idP.jpg')";
-				java.sql.Statement stEns = cn.createStatement () ;
-				ResultSet rsEns = stEns.executeQuery (req) ;
-				
-				rsEns.close () ;
-				stEns.close() ;
-				cn.close() ;
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-				
-				this.dispose();
-				break;
-		}
+		JButton btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(this);
+		panelFooter.add(btnAnnuler);
+		
+		JButton btnValider = new JButton("Valider");
+		btnValider.addActionListener(this);
+		panelFooter.add(btnValider);
 	}
+	
 }
