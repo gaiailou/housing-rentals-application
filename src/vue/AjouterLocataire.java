@@ -46,6 +46,7 @@ public class AjouterLocataire extends JInternalFrame {
 	private JTextField textNbPortable;
 	private JTextField textField;
 	private JButton btnAnnuler;
+	private GestionAjouterLocataire gal;
 
 	public String getTextNom() {
 		return this.textNom.getText();
@@ -83,7 +84,7 @@ public class AjouterLocataire extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public AjouterLocataire() {
-		GestionAjouterLocataire gal = new GestionAjouterLocataire(this);
+		this.gal = new GestionAjouterLocataire();
 		
 		setBounds(100, 100, 577, 507);
 		
@@ -262,15 +263,6 @@ public class AjouterLocataire extends JInternalFrame {
 		
 		JLayeredPane layeredDocuments = new JLayeredPane();
 		tabbedPane.addTab("Documents", null, layeredDocuments, null);
-	}
-	public void actionPerformed(ActionEvent e) {
-		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(this);
-		panelFooter.add(btnAnnuler);
-		
-		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(this);
-		panelFooter.add(btnValider);
 	}
 	
 }
