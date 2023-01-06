@@ -17,9 +17,6 @@ public class GestionAjouterLocataire implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.btn = (JButton) e.getSource();
-		switch(btn.getName()) {
-		case "":
-		}
+		
 	}
 }
