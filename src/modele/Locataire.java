@@ -1,7 +1,14 @@
 package modele;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import javax.sql.DataSource;
+
+import controleur.CictOracleDataSource;
 
 public class Locataire {
 	private String idLocataire;
@@ -13,6 +20,8 @@ public class Locataire {
 	private String mailLocataire;
 	private String ddnLocataire;
 	private String pièceIdentitéLocataire;
+	private DataSource bd;
+	
 	
 	public Locataire(String idLocataire, String nomLocataire, String prenomLocataire, char genreLocataire,
 			char[] telephoneFixeLocataire, char[] téléphoneMobileLocataire, String mailLocataire, String ddnLocataire,
@@ -129,4 +138,17 @@ public class Locataire {
 		this.pièceIdentitéLocataire = pièceIdentitéLocataire;
 	}
 	
+	
+	public void insererLocataire(String id, String nom, String prenom, char genre, String tf, String tm, String mail, String ddn) throws SQLException {
+		
+		bd = new CictOracleDataSource ();
+		Connection cn = bd.getConnection() ;
+		String req = "call BSJ3657.inserernouveaulocataire('" + id +"', '" + nom + "', '"+ prenom +"', '" + genre + "', '" + tf + "', '" + tm + "', '" + mail + "', '" + ddn + "', '" + null + "')";
+		java.sql.Statement stEns = cn.createStatement () ;
+		ResultSet rsEns = stEns.executeQuery (req) ;
+		
+		rsEns.close () ;
+		stEns.close() ;
+		cn.close() ;
+	}
 }
