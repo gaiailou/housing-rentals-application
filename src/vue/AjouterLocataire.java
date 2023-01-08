@@ -208,9 +208,9 @@ public class AjouterLocataire extends JInternalFrame {
 		panel_5.add(panelId);
 		
 		JPanel panelCarteId = new JPanel();
+		panelId.add(panelCarteId);
 		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelCarteId);
 		
 		JLabel labelDocument = new JLabel("Document d'identit\u00E9 ");
 		panelCarteId.add(labelDocument);

@@ -37,15 +37,17 @@ import javax.swing.border.MatteBorder;
 import javax.swing.border.SoftBevelBorder;
 
 public class AjouterLocation extends JInternalFrame implements ActionListener {
-	private JTextField txtNom;
+	private JTextField textFieldNomLocation;
+	private JComboBox comboBoxLogement;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textFieldMontantLoyer;
 	private JTextField textField_4;
 	private JTextField textField_3;
 	private JTextField txtEx;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JComboBox comboBoxLocataire;
 
 	
 
@@ -67,12 +69,12 @@ public class AjouterLocation extends JInternalFrame implements ActionListener {
 		LabelNomLocation.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelNom.add(LabelNomLocation);
 		
-		txtNom = new JTextField();
-		txtNom.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		txtNom.setForeground(Color.LIGHT_GRAY);
-		txtNom.setText("nom");
-		panelNom.add(txtNom);
-		txtNom.setColumns(10);
+		this.textFieldNomLocation = new JTextField();
+		this.textFieldNomLocation.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		this.textFieldNomLocation.setForeground(Color.LIGHT_GRAY);
+		this.textFieldNomLocation.setText("nom");
+		panelNom.add(this.textFieldNomLocation);
+		textFieldNomLocation.setColumns(10);
 		
 		JPanel PanelAssociation = new JPanel();
 		panelContent.add(PanelAssociation);
@@ -86,11 +88,11 @@ public class AjouterLocation extends JInternalFrame implements ActionListener {
 		labelLogement.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelChoixLogement.add(labelLogement);
 		
-		JComboBox comboBoxLogement = new JComboBox();
-		comboBoxLogement.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		comboBoxLogement.setMaximumRowCount(20);
-		comboBoxLogement.setModel(new DefaultComboBoxModel(new String[] {"Logement 1", "Logement 2"}));
-		panelChoixLogement.add(comboBoxLogement);
+		this.comboBoxLogement = new JComboBox();
+		this.comboBoxLogement.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		this.comboBoxLogement.setMaximumRowCount(20);
+		this.comboBoxLogement.setModel(new DefaultComboBoxModel(new String[] {"Logement 1", "Logement 2"}));
+		panelChoixLogement.add(this.comboBoxLogement);
 		
 		JButton btnAjoutLogement = new JButton("Ajouter un logement");
 		btnAjoutLogement.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -105,10 +107,10 @@ public class AjouterLocation extends JInternalFrame implements ActionListener {
 		labelLocataire.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelChoixLoctaire.add(labelLocataire);
 		
-		JComboBox comboBoxLocataire = new JComboBox();
-		comboBoxLocataire.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		comboBoxLocataire.setMaximumRowCount(20);
-		comboBoxLocataire.setModel(new DefaultComboBoxModel(new String[] {"Patrick Jeanjean", "Mendy Paul"}));
+		this.comboBoxLocataire = new JComboBox();
+		this.comboBoxLocataire.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		this.comboBoxLocataire.setMaximumRowCount(20);
+		this.comboBoxLocataire.setModel(new DefaultComboBoxModel(new String[] {"Patrick Jeanjean", "Mendy Paul"}));
 		panelChoixLoctaire.add(comboBoxLocataire);
 		
 		JButton btnAjoutLocataire = new JButton("Ajouter un locataire");
@@ -176,13 +178,13 @@ public class AjouterLocation extends JInternalFrame implements ActionListener {
 		LabelMontantLoyer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelMoyenLoyer.add(LabelMontantLoyer);
 		
-		textField_2 = new JTextField();
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setText("600 €");
-		textField_2.setForeground(Color.LIGHT_GRAY);
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textField_2.setColumns(10);
-		panelMoyenLoyer.add(textField_2);
+		this.textFieldMontantLoyer = new JTextField();
+		textFieldMontantLoyer.setHorizontalAlignment(SwingConstants.CENTER);
+		textFieldMontantLoyer.setText("600 €");
+		textFieldMontantLoyer.setForeground(Color.LIGHT_GRAY);
+		textFieldMontantLoyer.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textFieldMontantLoyer.setColumns(10);
+		panelMoyenLoyer.add(textFieldMontantLoyer);
 		
 		JPanel panelTypeLocation = new JPanel();
 		panelTypeLocation.setBorder(new EmptyBorder(1, 1, 1, 1));
