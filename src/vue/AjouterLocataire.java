@@ -40,13 +40,18 @@ public class AjouterLocataire extends JInternalFrame {
 	private JTextField textNom;
 	private JTextField textPrenom;
 	private JTextField textId;
-	private JComboBox comboCivilite;
+	
 	private JTextField textDateNaissance;
 	private JTextField textNbFixe;
 	private JTextField textNbPortable;
 	private JTextField textField;
+	
+	private JComboBox comboCivilite;
+	
 	private JButton btnAnnuler;
-	private GestionAjouterLocataire gal;
+	private JButton btnValider;
+	
+	private GestionAjouterLocataire gestionClic;
 
 	public String getTextNom() {
 		return this.textNom.getText();
@@ -84,7 +89,7 @@ public class AjouterLocataire extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public AjouterLocataire() {
-		this.gal = new GestionAjouterLocataire();
+		this.gestionClic = new GestionAjouterLocataire(this);
 		
 		setBounds(100, 100, 577, 507);
 		
@@ -92,11 +97,11 @@ public class AjouterLocataire extends JInternalFrame {
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
 		this.btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(gal);
+		btnAnnuler.addActionListener(gestionClic);
 		panelFooter.add(btnAnnuler);
 		
 		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(gal);
+		btnValider.addActionListener(gestionClic);
 		panelFooter.add(btnValider);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -208,9 +213,9 @@ public class AjouterLocataire extends JInternalFrame {
 		panel_5.add(panelId);
 		
 		JPanel panelCarteId = new JPanel();
-		panelId.add(panelCarteId);
 		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
+		panel_5.add(panelCarteId);
 		
 		JLabel labelDocument = new JLabel("Document d'identit\u00E9 ");
 		panelCarteId.add(labelDocument);
