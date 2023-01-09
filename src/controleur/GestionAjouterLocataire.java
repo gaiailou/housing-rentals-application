@@ -2,15 +2,15 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.util.Collection;
 
 import javax.swing.JButton;
 
+import modele.dao.DaoLocataire;
 import vue.AjouterLocataire;
 
 public class GestionAjouterLocataire implements ActionListener {
 	private AjouterLocataire al;
+	private DaoLocataire dl;
 	
 	public GestionAjouterLocataire(AjouterLocataire al) {
 		this.al = al;
