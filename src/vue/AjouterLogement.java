@@ -18,13 +18,16 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.border.EmptyBorder;
+
+import controleur.GestionAjouterLogement;
+
 import javax.swing.JScrollPane;
 import java.awt.Component;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.SwingConstants;
 
-public class AjouterLogement extends JInternalFrame implements ActionListener {
+public class AjouterLogement extends JInternalFrame {
 	private JTextField textId;
 	private JTextField textSurface;
 	private JTextField textAdresse;
@@ -35,6 +38,11 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 	private JTextField textPrixAcquisition;
 	private JTextField textFraiAcquisition;
 	private JTextField textCaution;
+	
+	private JButton btnAnnuler;
+	private JButton btnValider;
+	
+	private GestionAjouterLogement gestionClic;
 
 	/**
 	 * Create the frame.
@@ -245,25 +253,13 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		JPanel panelFooter = new JPanel();
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
-		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(this);
+		this.btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(this.gestionClic);
 		panelFooter.add(btnAnnuler);
 		
-		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(this);
+		this.btnValider = new JButton("Valider");
+		btnValider.addActionListener(this.gestionClic);
 		panelFooter.add(btnValider);
 
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		JButton btn =(JButton)e.getSource();
-		switch(btn.getText()) {
-			case"Annuler":
-				this.dispose();
-				break;
-			case"Valider":
-				this.dispose();
-				break;
-		}
 	}
 }

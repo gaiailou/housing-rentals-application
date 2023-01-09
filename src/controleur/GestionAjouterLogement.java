@@ -1,22 +1,15 @@
 package controleur;
 
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.util.Collection;
 
 import javax.swing.JButton;
 
-import modele.Locataire;
-import modele.dao.DaoLocataire;
-import vue.AjouterLocataire;
+import vue.AjouterLogement;
 
-public class GestionAjouterLocataire implements ActionListener {
-	private AjouterLocataire al;
-	private JButton btn;
-	private DaoLocataire dl;
+public class GestionAjouterLogement implements ActionListener{
+
+	private AjouterLogement al;
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -27,7 +20,9 @@ public class GestionAjouterLocataire implements ActionListener {
 				break;
 			case"Valider":
 				this.al.dispose();
-				
+				break;
+			}
 		}
-	}
+
 }
+
