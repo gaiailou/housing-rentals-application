@@ -1,7 +1,5 @@
 package controleur;
 
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -9,20 +7,25 @@ import java.util.Collection;
 
 import javax.swing.JButton;
 
-import modele.Locataire;
 import vue.AjouterLocataire;
 
 public class GestionAjouterLocataire implements ActionListener {
 	private AjouterLocataire al;
-	private JButton btn;
+	
+	public GestionAjouterLocataire(AjouterLocataire al) {
+		this.al = al;
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.btn = (JButton) e.getSource();
-		switch(btn.getName()) {
-		case "btnValider":
-			//on met la requête SQL pour insérer les locataires
-			
+		JButton item = (JButton) e.getSource();
+		switch(item.getText()) {
+		case "Annuler" :
+			this.al.dispose();
+			break;
+		case "Ins\u00E9rer":
+			AjouterLocataire al = (AjouterLocataire) this.al.getTopLevelAncestor();
+			this.al.dispose();
 		}
 	}
 }
