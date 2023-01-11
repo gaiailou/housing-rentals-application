@@ -25,8 +25,8 @@ public class GestionAjouterLocataire implements ActionListener {
 		case "Annuler" :
 			this.al.dispose();
 			break;
-		case "Ins\u00E9rer":
-			AjouterLocataire al = (AjouterLocataire) this.al.getTopLevelAncestor();
+		case "Valider":
+			this.al = (AjouterLocataire) this.al.getTopLevelAncestor();
 			try {
 				Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField(), null);
 			} catch (SQLException e1) {
