@@ -25,17 +25,17 @@ public class Locataire {
 	
 	
 	public Locataire(String idLocataire, String nomLocataire, String prenomLocataire, char genreLocataire,
-			char[] telephoneFixeLocataire, char[] téléphoneMobileLocataire, String mailLocataire, String ddnLocataire,
-			String pièceIdentitéLocataire) {
+			char[] telephoneFixeLocataire, char[] telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
+			String pieceIdentiteLocataire) {
 		this.idLocataire = idLocataire;
 		this.nomLocataire = nomLocataire;
 		this.prenomLocataire = prenomLocataire;
 		this.genreLocataire = genreLocataire;
 		this.telephoneFixeLocataire = telephoneFixeLocataire;
-		this.telephoneMobileLocataire = téléphoneMobileLocataire;
+		this.telephoneMobileLocataire = telephoneMobileLocataire;
 		this.mailLocataire = mailLocataire;
 		this.ddnLocataire = ddnLocataire;
-		this.pieceIdentiteLocataire = pièceIdentitéLocataire;
+		this.pieceIdentiteLocataire = pieceIdentiteLocataire;
 	}
 
 	@Override
