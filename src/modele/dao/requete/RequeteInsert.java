@@ -11,7 +11,7 @@ public class RequeteInsert {
 		Connection cn = ConnexionBD.getConnectionBase();
 		
 		try {
-			PreparedStatement st = cn.prepareStatement("call InsererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?);");
+			PreparedStatement st = cn.prepareStatement("call InsererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
 			st.setString(1, idLocataire);
 			st.setString(2,  nomLocataire);
 			st.setString(3,  prenomLocataire);
