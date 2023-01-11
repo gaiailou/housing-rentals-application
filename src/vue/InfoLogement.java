@@ -166,8 +166,8 @@ public class InfoLogement extends JInternalFrame implements ActionListener {
 		LabelSurface1Logement.setForeground(new Color(192, 192, 192));
 		panel_surface.add(LabelSurface1Logement);
 		
-		JLabel LabelUnité = new JLabel("m\u00B2");
-		panel_surface.add(LabelUnité);
+		JLabel LabelUnite = new JLabel("m\u00B2");
+		panel_surface.add(LabelUnite);
 		
 		JPanel panel_nb_chambre = new JPanel();
 		FlowLayout fl_panel_nb_chambre = (FlowLayout) panel_nb_chambre.getLayout();

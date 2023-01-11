@@ -139,8 +139,8 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panel_surface.add(textSurface);
 		textSurface.setColumns(10);
 		
-		JLabel LabelUnité = new JLabel("m\u00B2");
-		panel_surface.add(LabelUnité);
+		JLabel LabelUnite = new JLabel("m\u00B2");
+		panel_surface.add(LabelUnite);
 		
 		JPanel panel_nb_chambre = new JPanel();
 		FlowLayout fl_panel_nb_chambre = (FlowLayout) panel_nb_chambre.getLayout();

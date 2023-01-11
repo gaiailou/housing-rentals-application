@@ -122,16 +122,16 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelFooter.add(btnOK);
 		
-		JPanel panelInfoComplémentaires = new JPanel();
-		panelInfoComplémentaires.setBorder(new EmptyBorder(1, 1, 1, 1));
-		panelInfoComplémentaires.setForeground(Color.WHITE);
-		getContentPane().add(panelInfoComplémentaires, BorderLayout.CENTER);
-		panelInfoComplémentaires.setLayout(new GridLayout(0, 3, 0, 0));
+		JPanel panelInfoComplementaires = new JPanel();
+		panelInfoComplementaires.setBorder(new EmptyBorder(1, 1, 1, 1));
+		panelInfoComplementaires.setForeground(Color.WHITE);
+		getContentPane().add(panelInfoComplementaires, BorderLayout.CENTER);
+		panelInfoComplementaires.setLayout(new GridLayout(0, 3, 0, 0));
 		
 		JPanel panelActeDeCautionnement = new JPanel();
 		panelActeDeCautionnement.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelActeDeCautionnement.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelActeDeCautionnement);
+		panelInfoComplementaires.add(panelActeDeCautionnement);
 		panelActeDeCautionnement.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnActeCautionnement = new JButton("Ajouter acte de cautionnement");
@@ -141,7 +141,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelBail = new JPanel();
 		panelBail.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelBail.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelBail);
+		panelInfoComplementaires.add(panelBail);
 		panelBail.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnBail = new JButton("Ajouter un bail");
@@ -151,7 +151,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelQuittance = new JPanel();
 		panelQuittance.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelQuittance.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelQuittance);
+		panelInfoComplementaires.add(panelQuittance);
 		panelQuittance.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnQuittance = new JButton("Ajouter une quittance");
@@ -161,7 +161,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelMoyenLoyer = new JPanel();
 		panelMoyenLoyer.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelMoyenLoyer.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelMoyenLoyer);
+		panelInfoComplementaires.add(panelMoyenLoyer);
 		panelMoyenLoyer.setLayout(new GridLayout(2, 0, 0, 0));
 		
 		JLabel LabelMontantLoyer = new JLabel("Montant loyer");
@@ -180,7 +180,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelTypeLocation = new JPanel();
 		panelTypeLocation.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelTypeLocation.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelTypeLocation);
+		panelInfoComplementaires.add(panelTypeLocation);
 		panelTypeLocation.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		JLabel LabelTypeLocation = new JLabel("Type de location");
@@ -189,17 +189,17 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		panelTypeLocation.add(LabelTypeLocation);
 		
 		JComboBox comboBoxTypeLocation = new JComboBox();
-		comboBoxTypeLocation.setModel(new DefaultComboBoxModel(new String[] {"Non meublé", "Local commercial"}));
+		comboBoxTypeLocation.setModel(new DefaultComboBoxModel(new String[] {"Non meuble", "Local commercial"}));
 		comboBoxTypeLocation.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelTypeLocation.add(comboBoxTypeLocation);
 		
 		JPanel panelPeriodicite = new JPanel();
 		panelPeriodicite.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelPeriodicite.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelPeriodicite);
+		panelInfoComplementaires.add(panelPeriodicite);
 		panelPeriodicite.setLayout(new GridLayout(2, 0, 0, 0));
 		
-		JLabel LabelPeriodicite = new JLabel("Periodicité");
+		JLabel LabelPeriodicite = new JLabel("Periodicite");
 		LabelPeriodicite.setHorizontalAlignment(SwingConstants.CENTER);
 		LabelPeriodicite.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelPeriodicite.add(LabelPeriodicite);
@@ -212,7 +212,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelCharges = new JPanel();
 		panelCharges.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelCharges.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelCharges);
+		panelInfoComplementaires.add(panelCharges);
 		panelCharges.setLayout(new GridLayout(2, 0, 0, 0));
 		
 		JLabel LabelMtnCharges_1 = new JLabel("Charges");
@@ -228,16 +228,16 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		textField_4.setColumns(10);
 		panelCharges.add(textField_4);
 		
-		JPanel panelDateDébut = new JPanel();
-		panelDateDébut.setBorder(new EmptyBorder(1, 1, 1, 1));
-		panelDateDébut.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelDateDébut);
-		panelDateDébut.setLayout(new GridLayout(2, 0, 0, 0));
+		JPanel panelDateDebut = new JPanel();
+		panelDateDebut.setBorder(new EmptyBorder(1, 1, 1, 1));
+		panelDateDebut.setForeground(Color.WHITE);
+		panelInfoComplementaires.add(panelDateDebut);
+		panelDateDebut.setLayout(new GridLayout(2, 0, 0, 0));
 		
-		JLabel LabelDate = new JLabel("Date début");
+		JLabel LabelDate = new JLabel("Date debut");
 		LabelDate.setHorizontalAlignment(SwingConstants.CENTER);
 		LabelDate.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		panelDateDébut.add(LabelDate);
+		panelDateDebut.add(LabelDate);
 		
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
@@ -245,15 +245,15 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		textField.setForeground(Color.LIGHT_GRAY);
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textField.setColumns(10);
-		panelDateDébut.add(textField);
+		panelDateDebut.add(textField);
 		
 		JPanel panelEcheance = new JPanel();
 		panelEcheance.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelEcheance.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelEcheance);
+		panelInfoComplementaires.add(panelEcheance);
 		panelEcheance.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel LabelDateEcheanceLoyer = new JLabel("Echéance loyer");
+		JLabel LabelDateEcheanceLoyer = new JLabel("Echeance loyer");
 		LabelDateEcheanceLoyer.setHorizontalAlignment(SwingConstants.CENTER);
 		LabelDateEcheanceLoyer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelEcheance.add(LabelDateEcheanceLoyer);
@@ -270,13 +270,13 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelFonciere = new JPanel();
 		panelFonciere.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelFonciere.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelFonciere);
+		panelInfoComplementaires.add(panelFonciere);
 		panelFonciere.setLayout(new GridLayout(2, 0, 0, 0));
 		
-		JLabel LabelMtnFoncière = new JLabel("Foncière");
-		LabelMtnFoncière.setHorizontalAlignment(SwingConstants.CENTER);
-		LabelMtnFoncière.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		panelFonciere.add(LabelMtnFoncière);
+		JLabel LabelMtnFonciere = new JLabel("Fonciere");
+		LabelMtnFonciere.setHorizontalAlignment(SwingConstants.CENTER);
+		LabelMtnFonciere.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		panelFonciere.add(LabelMtnFonciere);
 		
 		textField_3 = new JTextField();
 		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -289,7 +289,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelDateFin = new JPanel();
 		panelDateFin.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelDateFin.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelDateFin);
+		panelInfoComplementaires.add(panelDateFin);
 		panelDateFin.setLayout(new GridLayout(2, 0, 0, 0));
 		
 		JLabel LabelDate_1 = new JLabel("Date fin");
@@ -308,7 +308,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		JPanel panelDernierLoyer = new JPanel();
 		panelDernierLoyer.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelDernierLoyer.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelDernierLoyer);
+		panelInfoComplementaires.add(panelDernierLoyer);
 		panelDernierLoyer.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel LabelDateDernierLoyer = new JLabel("Versement dernier loyer");
@@ -326,12 +326,12 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		panelDernierLoyer.add(textField_5);
 		
 		JLabel lblFill = new JLabel("");
-		panelInfoComplémentaires.add(lblFill);
+		panelInfoComplementaires.add(lblFill);
 		
 		JPanel panelAjustementLoyer = new JPanel();
 		panelAjustementLoyer.setBorder(new EmptyBorder(1, 1, 1, 1));
 		panelAjustementLoyer.setForeground(Color.WHITE);
-		panelInfoComplémentaires.add(panelAjustementLoyer);
+		panelInfoComplementaires.add(panelAjustementLoyer);
 		panelAjustementLoyer.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel LabelAjustementLoyer = new JLabel("Ajustement du loyer");

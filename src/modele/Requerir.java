@@ -2,10 +2,10 @@ package modele;
 
 import java.util.Objects;
 
-public class Requérir {
+public class Requerir {
 	private Logement logement;
 	private Revision revision;
-	public Requérir(Logement logement, Revision revision) {
+	public Requerir(Logement logement, Revision revision) {
 		super();
 		this.logement = logement;
 		this.revision = revision;
@@ -19,10 +19,10 @@ public class Requérir {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Requérir)) {
+		if (!(obj instanceof Requerir)) {
 			return false;
 		}
-		Requérir other = (Requérir) obj;
+		Requerir other = (Requerir) obj;
 		return Objects.equals(logement, other.logement) && Objects.equals(revision, other.revision);
 	}
 	public Logement getLogement() {
