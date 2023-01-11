@@ -7,11 +7,11 @@ public class RequeteInsert {
 	
 	public static void insererLocataire(String idLocataire, String nomLocataire, String prenomLocataire, String genreLocataire,
 			String telephoneFixeLocataire, String telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
-			String pièceIdentitéLocataire) {
+			String pieceIdentiteLocataire) {
 		Connection cn = ConnexionBD.getConnectionBase();
 		
 		try {
-			PreparedStatement st = cn.prepareStatement("call InsererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?);");
+			PreparedStatement st = cn.prepareStatement("call InsererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
 			st.setString(1, idLocataire);
 			st.setString(2,  nomLocataire);
 			st.setString(3,  prenomLocataire);
@@ -20,7 +20,7 @@ public class RequeteInsert {
 			st.setString(6,  telephoneMobileLocataire);
 			st.setString(7,  mailLocataire);
 			st.setString(8,  ddnLocataire);
-			st.setString(9, pièceIdentitéLocataire);
+			st.setString(9, pieceIdentiteLocataire);
 			st.executeUpdate();
 			
 		} catch (Exception e) {
