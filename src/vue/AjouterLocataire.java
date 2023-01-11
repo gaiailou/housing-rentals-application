@@ -166,9 +166,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelCivilite = new JLabel("Civilit\u00E9                   ");
 		panelCivilite.add(labelCivilite);
 		
-		JComboBox comboCivilite = new JComboBox();
-		comboCivilite.setModel(new DefaultComboBoxModel(new String[] {"H", "F"}));
-		panelCivilite.add(comboCivilite);
+		this.comboCivilite = new JComboBox();
+		this.comboCivilite.setModel(new DefaultComboBoxModel(new String[] {"H", "F"}));
+		panelCivilite.add(this.comboCivilite);
 		
 		JPanel panelDateNaissance = new JPanel();
 		FlowLayout fl_panelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();

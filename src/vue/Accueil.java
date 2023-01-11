@@ -373,7 +373,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		listLocations.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
 				   Object selected = listLocations.getSelectedValue();
-				   InfoLocation infoLocation = new InfoLocation(selected);
+				   InfoLocation infoLocation = new InfoLocation(listLocations.getSelectedValue());
 				   getLayeredPane().add(infoLocation);
 				   infoLocation.setVisible(true);
 				   infoLocation.moveToFront();
@@ -510,6 +510,36 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredDocuments.setVisible(false);
 		visible.setVisible(true);
 		contentPane.add(visible, BorderLayout.CENTER);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	/*public void mouseClicked(MouseEvent e) {
