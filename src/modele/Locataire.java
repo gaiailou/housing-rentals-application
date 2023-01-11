@@ -9,6 +9,7 @@ import java.util.Objects;
 import javax.sql.DataSource;
 
 import controleur.CictOracleDataSource;
+import modele.dao.requete.RequeteInsert;
 
 public class Locataire {
 	private String idLocataire;
@@ -139,16 +140,8 @@ public class Locataire {
 	}
 	
 	
-	public void insererLocataire(String id, String nom, String prenom, char genre, String tf, String tm, String mail, String ddn) throws SQLException {
+	public void insererLocataire(String id, String nom, String prenom, String genre, String tf, String tm, String mail, String ddn, String pIDL) throws SQLException {
 		
-		bd = new CictOracleDataSource ();
-		Connection cn = bd.getConnection() ;
-		String req = "call BSJ3657.inserernouveaulocataire('" + id +"', '" + nom + "', '"+ prenom +"', '" + genre + "', '" + tf + "', '" + tm + "', '" + mail + "', '" + ddn + "', '" + null + "')";
-		java.sql.Statement stEns = cn.createStatement () ;
-		ResultSet rsEns = stEns.executeQuery (req) ;
-		
-		rsEns.close () ;
-		stEns.close() ;
-		cn.close() ;
+		RequeteInsert.insererLocataire(id, nom, prenom, genre, tf, tm, mail, ddn, pIDL);
 	}
 }
