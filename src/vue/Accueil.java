@@ -15,7 +15,6 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JTable;
@@ -251,7 +250,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		panelContentLog.add(scrollPane);
 		
 		JList listLogements = new JList();
-		//listLogements.addMouseListener(this);
+		listLogements.addMouseListener(this);
 		scrollPane.setViewportView(listLogements);
 		listLogements.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Logement 1 : Maison, 5 rue de la Tombe, Toulouse", "Logement 2 : Appart., 6 chemin des abeilles, Montauban", "Logement 3 : Garage, 155 rue des chemises, Toulouse "};
@@ -261,15 +260,6 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 			public Object getElementAt(int index) {
 				return values[index];
 			}
-		});
-		listLogements.addMouseListener(new MouseAdapter() {
-			   public void mouseClicked(MouseEvent evt) {
-				   Object selected = listLogements.getSelectedValue();
-				   InfoLogement infoLogement = new InfoLogement(selected);
-				   getLayeredPane().add(infoLogement);
-				   infoLogement.setVisible(true);
-				   infoLogement.moveToFront();
-			   }
 		});
 		
 		this.layeredLocataires = new JLayeredPane();
@@ -319,16 +309,6 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				return values[index];
 			}
 		});
-		listLocataires.addMouseListener(new MouseAdapter() {
-			   public void mouseClicked(MouseEvent evt) {
-				   Object selected = listLocataires.getSelectedValue();
-				   InfoLocataire infoLocataire = new InfoLocataire(selected);
-				   getLayeredPane().add(infoLocataire);
-				   infoLocataire.setVisible(true);
-				   infoLocataire.moveToFront();
-			   }
-		});
-		
 		
 		this.layeredLocations = new JLayeredPane();
 		contentPane.add(this.layeredLocations, BorderLayout.CENTER);
@@ -369,15 +349,6 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 			public Object getElementAt(int index) {
 				return values[index];
 			}
-		});
-		listLocations.addMouseListener(new MouseAdapter() {
-			   public void mouseClicked(MouseEvent evt) {
-				   Object selected = listLocations.getSelectedValue();
-				   InfoLocation infoLocation = new InfoLocation(selected);
-				   getLayeredPane().add(infoLocation);
-				   infoLocation.setVisible(true);
-				   infoLocation.moveToFront();
-			   }
 		});
 		
 		JPanel panelFooterLoca = new JPanel();
@@ -437,7 +408,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JButton btnAjoutDoc = new JButton("Ajouter un document");
 		panelFooterDoc.add(btnAjoutDoc);
 		
-		//Pour mettre l'accueil a la première page
+		//Pour mettre l'accueil a la premiï¿½re page
 		contentPane.add(this.layeredAccueil, BorderLayout.CENTER);
 		
 		JLayeredPane blabla = new JLayeredPane();
@@ -512,7 +483,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		contentPane.add(visible, BorderLayout.CENTER);
 	}
 	
-	/*public void mouseClicked(MouseEvent e) {
+	public void mouseClicked(MouseEvent e) {
 		JList list=(JList)e.getSource();
 		switch(list.getName()) {
 			case "listLocataires":
@@ -530,7 +501,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 			case "listLogements":
 				//Logement logementChoisit = null;
 				//for (Fromage f : tousLesFromages.getLesFromages()) {
-				//	if(list.getSelectedValue() == f.getDésignation()) {
+				//	if(list.getSelectedValue() == f.getDï¿½signation()) {
 				//		fromageChoisit = f;
 				//	}
 				//}
@@ -540,9 +511,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				logement.moveToFront();
 				break;
 		}
-	}*/
+	}
 
-	/*@Override
+	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
@@ -564,6 +535,6 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
-	}*/
+	}
 
 }
