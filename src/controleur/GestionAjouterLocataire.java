@@ -25,6 +25,7 @@ public class GestionAjouterLocataire implements ActionListener {
 		case "Annuler" :
 			this.al.dispose();
 			break;
+
 		case "Valider":
 			//AjouterLocataire al = (AjouterLocataire) this.al.getTopLevelAncestor();
 			try {
@@ -33,6 +34,7 @@ public class GestionAjouterLocataire implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+
 			this.al.dispose();
 		}
 	}
