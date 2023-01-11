@@ -352,7 +352,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		getContentPane().add(panelPhoto, BorderLayout.EAST);
 		panelPhoto.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel LabelPhoto = new JLabel("PHOTOOOOOOOOOOOOOOOOOOOOO.png");
+		JLabel LabelPhoto = new JLabel("PHOTOOOOOOOOOOOOOOOOOOOOOO.png");
 		LabelPhoto.setHorizontalAlignment(SwingConstants.CENTER);
 		LabelPhoto.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		panelPhoto.add(LabelPhoto);
