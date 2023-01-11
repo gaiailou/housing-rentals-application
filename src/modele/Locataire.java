@@ -139,7 +139,7 @@ public class Locataire {
 	}
 	
 	
-	public void insererLocataire(String id, String nom, String prenom,  genre, String tf, String tm, String mail, String ddn) throws SQLException {
+	public void insererLocataire(String id, String nom, String prenom, char genre, String tf, String tm, String mail, String ddn) throws SQLException {
 		
 		bd = new CictOracleDataSource ();
 		Connection cn = bd.getConnection() ;
