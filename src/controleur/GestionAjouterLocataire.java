@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import modele.Locataire;
 import modele.dao.DaoLocataire;
 import vue.AjouterLocataire;
 
@@ -25,6 +26,8 @@ public class GestionAjouterLocataire implements ActionListener {
 			break;
 		case "Ins\u00E9rer":
 			AjouterLocataire al = (AjouterLocataire) this.al.getTopLevelAncestor();
+			
+			Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField());
 			this.al.dispose();
 		}
 	}

@@ -37,9 +37,9 @@ import java.awt.Component;
 import java.awt.GridLayout;
 
 public class AjouterLocataire extends JInternalFrame {
+	private JTextField textId;
 	private JTextField textNom;
 	private JTextField textPrenom;
-	private JTextField textId;
 	
 	private JTextField textDateNaissance;
 	private JTextField textNbFixe;
