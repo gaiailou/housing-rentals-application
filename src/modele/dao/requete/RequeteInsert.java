@@ -2,16 +2,17 @@ package modele.dao.requete;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class RequeteInsert {
 	
 	public static void insererLocataire(String idLocataire, String nomLocataire, String prenomLocataire, String genreLocataire,
 			String telephoneFixeLocataire, String telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
-			String pieceIdentiteLocataire) {
+			String pieceIdentiteLocataire) throws SQLException {
+		
 		Connection cn = ConnexionBD.getConnectionBase();
 		
-		try {
-			PreparedStatement st = cn.prepareStatement("call InsererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
+			PreparedStatement st = cn.prepareStatement("call insererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
 			st.setString(1, idLocataire);
 			st.setString(2,  nomLocataire);
 			st.setString(3,  prenomLocataire);
@@ -23,8 +24,7 @@ public class RequeteInsert {
 			st.setString(9, pieceIdentiteLocataire);
 			st.executeUpdate();
 			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
 	}
+	
+	//public static void insererLogement()
 }

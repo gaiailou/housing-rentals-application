@@ -493,7 +493,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				locataire.moveToFront();
 				break;
 			case "listLocations":
-				InfoLocation location=new InfoLocation();
+				InfoLocation location=new InfoLocation(listLocations.getSelectedValue());
 				this.getLayeredPane().add(location);
 				location.setVisible(true);
 				location.moveToFront();
