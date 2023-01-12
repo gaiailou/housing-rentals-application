@@ -140,9 +140,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel lblNewLabel_3 = new JLabel("Identifiant du locataire  ");
 		panel_7.add(lblNewLabel_3);
 		
-		textId = new JTextField();
-		panel_7.add(textId);
-		textId.setColumns(10);
+		this.textId = new JTextField();
+		panel_7.add(this.textId);
+		this.textId.setColumns(10);
 		
 		JPanel panelInfoPerso = new JPanel();
 		panel.add(panelInfoPerso);
@@ -166,9 +166,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelCivilite = new JLabel("Civilit\u00E9                   ");
 		panelCivilite.add(labelCivilite);
 		
-		JComboBox comboCivilite = new JComboBox();
-		comboCivilite.setModel(new DefaultComboBoxModel(new String[] {"H", "F"}));
-		panelCivilite.add(comboCivilite);
+		this.comboCivilite = new JComboBox();
+		this.comboCivilite.setModel(new DefaultComboBoxModel(new String[] {"H", "F"}));
+		panelCivilite.add(this.comboCivilite);
 		
 		JPanel panelDateNaissance = new JPanel();
 		FlowLayout fl_panelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
@@ -178,10 +178,10 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelDateDeNaissance = new JLabel("Date de naissance    ");
 		panelDateNaissance.add(labelDateDeNaissance);
 		
-		textDateNaissance = new JTextField();
-		textDateNaissance.setText("JJ/MM/AAAA");
-		panelDateNaissance.add(textDateNaissance);
-		textDateNaissance.setColumns(10);
+		this.textDateNaissance = new JTextField();
+		this.textDateNaissance.setText("JJ/MM/AAAA");
+		panelDateNaissance.add(this.textDateNaissance);
+		this.textDateNaissance.setColumns(10);
 		
 		JPanel panelNom = new JPanel();
 		FlowLayout fl_panelNom = (FlowLayout) panelNom.getLayout();
@@ -191,9 +191,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelNom = new JLabel("Nom                      ");
 		panelNom.add(labelNom);
 		
-		textNom = new JTextField();
-		panelNom.add(textNom);
-		textNom.setColumns(10);
+		this.textNom = new JTextField();
+		panelNom.add(this.textNom);
+		this.textNom.setColumns(10);
 		
 		JPanel panelPrenom = new JPanel();
 		FlowLayout fl_panelPrenom = (FlowLayout) panelPrenom.getLayout();
@@ -203,9 +203,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelPrenom = new JLabel("Pr\u00E9nom                     ");
 		panelPrenom.add(labelPrenom);
 		
-		textPrenom = new JTextField();
-		panelPrenom.add(textPrenom);
-		textPrenom.setColumns(10);
+		this.textPrenom = new JTextField();
+		panelPrenom.add(this.textPrenom);
+		this.textPrenom.setColumns(10);
 		
 		JPanel panelId = new JPanel();
 		FlowLayout flowLayout_3 = (FlowLayout) panelId.getLayout();
@@ -220,9 +220,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelDocument = new JLabel("Document d'identit\u00E9 ");
 		panelCarteId.add(labelDocument);
 		
-		textField = new JTextField();
-		panelCarteId.add(textField);
-		textField.setColumns(10);
+		this.textField = new JTextField();
+		panelCarteId.add(this.textField);
+		this.textField.setColumns(10);
 		
 		JPanel panelNbTel = new JPanel();
 		panel.add(panelNbTel);
@@ -246,9 +246,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelNbFixe = new JLabel("Num\u00E9ro fixe");
 		panelFixe.add(labelNbFixe);
 		
-		textNbFixe = new JTextField();
-		panelFixe.add(textNbFixe);
-		textNbFixe.setColumns(10);
+		this.textNbFixe = new JTextField();
+		panelFixe.add(this.textNbFixe);
+		this.textNbFixe.setColumns(10);
 		
 		JPanel panelPortable = new JPanel();
 		FlowLayout fl_panelPortable = (FlowLayout) panelPortable.getLayout();
@@ -258,9 +258,9 @@ public class AjouterLocataire extends JInternalFrame {
 		JLabel labelNbPortable = new JLabel("Num\u00E9ro portable");
 		panelPortable.add(labelNbPortable);
 		
-		textNbPortable = new JTextField();
-		panelPortable.add(textNbPortable);
-		textNbPortable.setColumns(10);		
+		this.textNbPortable = new JTextField();
+		panelPortable.add(this.textNbPortable);
+		this.textNbPortable.setColumns(10);		
 		
 		
 		JLayeredPane layeredGarants = new JLayeredPane();

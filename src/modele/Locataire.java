@@ -141,7 +141,8 @@ public class Locataire {
 	
 	
 	public static void insererLocataire(String id, String nom, String prenom, String genre, String tf, String tm, String mail, String ddn, String pIDL) throws SQLException {
-		
+
 		RequeteInsert.insererLocataire(id, nom, prenom, genre, tf, tm, mail, ddn, pIDL);
 	}
+
 }
