@@ -11,7 +11,10 @@ public class RequeteInsert {
 			String pieceIdentiteLocataire) throws SQLException {
 		
 		Connection cn = ConnexionBD.getConnectionBase();
-		
+		System.out.println("4");
+
+		try {
+			
 			PreparedStatement st = cn.prepareStatement("call insererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
 			st.setString(1, idLocataire);
 			st.setString(2,  nomLocataire);
@@ -23,7 +26,13 @@ public class RequeteInsert {
 			st.setString(8,  ddnLocataire);
 			st.setString(9, pieceIdentiteLocataire);
 			st.executeUpdate();
+			st.close();
+			System.out.println("3");
 			
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		cn.commit();
 	}
 	
 	//public static void insererLogement()
