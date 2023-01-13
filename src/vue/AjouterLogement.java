@@ -27,14 +27,15 @@ import javax.swing.SwingConstants;
 public class AjouterLogement extends JInternalFrame implements ActionListener {
 	private JTextField textId;
 	private JTextField textSurface;
-	private JTextField textAdresse;
+	private JTextField textNumAdresse;
 	private JTextField textVille;
 	private JTextField textCptAdresse;
 	private JTextField textCP;
 	private JTextField textNomLogement;
 	private JTextField textPrixAcquisition;
 	private JTextField textFraiAcquisition;
-	private JTextField textCaution;
+	private JTextField textNomRueAdresse;
+	private JTextField textFieldCaution;
 
 	/**
 	 * Create the frame.
@@ -51,12 +52,12 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panelContent.add(panel1);
 		panel1.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JPanel panel_Nom = new JPanel();
-		panel1.add(panel_Nom);
-		panel_Nom.setLayout(new BoxLayout(panel_Nom, BoxLayout.Y_AXIS));
+		JPanel panelNom = new JPanel();
+		panel1.add(panelNom);
+		panelNom.setLayout(new BoxLayout(panelNom, BoxLayout.Y_AXIS));
 		
 		JPanel panel_17 = new JPanel();
-		panel_Nom.add(panel_17);
+		panelNom.add(panel_17);
 		
 		JLabel LabelId = new JLabel("Identifiant :");
 		panel_17.add(LabelId);
@@ -71,14 +72,6 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		textNomLogement = new JTextField();
 		textNomLogement.setColumns(10);
 		panel_17.add(textNomLogement);
-		
-		
-		JLabel LabelCaution = new JLabel("Montant caution :");
-		panel_17.add(LabelCaution);
-		
-		textCaution = new JTextField();
-		textCaution.setColumns(10);
-		panel_17.add(textCaution);
 		
 		
 		JPanel panel_Description = new JPanel();
@@ -158,20 +151,30 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		fl_panel_adresse.setAlignment(FlowLayout.LEFT);
 		panel2.add(panel_adresse);
 		
-		JLabel LabelAdresse = new JLabel("Adresse                     ");
-		panel_adresse.add(LabelAdresse);
+		JLabel LabelNumAdresse = new JLabel("Num\u00E9ro");
+		panel_adresse.add(LabelNumAdresse);
 		
-		textAdresse = new JTextField();
-		panel_adresse.add(textAdresse);
-		textAdresse.setColumns(10);
+		textNumAdresse = new JTextField();
+		panel_adresse.add(textNumAdresse);
+		textNumAdresse.setColumns(10);
 		
-		JPanel panel_copro = new JPanel();
-		FlowLayout fl_panel_copro = (FlowLayout) panel_copro.getLayout();
-		fl_panel_copro.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_copro);
+		JLabel LabelNomRueAdresse = new JLabel("Rue");
+		panel_adresse.add(LabelNomRueAdresse);
+		
+		textNomRueAdresse = new JTextField();
+		panel_adresse.add(textNomRueAdresse);
+		textNomRueAdresse.setColumns(10);
+		
+		JPanel panelCoproGarage = new JPanel();
+		FlowLayout fl_panelCoproGarage = (FlowLayout) panelCoproGarage.getLayout();
+		fl_panelCoproGarage.setAlignment(FlowLayout.LEFT);
+		panel2.add(panelCoproGarage);
 		
 		JCheckBox CheckboxCopro = new JCheckBox("Co-propri\u00E9t\u00E9");
-		panel_copro.add(CheckboxCopro);
+		panelCoproGarage.add(CheckboxCopro);
+		
+		JCheckBox CheckboxGarage = new JCheckBox("Garage");
+		panelCoproGarage.add(CheckboxGarage);
 		
 		JPanel panel_cpt_adresse = new JPanel();
 		FlowLayout fl_panel_cpt_adresse = (FlowLayout) panel_cpt_adresse.getLayout();
@@ -185,13 +188,20 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panel_cpt_adresse.add(textCptAdresse);
 		textCptAdresse.setColumns(10);
 		
-		JPanel panel_garage = new JPanel();
-		FlowLayout fl_panel_garage = (FlowLayout) panel_garage.getLayout();
-		fl_panel_garage.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_garage);
+		JPanel panelCaution = new JPanel();
+		FlowLayout fl_panelCaution = (FlowLayout) panelCaution.getLayout();
+		fl_panelCaution.setAlignment(FlowLayout.LEFT);
+		panel2.add(panelCaution);
 		
-		JCheckBox CheckboxGarage = new JCheckBox("Garage");
-		panel_garage.add(CheckboxGarage);
+		JLabel lblCaution = new JLabel("Caution : ");
+		panelCaution.add(lblCaution);
+		
+		textFieldCaution = new JTextField();
+		panelCaution.add(textFieldCaution);
+		textFieldCaution.setColumns(10);
+		
+		JLabel lblEuros = new JLabel("\u20AC");
+		panelCaution.add(lblEuros);
 		
 		JPanel panel_ville = new JPanel();
 		FlowLayout fl_panel_ville = (FlowLayout) panel_ville.getLayout();
