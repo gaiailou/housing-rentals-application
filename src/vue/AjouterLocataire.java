@@ -163,7 +163,7 @@ public class AjouterLocataire extends JInternalFrame {
 		fl_panelCivilite.setAlignment(FlowLayout.LEFT);
 		panel_5.add(panelCivilite);
 		
-		JLabel labelCivilite = new JLabel("Civilit\u00E9                   ");
+		JLabel labelCivilite = new JLabel("wesh");
 		panelCivilite.add(labelCivilite);
 		
 		this.comboCivilite = new JComboBox();
@@ -268,6 +268,8 @@ public class AjouterLocataire extends JInternalFrame {
 		
 		JLayeredPane layeredDocuments = new JLayeredPane();
 		tabbedPane.addTab("Documents", null, layeredDocuments, null);
+		
+		
 	}
 	
 }
