@@ -124,10 +124,8 @@ public class AjouterLocation extends JInternalFrame implements ActionListener {
 		panelGlobalTop.add(panelPhoto, BorderLayout.EAST);
 		panelPhoto.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel LabelPhoto = new JLabel("PHOTOOOOOOOOOOOOOOOOOOOOO.png");
-		LabelPhoto.setHorizontalAlignment(SwingConstants.CENTER);
-		LabelPhoto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		panelPhoto.add(LabelPhoto);
+		JButton btnPhoto = new JButton("PHOTOOOOOOOOOOOOOOOOOOOOO");
+		panelPhoto.add(btnPhoto);
 		
 		JPanel panelFooter = new JPanel();
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
@@ -403,7 +401,7 @@ public class AjouterLocation extends JInternalFrame implements ActionListener {
 		panelInfoComplémentaires.add(panelActeDeCautionnement);
 		panelActeDeCautionnement.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnActeDeCautionnement = new JButton("Ajouer un acte de cautionnement");
+		JButton btnActeDeCautionnement = new JButton("Ajouter un acte de cautionnement");
 		btnActeDeCautionnement.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelActeDeCautionnement.add(btnActeDeCautionnement);
 		
