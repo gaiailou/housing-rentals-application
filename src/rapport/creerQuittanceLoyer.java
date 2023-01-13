@@ -19,21 +19,19 @@ import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 
 
 public class creerQuittanceLoyer{
-	
-	
-	
-    public static void main(String[] args) throws IOException {
-    	String dateQuittance = "12-07-2012";
-    	String nomBailleur = "Mr.Milan";
-    	String addresseBailleur = "4 rue de la forge, 31000 Toulouse";
+
+    public creerQuittanceLoyer(String ladateQuittance, String leNomBailleur, String adressedubailleur,String nomduLocataire,String adressedulocataire,String adressedelaLocation, int leloyer, int lescharges) throws IOException {
+    	String dateQuittance = ladateQuittance;
+    	String nomBailleur = leNomBailleur;
+    	String addresseBailleur = adressedubailleur;
     	
-    	String nomLocataire = "Mr.Jack";
-    	String addresseLocataire = "3 rue de l'arnaque, 31000 Toulouse";
+    	String nomLocataire = nomduLocataire;
+    	String adresseLocataire = adressedulocataire;
     	
-    	String addresseLocation = "1 rue des anciens silos, 31600 Muret";
+    	String adresseLocation = adressedelaLocation;
     	
-    	int loyer = 452;
-    	int charge = 89;
+    	int loyer = leloyer;
+    	int charge = lescharges;
     	
     	
         InputStream modele = new FileInputStream("modele.docx");
@@ -66,7 +64,7 @@ public class creerQuittanceLoyer{
         runInfoLocataire.addCarriageReturn();
         runInfoLocataire.setText(nomLocataire);
         runInfoLocataire.addCarriageReturn();
-        runInfoLocataire.setText(addresseLocataire);
+        runInfoLocataire.setText(adresseLocataire);
         
         XWPFParagraph infoLocation = document.createParagraph();
         infoLocation.setAlignment(ParagraphAlignment.CENTER);
@@ -74,7 +72,7 @@ public class creerQuittanceLoyer{
         XWPFRun runinfoLocation = infoLocation.createRun();
         runinfoLocation.addCarriageReturn();
         runinfoLocation.addCarriageReturn();
-        runinfoLocation.setText("Adresse location : " + addresseLocation);
+        runinfoLocation.setText("Adresse location : " + adresseLocation);
         
         
         
@@ -122,7 +120,5 @@ public class creerQuittanceLoyer{
         modele.close();
         document.close();
         }
-        
     }
-
 }
