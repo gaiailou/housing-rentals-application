@@ -51,7 +51,7 @@ public class DaoTest {
 		d.setTelephoneMobileLocataire(l.getTelephoneMobileLocataire());
 		d.setMailLocataire(l.getMailLocataire());
 		d.setDdnLocataire(l.getDdnLocataire());
-		d.setPieceIdentiteLocataire(l.getPièceIdentitéLocataire());
+		d.setPieceIdentiteLocataire(l.getPieceIdentiteLocataire());
 	}
 	
 	public static void deleteLocataire(Locataire l) {
