@@ -1,5 +1,6 @@
 package controleur;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -26,15 +27,14 @@ public class GestionAjouterLocataire implements ActionListener {
 		JButton item = (JButton) e.getSource();
 		switch(item.getText()) {
 		case "Annuler" :
-			System.out.println("6 ça passe ici");
 			this.al.dispose();
 			break;
 		case "Valider":
 			if (this.al.getTextId().compareTo("") == 0) {
-				//TODO;
+				this.al.getLblIdLoc().setText(this.al.getLblIdLoc().getText() + "      *vide*");
+				//voir comment le mettre en rouge ou le mettre en évidence pour si on se trompe en entrant les données
 			}else {
 				try {
-					System.out.println("1 ça passe ici");
 					Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField(), null);
 				} catch (SQLException e1) {
 					JOptionPane jpn = new JOptionPane();

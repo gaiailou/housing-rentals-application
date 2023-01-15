@@ -32,7 +32,6 @@ public class RequeteInsert {
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
-		cn.commit();
 	}
 	
 	//public static void insererLogement()

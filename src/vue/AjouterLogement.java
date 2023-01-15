@@ -36,6 +36,9 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 	private JTextField textFraiAcquisition;
 	private JTextField textNomRueAdresse;
 	private JTextField textFieldCaution;
+	
+	private JButton btnAnnuler;
+	private JButton btnValider;
 
 	/**
 	 * Create the frame.
@@ -255,13 +258,13 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		JPanel panelFooter = new JPanel();
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
-		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(this);
-		panelFooter.add(btnAnnuler);
+		this.btnAnnuler = new JButton("Annuler");
+		this.btnAnnuler.addActionListener(this);
+		panelFooter.add(this.btnAnnuler);
 		
-		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(this);
-		panelFooter.add(btnValider);
+		this.btnValider = new JButton("Valider");
+		this.btnValider.addActionListener(this);
+		panelFooter.add(this.btnValider);
 
 	}
 
