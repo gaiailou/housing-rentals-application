@@ -11,28 +11,19 @@ public class RequeteInsert {
 			String pieceIdentiteLocataire) throws SQLException {
 		
 		Connection cn = ConnexionBD.getConnectionBase();
-		System.out.println("4");
-
-		try {
-			
-			PreparedStatement st = cn.prepareStatement("call insererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
-			st.setString(1, idLocataire);
-			st.setString(2,  nomLocataire);
-			st.setString(3,  prenomLocataire);
-			st.setString(4, genreLocataire);
-			st.setString(5, telephoneFixeLocataire);
-			st.setString(6,  telephoneMobileLocataire);
-			st.setString(7,  mailLocataire);
-			st.setString(8,  ddnLocataire);
-			st.setString(9, pieceIdentiteLocataire);
-			st.executeUpdate();
-			st.close();
-			System.out.println("3");
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		cn.commit();
+		PreparedStatement st = cn.prepareStatement("call insererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
+		st.setString(1, idLocataire);
+		st.setString(2,  nomLocataire);
+		st.setString(3,  prenomLocataire);
+		st.setString(4, genreLocataire);
+		st.setString(5, telephoneFixeLocataire);
+		st.setString(6,  telephoneMobileLocataire);
+		st.setString(7,  mailLocataire);
+		st.setString(8,  ddnLocataire);
+		st.setString(9, pieceIdentiteLocataire);
+		st.executeUpdate();
+		st.close();
+		System.out.println("3");
 	}
 	
 	//public static void insererLogement()

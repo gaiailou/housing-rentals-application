@@ -141,12 +141,8 @@ public class Locataire {
 	
 	
 	public static void insererLocataire(String id, String nom, String prenom, String genre, String tf, String tm, String mail, String ddn, String pIDL) throws SQLException {
-		try {
-			System.out.println("2 on est là");
-			RequeteInsert.insererLocataire(id, nom, prenom, genre, tf, tm, mail, ddn, pIDL);
-		}catch (Exception e3) {
-			e3.printStackTrace();
-		}
+		System.out.println("2 on est là");
+		RequeteInsert.insererLocataire(id, nom, prenom, genre, tf, tm, mail, ddn, pIDL);
 	}
 
 }
