@@ -26,7 +26,6 @@ public class GestionAjouterLocataire implements ActionListener {
 		JButton item = (JButton) e.getSource();
 		switch(item.getText()) {
 		case "Annuler" :
-			System.out.println("6 ça passe ici");
 			this.al.dispose();
 			break;
 		case "Valider":
@@ -34,7 +33,6 @@ public class GestionAjouterLocataire implements ActionListener {
 				//TODO;
 			}else {
 				try {
-					System.out.println("1 ça passe ici");
 					Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField(), null);
 				} catch (SQLException e1) {
 					JOptionPane jpn = new JOptionPane();
@@ -43,7 +41,6 @@ public class GestionAjouterLocataire implements ActionListener {
 				}
 				this.al.dispose();
 			}
-			//AjouterLocataire al = (AjouterLocataire) this.al.getTopLevelAncestor();
 			
 		}
 	}

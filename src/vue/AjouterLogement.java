@@ -18,13 +18,16 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.border.EmptyBorder;
+
+import controleur.GestionAjouterLogement;
+
 import javax.swing.JScrollPane;
 import java.awt.Component;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.SwingConstants;
 
-public class AjouterLogement extends JInternalFrame implements ActionListener {
+public class AjouterLogement extends JInternalFrame {
 	private JTextField textId;
 	private JTextField textSurface;
 	private JTextField textNumAdresse;
@@ -36,12 +39,115 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 	private JTextField textFraiAcquisition;
 	private JTextField textNomRueAdresse;
 	private JTextField textFieldCaution;
+	
+	private GestionAjouterLogement gestionClic;
+	
+	private JButton btnAnnuler;
+	private JButton btnValider;
+	
+ 	public String getTextId() {
+		return textId.getText();
+	}
 
-	/**
-	 * Create the frame.
-	 */
+	public void setTextId(JTextField textId) {
+		this.textId = textId;
+	}
+
+	public String getTextSurface() {
+		return textSurface.getText();
+	}
+
+	public void setTextSurface(JTextField textSurface) {
+		this.textSurface = textSurface;
+	}
+
+	public String getTextNumAdresse() {
+		return textNumAdresse.getText();
+	}
+
+	public void setTextNumAdresse(JTextField textNumAdresse) {
+		this.textNumAdresse = textNumAdresse;
+	}
+
+	public String getTextVille() {
+		return textVille.getText();
+	}
+
+	public void setTextVille(JTextField textVille) {
+		this.textVille = textVille;
+	}
+
+	public String getTextCptAdresse() {
+		return textCptAdresse.getText();
+	}
+
+	public void setTextCptAdresse(JTextField textCptAdresse) {
+		this.textCptAdresse = textCptAdresse;
+	}
+
+	public String getTextCP() {
+		return textCP.getText();
+	}
+
+	public void setTextCP(JTextField textCP) {
+		this.textCP = textCP;
+	}
+
+	public String getTextNomLogement() {
+		return textNomLogement.getText();
+	}
+
+	public void setTextNomLogement(JTextField textNomLogement) {
+		this.textNomLogement = textNomLogement;
+	}
+
+	public String getTextPrixAcquisition() {
+		return textPrixAcquisition.getText();
+	}
+
+	public void setTextPrixAcquisition(JTextField textPrixAcquisition) {
+		this.textPrixAcquisition = textPrixAcquisition;
+	}
+
+	public String getTextFraiAcquisition() {
+		return textFraiAcquisition.getText();
+	}
+
+	public void setTextFraiAcquisition(JTextField textFraiAcquisition) {
+		this.textFraiAcquisition = textFraiAcquisition;
+	}
+
+	public String getTextNomRueAdresse() {
+		return textNomRueAdresse.getText();
+	}
+
+	public void setTextNomRueAdresse(JTextField textNomRueAdresse) {
+		this.textNomRueAdresse = textNomRueAdresse;
+	}
+
+	public String getTextFieldCaution() {
+		return textFieldCaution.getText();
+	}
+
+	public void setTextFieldCaution(JTextField textFieldCaution) {
+		this.textFieldCaution = textFieldCaution;
+	}
+
 	public AjouterLogement() {
+		this.gestionClic = new GestionAjouterLogement(this);
+		
 		setBounds(100, 100, 550, 400);
+		
+		JPanel panelFooter = new JPanel();
+		getContentPane().add(panelFooter, BorderLayout.SOUTH);
+		
+		this.btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(gestionClic);
+		panelFooter.add(btnAnnuler);
+		
+		this.btnValider = new JButton("Valider");
+		this.btnValider.addActionListener(this.gestionClic);
+		panelFooter.add(this.btnValider);
 		
 		JPanel panelContent = new JPanel();
 		getContentPane().add(panelContent, BorderLayout.CENTER);
@@ -252,28 +358,7 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panel_frai_acqui.add(textFraiAcquisition);
 		textFraiAcquisition.setColumns(10);
 		
-		JPanel panelFooter = new JPanel();
-		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
-		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(this);
-		panelFooter.add(btnAnnuler);
-		
-		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(this);
-		panelFooter.add(btnValider);
 
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		JButton btn =(JButton)e.getSource();
-		switch(btn.getText()) {
-			case"Annuler":
-				this.dispose();
-				break;
-			case"Valider":
-				this.dispose();
-				break;
-		}
 	}
 }
