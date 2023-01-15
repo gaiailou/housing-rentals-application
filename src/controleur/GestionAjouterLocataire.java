@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import modele.Locataire;
 import modele.dao.DaoLocataire;
@@ -29,15 +30,21 @@ public class GestionAjouterLocataire implements ActionListener {
 			this.al.dispose();
 			break;
 		case "Valider":
-			System.out.println("5 ça passe ici");
-			//AjouterLocataire al = (AjouterLocataire) this.al.getTopLevelAncestor();
-			try {
-				System.out.println("1 ça passe ici");
-				Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField(), null);
-			} catch (SQLException e1) {
-				e1.printStackTrace();
+			if (this.al.getTextId().compareTo("") == 0) {
+				//TODO;
+			}else {
+				try {
+					System.out.println("1 ça passe ici");
+					Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField(), null);
+				} catch (SQLException e1) {
+					JOptionPane jpn = new JOptionPane();
+					jpn.showMessageDialog(jpn, "Il semble que les paramètres entrés rencontrent un problème.\n Vérifiez les informations et recommencez.", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+				this.al.dispose();
 			}
-			this.al.dispose();
+			//AjouterLocataire al = (AjouterLocataire) this.al.getTopLevelAncestor();
+			
 		}
 	}
 }
