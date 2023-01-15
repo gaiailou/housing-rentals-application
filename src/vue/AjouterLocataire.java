@@ -51,6 +51,16 @@ public class AjouterLocataire extends JInternalFrame {
 	private JButton btnAnnuler;
 	private JButton btnValider;
 	
+	private JLabel lblIdLoc;
+	
+	public JLabel getLblIdLoc() {
+		return lblIdLoc;
+	}
+
+	public void setLblIdLoc(JLabel lblIdLoc) {
+		this.lblIdLoc = lblIdLoc;
+	}
+
 	private GestionAjouterLocataire gestionClic;
 
 	public String getTextNom() {
@@ -137,8 +147,8 @@ public class AjouterLocataire extends JInternalFrame {
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		panel_4.add(panel_7);
 		
-		JLabel lblNewLabel_3 = new JLabel("Identifiant du locataire  ");
-		panel_7.add(lblNewLabel_3);
+		this.lblIdLoc = new JLabel("Identifiant du locataire  ");
+		panel_7.add(this.lblIdLoc);
 		
 		this.textId = new JTextField();
 		panel_7.add(this.textId);
