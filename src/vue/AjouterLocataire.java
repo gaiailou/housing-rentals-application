@@ -268,8 +268,6 @@ public class AjouterLocataire extends JInternalFrame {
 		
 		JLayeredPane layeredDocuments = new JLayeredPane();
 		tabbedPane.addTab("Documents", null, layeredDocuments, null);
-		
-		
 	}
 	
 }

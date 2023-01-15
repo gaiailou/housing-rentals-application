@@ -23,7 +23,6 @@ public class RequeteInsert {
 		st.setString(9, pieceIdentiteLocataire);
 		st.executeUpdate();
 		st.close();
-		System.out.println("3");
 	}
 	
 	//public static void insererLogement()
