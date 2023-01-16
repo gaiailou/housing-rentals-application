@@ -1,6 +1,9 @@
 package modele;
 
+import java.sql.SQLException;
 import java.util.Objects;
+
+import modele.dao.requete.RequetesAjouterLocation;
 
 public class Location {
 	private Logement logement;
@@ -180,6 +183,15 @@ public class Location {
 	}
 	public void setContrat(Contrat contrat) {
 		this.contrat = contrat;
+	}
+	public static void insererLocation(String textLogement, String textLocataire, String textIndiceInitial,
+			String textDateDebut, String textDateFin, String textMontantLoyer, String acteDeCaution,
+			String textTypeLocation, String textMontantCharges, String textMontantFonciere, String photo,
+			String textPeriodicite, String ajustement, String versementDernierLoyer, String textVersement,
+			String bail, String quittance, String textIdContrat, String nomGarant, String prenomGarant,
+			String telGarant) throws SQLException {
+
+		RequetesAjouterLocation.insererLocation(textLogement, textLocataire, textIndiceInitial, textDateDebut, textDateFin, textMontantLoyer, acteDeCaution, textTypeLocation, textMontantCharges, photo, textTypeLocation, textPeriodicite, ajustement, versementDernierLoyer, textVersement, bail, quittance, textIdContrat, prenomGarant, nomGarant, telGarant);
 	}
 	
 	
