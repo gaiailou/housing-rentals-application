@@ -17,6 +17,7 @@ public class Locataire {
 	private String mailLocataire;
 	private String ddnLocataire;
 	private String pieceIdentiteLocataire;
+  
 	public Locataire(String idLocataire, String nomLocataire, String prenomLocataire, char genreLocataire,
 			String telephoneFixeLocataire, String telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
 			String pieceIdentiteLocataire) {

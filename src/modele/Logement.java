@@ -2,6 +2,10 @@ package modele;
 
 import java.util.Objects;
 
+import javax.swing.JTextField;
+
+import modele.dao.requete.RequeteInsert;
+
 public class Logement {
 	private String idLogement;
 	private String superficieLogement;
@@ -35,8 +39,8 @@ public class Logement {
 		this.actifLogement = actifLogement;
 		this.montantCaution = montantCaution;
 		this.immeuble = immeuble;
-		this.proprietaire = proprietaire;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -44,9 +48,10 @@ public class Logement {
 		result = prime * result + Objects.hashCode(idLogement);
 		result = prime * result + Objects.hash(actifLogement, avoirGarageLogement, complementAdresseLogement,
 				descriptionLogement, fraisAcquisitionLogement, immeuble, montantCaution, nbChambre, nbPiece,
-				prixAcquisitionLogement, proprietaire, superficieLogement, typeLogement);
+				prixAcquisitionLogement, superficieLogement, typeLogement);
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -72,6 +77,7 @@ public class Logement {
 		return idLogement;
 	}
 	public void setIdLogement(String idLogement) {
+
 		this.idLogement = idLogement;
 	}
 	public String getSuperficieLogement() {
@@ -153,5 +159,8 @@ public class Logement {
 		this.proprietaire = proprietaire;
 	}
 	
-	
+	public static void insererLogement(String idLogement, String superficie, String complementAdresseLogement, String typeLogement, String prixAcquisitionLog, String nbPiece, String nbChambre, String descriptionLogement,boolean avoirGarageLog, String fraisAcquiLog, boolean actifLogement, String montantCaution, String immeuble) throws SQLException {
+		RequeteInsert.insererLogement(idLogement, superficie, complementAdresseLogement, typeLogement, prixAcquisitionLog, nbPiece, nbChambre, descriptionLogement, avoirGarageLog, fraisAcquiLog, actifLogement, montantCaution, immeuble);
+	}
+
 }
