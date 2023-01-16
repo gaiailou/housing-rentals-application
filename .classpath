@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="ojdbc11.jar">
+	<classpathentry exported="true" kind="lib" path="ojdbc11.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/invite/OneDrive/Bureau/cours/cours/S3/R3.07_BDD/R307/ojdbc11-21.7.0.0-javadoc.jar!/"/>
 		</attributes>
