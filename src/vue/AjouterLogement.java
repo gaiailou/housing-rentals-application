@@ -18,29 +18,137 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.border.EmptyBorder;
+
+import controleur.GestionAjouterLogement;
+
 import javax.swing.JScrollPane;
 import java.awt.Component;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.SwingConstants;
 
-public class AjouterLogement extends JInternalFrame implements ActionListener {
+public class AjouterLogement extends JInternalFrame {
 	private JTextField textId;
 	private JTextField textSurface;
-	private JTextField textAdresse;
+	private JTextField textNumAdresse;
 	private JTextField textVille;
 	private JTextField textCptAdresse;
 	private JTextField textCP;
 	private JTextField textNomLogement;
 	private JTextField textPrixAcquisition;
 	private JTextField textFraiAcquisition;
-	private JTextField textCaution;
+	private JTextField textNomRueAdresse;
+	private JTextField textFieldCaution;
+	
 
-	/**
-	 * Create the frame.
-	 */
+	private GestionAjouterLogement gestionClic;
+	
+	private JButton btnAnnuler;
+	private JButton btnValider;
+	
+ 	public String getTextId() {
+		return textId.getText();
+	}
+
+	public void setTextId(JTextField textId) {
+		this.textId = textId;
+	}
+
+	public String getTextSurface() {
+		return textSurface.getText();
+	}
+
+	public void setTextSurface(JTextField textSurface) {
+		this.textSurface = textSurface;
+	}
+
+	public String getTextNumAdresse() {
+		return textNumAdresse.getText();
+	}
+
+	public void setTextNumAdresse(JTextField textNumAdresse) {
+		this.textNumAdresse = textNumAdresse;
+	}
+
+	public String getTextVille() {
+		return textVille.getText();
+	}
+
+	public void setTextVille(JTextField textVille) {
+		this.textVille = textVille;
+	}
+
+	public String getTextCptAdresse() {
+		return textCptAdresse.getText();
+	}
+
+	public void setTextCptAdresse(JTextField textCptAdresse) {
+		this.textCptAdresse = textCptAdresse;
+	}
+
+	public String getTextCP() {
+		return textCP.getText();
+	}
+
+	public void setTextCP(JTextField textCP) {
+		this.textCP = textCP;
+	}
+
+	public String getTextNomLogement() {
+		return textNomLogement.getText();
+	}
+
+	public void setTextNomLogement(JTextField textNomLogement) {
+		this.textNomLogement = textNomLogement;
+	}
+
+	public String getTextPrixAcquisition() {
+		return textPrixAcquisition.getText();
+	}
+
+	public void setTextPrixAcquisition(JTextField textPrixAcquisition) {
+		this.textPrixAcquisition = textPrixAcquisition;
+	}
+
+	public String getTextFraiAcquisition() {
+		return textFraiAcquisition.getText();
+	}
+
+	public void setTextFraiAcquisition(JTextField textFraiAcquisition) {
+		this.textFraiAcquisition = textFraiAcquisition;
+	}
+
+	public String getTextNomRueAdresse() {
+		return textNomRueAdresse.getText();
+	}
+
+	public void setTextNomRueAdresse(JTextField textNomRueAdresse) {
+		this.textNomRueAdresse = textNomRueAdresse;
+	}
+
+	public String getTextFieldCaution() {
+		return textFieldCaution.getText();
+	}
+
+	public void setTextFieldCaution(JTextField textFieldCaution) {
+		this.textFieldCaution = textFieldCaution;
+	}
+
 	public AjouterLogement() {
+		this.gestionClic = new GestionAjouterLogement(this);
+		
 		setBounds(100, 100, 550, 400);
+		
+		JPanel panelFooter = new JPanel();
+		getContentPane().add(panelFooter, BorderLayout.SOUTH);
+		
+		this.btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(gestionClic);
+		panelFooter.add(btnAnnuler);
+		
+		this.btnValider = new JButton("Valider");
+		this.btnValider.addActionListener(this.gestionClic);
+		panelFooter.add(this.btnValider);
 		
 		JPanel panelContent = new JPanel();
 		getContentPane().add(panelContent, BorderLayout.CENTER);
@@ -51,12 +159,12 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panelContent.add(panel1);
 		panel1.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JPanel panel_Nom = new JPanel();
-		panel1.add(panel_Nom);
-		panel_Nom.setLayout(new BoxLayout(panel_Nom, BoxLayout.Y_AXIS));
+		JPanel panelNom = new JPanel();
+		panel1.add(panelNom);
+		panelNom.setLayout(new BoxLayout(panelNom, BoxLayout.Y_AXIS));
 		
 		JPanel panel_17 = new JPanel();
-		panel_Nom.add(panel_17);
+		panelNom.add(panel_17);
 		
 		JLabel LabelId = new JLabel("Identifiant :");
 		panel_17.add(LabelId);
@@ -71,14 +179,6 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		textNomLogement = new JTextField();
 		textNomLogement.setColumns(10);
 		panel_17.add(textNomLogement);
-		
-		
-		JLabel LabelCaution = new JLabel("Montant caution :");
-		panel_17.add(LabelCaution);
-		
-		textCaution = new JTextField();
-		textCaution.setColumns(10);
-		panel_17.add(textCaution);
 		
 		
 		JPanel panel_Description = new JPanel();
@@ -139,8 +239,8 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panel_surface.add(textSurface);
 		textSurface.setColumns(10);
 		
-		JLabel LabelUnité = new JLabel("m\u00B2");
-		panel_surface.add(LabelUnité);
+		JLabel LabelUnite = new JLabel("m\u00B2");
+		panel_surface.add(LabelUnite);
 		
 		JPanel panel_nb_chambre = new JPanel();
 		FlowLayout fl_panel_nb_chambre = (FlowLayout) panel_nb_chambre.getLayout();
@@ -158,20 +258,30 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		fl_panel_adresse.setAlignment(FlowLayout.LEFT);
 		panel2.add(panel_adresse);
 		
-		JLabel LabelAdresse = new JLabel("Adresse                     ");
-		panel_adresse.add(LabelAdresse);
+		JLabel LabelNumAdresse = new JLabel("Num\u00E9ro");
+		panel_adresse.add(LabelNumAdresse);
 		
-		textAdresse = new JTextField();
-		panel_adresse.add(textAdresse);
-		textAdresse.setColumns(10);
+		textNumAdresse = new JTextField();
+		panel_adresse.add(textNumAdresse);
+		textNumAdresse.setColumns(10);
 		
-		JPanel panel_copro = new JPanel();
-		FlowLayout fl_panel_copro = (FlowLayout) panel_copro.getLayout();
-		fl_panel_copro.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_copro);
+		JLabel LabelNomRueAdresse = new JLabel("Rue");
+		panel_adresse.add(LabelNomRueAdresse);
+		
+		textNomRueAdresse = new JTextField();
+		panel_adresse.add(textNomRueAdresse);
+		textNomRueAdresse.setColumns(10);
+		
+		JPanel panelCoproGarage = new JPanel();
+		FlowLayout fl_panelCoproGarage = (FlowLayout) panelCoproGarage.getLayout();
+		fl_panelCoproGarage.setAlignment(FlowLayout.LEFT);
+		panel2.add(panelCoproGarage);
 		
 		JCheckBox CheckboxCopro = new JCheckBox("Co-propri\u00E9t\u00E9");
-		panel_copro.add(CheckboxCopro);
+		panelCoproGarage.add(CheckboxCopro);
+		
+		JCheckBox CheckboxGarage = new JCheckBox("Garage");
+		panelCoproGarage.add(CheckboxGarage);
 		
 		JPanel panel_cpt_adresse = new JPanel();
 		FlowLayout fl_panel_cpt_adresse = (FlowLayout) panel_cpt_adresse.getLayout();
@@ -185,13 +295,20 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panel_cpt_adresse.add(textCptAdresse);
 		textCptAdresse.setColumns(10);
 		
-		JPanel panel_garage = new JPanel();
-		FlowLayout fl_panel_garage = (FlowLayout) panel_garage.getLayout();
-		fl_panel_garage.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_garage);
+		JPanel panelCaution = new JPanel();
+		FlowLayout fl_panelCaution = (FlowLayout) panelCaution.getLayout();
+		fl_panelCaution.setAlignment(FlowLayout.LEFT);
+		panel2.add(panelCaution);
 		
-		JCheckBox CheckboxGarage = new JCheckBox("Garage");
-		panel_garage.add(CheckboxGarage);
+		JLabel lblCaution = new JLabel("Caution : ");
+		panelCaution.add(lblCaution);
+		
+		textFieldCaution = new JTextField();
+		panelCaution.add(textFieldCaution);
+		textFieldCaution.setColumns(10);
+		
+		JLabel lblEuros = new JLabel("\u20AC");
+		panelCaution.add(lblEuros);
 		
 		JPanel panel_ville = new JPanel();
 		FlowLayout fl_panel_ville = (FlowLayout) panel_ville.getLayout();
@@ -242,28 +359,8 @@ public class AjouterLogement extends JInternalFrame implements ActionListener {
 		panel_frai_acqui.add(textFraiAcquisition);
 		textFraiAcquisition.setColumns(10);
 		
-		JPanel panelFooter = new JPanel();
-		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
-		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(this);
-		panelFooter.add(btnAnnuler);
-		
-		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(this);
-		panelFooter.add(btnValider);
 
-	}
 
-	public void actionPerformed(ActionEvent e) {
-		JButton btn =(JButton)e.getSource();
-		switch(btn.getText()) {
-			case"Annuler":
-				this.dispose();
-				break;
-			case"Valider":
-				this.dispose();
-				break;
-		}
 	}
 }

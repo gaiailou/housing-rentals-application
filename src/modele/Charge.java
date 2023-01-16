@@ -7,6 +7,9 @@ public class Charge {
 	private char[] idCharge = new char[5];
 	private double ancienIndex;
 	private double nouvelIndex;
+	private double prixUnite;
+	private String intituleCharge;
+	private double montantCharge;
 	private Logement logement;
 	private Locataire locataire;
 	public Charge(char[] idCharge, double ancienIndex, double nouvelIndex, Logement logement, Locataire locataire) {
@@ -68,6 +71,25 @@ public class Charge {
 	}
 	public void setLocataire(Locataire locataire) {
 		this.locataire = locataire;
+	}
+	
+	public double getPrixUnite() {
+		return prixUnite;
+	}
+	public void setPrixUnite(double prixUnite) {
+		this.prixUnite = prixUnite;
+	}
+	public String getIntituleCharge() {
+		return intituleCharge;
+	}
+	public void setIntituleCharge(String intituleCharge) {
+		this.intituleCharge = intituleCharge;
+	}
+	public double getMontantCharge() {
+		return montantCharge;
+	}
+	public void setMontantCharge(double montantCharge) {
+		this.montantCharge = montantCharge;
 	}
 	
 	

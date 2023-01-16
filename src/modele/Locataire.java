@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import javax.sql.DataSource;
 
-import controleur.CictOracleDataSource;
+import modele.dao.requete.RequeteInsert;
 
 public class Locataire {
 	private String idLocataire;
@@ -16,25 +16,25 @@ public class Locataire {
 	private String prenomLocataire;
 	private char genreLocataire;
 	private char[] telephoneFixeLocataire = new char[10];
-	private char[]téléphoneMobileLocataire = new char[10];
+	private char[]telephoneMobileLocataire = new char[10];
 	private String mailLocataire;
 	private String ddnLocataire;
-	private String pièceIdentitéLocataire;
+	private String pieceIdentiteLocataire;
 	private DataSource bd;
 	
 	
 	public Locataire(String idLocataire, String nomLocataire, String prenomLocataire, char genreLocataire,
-			char[] telephoneFixeLocataire, char[] téléphoneMobileLocataire, String mailLocataire, String ddnLocataire,
-			String pièceIdentitéLocataire) {
+			char[] telephoneFixeLocataire, char[] telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
+			String pieceIdentiteLocataire) {
 		this.idLocataire = idLocataire;
 		this.nomLocataire = nomLocataire;
 		this.prenomLocataire = prenomLocataire;
 		this.genreLocataire = genreLocataire;
 		this.telephoneFixeLocataire = telephoneFixeLocataire;
-		this.téléphoneMobileLocataire = téléphoneMobileLocataire;
+		this.telephoneMobileLocataire = telephoneMobileLocataire;
 		this.mailLocataire = mailLocataire;
 		this.ddnLocataire = ddnLocataire;
-		this.pièceIdentitéLocataire = pièceIdentitéLocataire;
+		this.pieceIdentiteLocataire = pieceIdentiteLocataire;
 	}
 
 	@Override
@@ -42,9 +42,9 @@ public class Locataire {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + Arrays.hashCode(telephoneFixeLocataire);
-		result = prime * result + Arrays.hashCode(téléphoneMobileLocataire);
+		result = prime * result + Arrays.hashCode(telephoneMobileLocataire);
 		result = prime * result + Objects.hash(ddnLocataire, genreLocataire, idLocataire, mailLocataire, nomLocataire,
-				pièceIdentitéLocataire, prenomLocataire);
+				pieceIdentiteLocataire, prenomLocataire);
 		return result;
 	}
 
@@ -60,10 +60,10 @@ public class Locataire {
 		return Objects.equals(ddnLocataire, other.ddnLocataire) && genreLocataire == other.genreLocataire
 				&& Objects.equals(idLocataire, other.idLocataire) && Objects.equals(mailLocataire, other.mailLocataire)
 				&& Objects.equals(nomLocataire, other.nomLocataire)
-				&& Objects.equals(pièceIdentitéLocataire, other.pièceIdentitéLocataire)
+				&& Objects.equals(pieceIdentiteLocataire, other.pieceIdentiteLocataire)
 				&& Objects.equals(prenomLocataire, other.prenomLocataire)
 				&& Arrays.equals(telephoneFixeLocataire, other.telephoneFixeLocataire)
-				&& Arrays.equals(téléphoneMobileLocataire, other.téléphoneMobileLocataire);
+				&& Arrays.equals(telephoneMobileLocataire, other.telephoneMobileLocataire);
 	}
 
 	public String getIdLocataire() {
@@ -106,12 +106,12 @@ public class Locataire {
 		this.telephoneFixeLocataire = telephoneFixeLocataire;
 	}
 
-	public char[] getTéléphoneMobileLocataire() {
-		return téléphoneMobileLocataire;
+	public char[] getTelephoneMobileLocataire() {
+		return telephoneMobileLocataire;
 	}
 
-	public void setTéléphoneMobileLocataire(char[] téléphoneMobileLocataire) {
-		this.téléphoneMobileLocataire = téléphoneMobileLocataire;
+	public void setTelephoneMobileLocataire(char[] telephoneMobileLocataire) {
+		this.telephoneMobileLocataire = telephoneMobileLocataire;
 	}
 
 	public String getMailLocataire() {
@@ -130,25 +130,17 @@ public class Locataire {
 		this.ddnLocataire = ddnLocataire;
 	}
 
-	public String getPièceIdentitéLocataire() {
-		return pièceIdentitéLocataire;
+	public String getPieceIdentiteLocataire() {
+		return pieceIdentiteLocataire;
 	}
 
-	public void setPièceIdentitéLocataire(String pièceIdentitéLocataire) {
-		this.pièceIdentitéLocataire = pièceIdentitéLocataire;
+	public void setPieceIdentiteLocataire(String pieceIdentiteLocataire) {
+		this.pieceIdentiteLocataire = pieceIdentiteLocataire;
 	}
 	
 	
-	public void insererLocataire(String id, String nom, String prenom, char genre, String tf, String tm, String mail, String ddn) throws SQLException {
-		
-		bd = new CictOracleDataSource ();
-		Connection cn = bd.getConnection() ;
-		String req = "call BSJ3657.inserernouveaulocataire('" + id +"', '" + nom + "', '"+ prenom +"', '" + genre + "', '" + tf + "', '" + tm + "', '" + mail + "', '" + ddn + "', '" + null + "')";
-		java.sql.Statement stEns = cn.createStatement () ;
-		ResultSet rsEns = stEns.executeQuery (req) ;
-		
-		rsEns.close () ;
-		stEns.close() ;
-		cn.close() ;
+	public static void insererLocataire(String id, String nom, String prenom, String genre, String tf, String tm, String mail, String ddn, String pIDL) throws SQLException {
+		RequeteInsert.insererLocataire(id, nom, prenom, genre, tf, tm, mail, ddn, pIDL);
 	}
+
 }

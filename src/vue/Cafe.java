@@ -60,9 +60,9 @@ public class Cafe extends JInternalFrame implements ActionListener {
 		comboMois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "Decembre"}));
 		panelDate.add(comboMois);
 		
-		JComboBox comboAnnée = new JComboBox();
-		comboAnnée.setModel(new DefaultComboBoxModel(new String[] {"2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "Apr\u00E8s 2030"}));
-		panelDate.add(comboAnnée);
+		JComboBox comboAnnee = new JComboBox();
+		comboAnnee.setModel(new DefaultComboBoxModel(new String[] {"2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "Apr\u00E8s 2030"}));
+		panelDate.add(comboAnnee);
 		
 		JPanel panelHeure = new JPanel();
 		panelContent.add(panelHeure);

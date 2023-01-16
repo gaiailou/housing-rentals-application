@@ -10,8 +10,9 @@ public class Immeuble {
 	private char[] anneeConstructionImmeuble = new char[4];
 	private char[] cpVille = new char[5];
 	private boolean coPropriete;
+	
 	public Immeuble(char[] idImmeuble, int numeroAdresseLogement, String nomRueAdresseLogement,
-			char[] anneeConstructionImmeuble, char[] cpVille, boolean coPropriete) {
+					char[] anneeConstructionImmeuble, char[] cpVille, boolean coPropriete) {
 		super();
 		this.idImmeuble = idImmeuble;
 		this.numeroAdresseLogement = numeroAdresseLogement;
@@ -20,6 +21,7 @@ public class Immeuble {
 		this.cpVille = cpVille;
 		this.coPropriete = coPropriete;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -30,6 +32,7 @@ public class Immeuble {
 		result = prime * result + Objects.hash(coPropriete, nomRueAdresseLogement, numeroAdresseLogement);
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

@@ -70,10 +70,10 @@ public class DaoTest {
 		d.setPrenomLocataire(l.getPrenomLocataire());
 		d.setGenreLocataire(l.getGenreLocataire());
 		d.setTelephoneFixeLocataire(l.getTelephoneFixeLocataire());
-		d.setTéléphoneMobileLocataire(l.getTéléphoneMobileLocataire());
+		d.setTelephoneMobileLocataire(l.getTelephoneMobileLocataire());
 		d.setMailLocataire(l.getMailLocataire());
 		d.setDdnLocataire(l.getDdnLocataire());
-		d.setPièceIdentitéLocataire(l.getPièceIdentitéLocataire());
+		d.setPieceIdentiteLocataire(l.getPieceIdentiteLocataire());
 	}
 	
 	public static void deleteLocataire(Locataire l) {
