@@ -53,4 +53,20 @@ public class RequeteInsert {
 		st.setString(14, "1");//correspond � l'id du proprio. Ici on en a seulement 1
 		
 	}
+
+	public static void insererImmeuble(String idImmeuble, int numAdr, String nomRueAdr, String anneeConstruction, String cp, boolean coPro){
+		Connection cn = ConnexionBD.getConnectionBase();
+		
+		try {
+			PreparedStatement st  = cn.prepareStatement("call insererIMMEUBLE(?, ?, ?, ?, ?, ?, ?)");
+			st.setString(1,  idImmeuble);
+			st.setInt(2, numAdr);
+			st.setString(3, nomRueAdr);
+			st.setString(4, anneeConstruction);
+			st.setString(5, cp);
+			st.setBoolean(6, coPro);
+		} catch (Exception e3) {
+			e3.printStackTrace();
+		}
+	}
 }
