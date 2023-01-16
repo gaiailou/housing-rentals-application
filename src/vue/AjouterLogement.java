@@ -40,6 +40,7 @@ public class AjouterLogement extends JInternalFrame {
 	private JTextField textNomRueAdresse;
 	private JTextField textFieldCaution;
 	
+
 	private GestionAjouterLogement gestionClic;
 	
 	private JButton btnAnnuler;
@@ -359,6 +360,7 @@ public class AjouterLogement extends JInternalFrame {
 		textFraiAcquisition.setColumns(10);
 		
 		
+
 
 	}
 }

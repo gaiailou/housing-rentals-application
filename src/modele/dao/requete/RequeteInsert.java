@@ -26,7 +26,6 @@ public class RequeteInsert {
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
-		cn.commit();
 	}
 	
 	public void insererLogement(String idLog, int superficieLog, String cplmAdrLog, String typeLog, double prixAcquisitionLog, 
