@@ -30,27 +30,25 @@ public class RequeteInsert {
 		}
 	}
 	
-	public static void insererLogement(String idLog, String superficieLog, String cplmAdrLog, String typeLog, String prixAcquisitionLog, 
-								String nbPiece, String nbChambre, String descLog, boolean avoirGarageLog, String fraisAcquiLog, 
-								boolean estActifLog, String montantCaution, String idImmeuble) throws SQLException {
-		
+	public void insererLogement(String idLog, int superficieLog, String cplmAdrLog, String typeLog, double prixAcquisitionLog, 
+								int nbPiece, int nbChambre, String descLog, boolean avoirGarageLog, double fraisAcquiLog, 
+								boolean estActifLog, int montantCaution, String idImmeuble) throws SQLException {
 		Connection cn = ConnexionBD.getConnectionBase();
-		 
 		PreparedStatement st = cn.prepareStatement("call InsererLOGEMENT(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
-		st.setString(1, idLog);//String idLogement,
-		st.setString(2, superficieLog);//String superficie,
-		st.setString(3, cplmAdrLog);//String complementAdresseLogement
-		st.setString(4, typeLog);//String typeLogement,
-		st.setString(5, prixAcquisitionLog);//double prixAcquisitionLog
-		st.setString(6, nbPiece);//int nbPiece
-		st.setString(7, nbChambre);//int nbChambre
-		st.setString(8, descLog);//String descriptionLogement,
-		st.setBoolean(9, avoirGarageLog);//boolean avoirGarageLog,
-		st.setString(10, fraisAcquiLog);//double fraisAcquiLog,
-		st.setBoolean(11, estActifLog);//boolean actifLogement,
-		st.setString(12, montantCaution);//double montantCaution,
-		st.setString(13, idImmeuble);//String immeuble
+		st.setString(1, idLog);
+		st.setInt(2, superficieLog);
+		st.setString(3, cplmAdrLog);
+		st.setString(4, typeLog);
+		st.setDouble(5, prixAcquisitionLog);
+		st.setInt(6, nbPiece);
+		st.setInt(7, nbChambre);
+		st.setString(8, descLog);
+		st.setBoolean(9, avoirGarageLog);
+		st.setDouble(10, fraisAcquiLog);
+		st.setBoolean(11, estActifLog);
+		st.setInt(12, montantCaution);
+		st.setString(13, idImmeuble);
 		st.setString(14, "1");//correspond � l'id du proprio. Ici on en a seulement 1
-		
+		cn.commit();
 	}
 }
