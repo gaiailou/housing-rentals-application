@@ -8,7 +8,6 @@ import java.util.Objects;
 
 import javax.sql.DataSource;
 
-import controleur.CictOracleDataSource;
 import modele.dao.requete.RequeteInsert;
 
 public class Locataire {
