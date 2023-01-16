@@ -14,8 +14,8 @@ import vue.AjouterLocataire;
 
 public class GestionAjouterLocataire implements ActionListener {
 	private AjouterLocataire al;
-	private DaoLocataire dl;
-	private Connection cn;
+	//private DaoLocataire dl;
+	//private Connection cn;
 	
 	public GestionAjouterLocataire(AjouterLocataire al) {
 		this.al = al;
