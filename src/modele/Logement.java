@@ -1,27 +1,26 @@
 package modele;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Logement {
-	private char[] idLogement = new char[15];
-	private double superficieLogement;
+	private String idLogement;
+	private String superficieLogement;
 	private String complementAdresseLogement;
 	private String typeLogement;
-	private double prixAcquisitionLogement;
+	private String prixAcquisitionLogement;
 	private int nbPiece;
 	private int nbChambre;
 	private String descriptionLogement;
 	private boolean avoirGarageLogement;
-	private double fraisAcquisitionLogement;
+	private String fraisAcquisitionLogement;
 	private boolean actifLogement;
-	private double montantCaution;
-	private Immeuble immeuble;
-	private Proprietaire proprietaire;
-	public Logement(char[] idLogement, double superficieLogement, String complementAdresseLogement, String typeLogement,
-			double prixAcquisitionLogement, int nbPiece, int nbChambre, String descriptionLogement,
-			boolean avoirGarageLogement, double fraisAcquisitionLogement, boolean actifLogement, double montantCaution,
-			Immeuble immeuble, Proprietaire proprietaire) {
+	private String montantCaution;
+	private String immeuble;
+	private String proprietaire;
+	public Logement(String idLogement, String superficieLogement, String complementAdresseLogement, String typeLogement,
+			String prixAcquisitionLogement, int nbPiece, int nbChambre, String descriptionLogement,
+			boolean avoirGarageLogement, String fraisAcquisitionLogement, boolean actifLogement, String montantCaution,
+			String immeuble, String proprietaire) {
 		super();
 		this.idLogement = idLogement;
 		this.superficieLogement = superficieLogement;
@@ -42,7 +41,7 @@ public class Logement {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(idLogement);
+		result = prime * result + Objects.hashCode(idLogement);
 		result = prime * result + Objects.hash(actifLogement, avoirGarageLogement, complementAdresseLogement,
 				descriptionLogement, fraisAcquisitionLogement, immeuble, montantCaution, nbChambre, nbPiece,
 				prixAcquisitionLogement, proprietaire, superficieLogement, typeLogement);
@@ -60,27 +59,25 @@ public class Logement {
 		return actifLogement == other.actifLogement && avoirGarageLogement == other.avoirGarageLogement
 				&& Objects.equals(complementAdresseLogement, other.complementAdresseLogement)
 				&& Objects.equals(descriptionLogement, other.descriptionLogement)
-				&& Double.doubleToLongBits(fraisAcquisitionLogement) == Double
-						.doubleToLongBits(other.fraisAcquisitionLogement)
-				&& Arrays.equals(idLogement, other.idLogement) && Objects.equals(immeuble, other.immeuble)
-				&& Double.doubleToLongBits(montantCaution) == Double.doubleToLongBits(other.montantCaution)
+				&& Objects.equals(fraisAcquisitionLogement,other.fraisAcquisitionLogement)
+				&& Objects.equals(idLogement, other.idLogement) && Objects.equals(immeuble, other.immeuble)
+				&& Objects.equals(montantCaution,other.montantCaution)
 				&& nbChambre == other.nbChambre && nbPiece == other.nbPiece
-				&& Double.doubleToLongBits(prixAcquisitionLogement) == Double
-						.doubleToLongBits(other.prixAcquisitionLogement)
+				&& Objects.equals(prixAcquisitionLogement,other.prixAcquisitionLogement)
 				&& Objects.equals(proprietaire, other.proprietaire)
-				&& Double.doubleToLongBits(superficieLogement) == Double.doubleToLongBits(other.superficieLogement)
+				&& Objects.equals(superficieLogement,other.superficieLogement)
 				&& Objects.equals(typeLogement, other.typeLogement);
 	}
-	public char[] getIdLogement() {
+	public String getIdLogement() {
 		return idLogement;
 	}
-	public void setIdLogement(char[] idLogement) {
+	public void setIdLogement(String idLogement) {
 		this.idLogement = idLogement;
 	}
-	public double getSuperficieLogement() {
+	public String getSuperficieLogement() {
 		return superficieLogement;
 	}
-	public void setSuperficieLogement(double superficieLogement) {
+	public void setSuperficieLogement(String superficieLogement) {
 		this.superficieLogement = superficieLogement;
 	}
 	public String getComplementAdresseLogement() {
@@ -95,10 +92,10 @@ public class Logement {
 	public void setTypeLogement(String typeLogement) {
 		this.typeLogement = typeLogement;
 	}
-	public double getPrixAcquisitionLogement() {
+	public String getPrixAcquisitionLogement() {
 		return prixAcquisitionLogement;
 	}
-	public void setPrixAcquisitionLogement(double prixAcquisitionLogement) {
+	public void setPrixAcquisitionLogement(String prixAcquisitionLogement) {
 		this.prixAcquisitionLogement = prixAcquisitionLogement;
 	}
 	public int getNbPiece() {
@@ -125,10 +122,10 @@ public class Logement {
 	public void setAvoirGarageLogement(boolean avoirGarageLogement) {
 		this.avoirGarageLogement = avoirGarageLogement;
 	}
-	public double getFraisAcquisitionLogement() {
+	public String getFraisAcquisitionLogement() {
 		return fraisAcquisitionLogement;
 	}
-	public void setFraisAcquisitionLogement(double fraisAcquisitionLogement) {
+	public void setFraisAcquisitionLogement(String fraisAcquisitionLogement) {
 		this.fraisAcquisitionLogement = fraisAcquisitionLogement;
 	}
 	public boolean isActifLogement() {
@@ -137,22 +134,22 @@ public class Logement {
 	public void setActifLogement(boolean actifLogement) {
 		this.actifLogement = actifLogement;
 	}
-	public double getMontantCaution() {
+	public String getMontantCaution() {
 		return montantCaution;
 	}
-	public void setMontantCaution(double montantCaution) {
+	public void setMontantCaution(String montantCaution) {
 		this.montantCaution = montantCaution;
 	}
-	public Immeuble getImmeuble() {
+	public String getImmeuble() {
 		return immeuble;
 	}
-	public void setImmeuble(Immeuble immeuble) {
+	public void setImmeuble(String immeuble) {
 		this.immeuble = immeuble;
 	}
-	public Proprietaire getProprietaire() {
+	public String getProprietaire() {
 		return proprietaire;
 	}
-	public void setProprietaire(Proprietaire proprietaire) {
+	public void setProprietaire(String proprietaire) {
 		this.proprietaire = proprietaire;
 	}
 	
