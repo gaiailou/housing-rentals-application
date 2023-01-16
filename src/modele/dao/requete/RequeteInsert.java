@@ -5,13 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class RequeteInsert {
-	private Connection cn = ConnexionBD.getConnectionBase();
 	
-	public void insererLocataire(String idLocataire, String nomLocataire, String prenomLocataire, String genreLocataire,
+	public static void insererLocataire(String idLocataire, String nomLocataire, String prenomLocataire, String genreLocataire,
 								 String telephoneFixeLocataire, String telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
 								 String pieceIdentiteLocataire) throws SQLException {
+		
+		Connection cn = ConnexionBD.getConnectionBase();
+		
 		try {
-			PreparedStatement st = this.cn.prepareStatement("call insererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
+			PreparedStatement st = cn.prepareStatement("call insererNouveauLocataire(?, ? , ?, ?, ?, ?, ?, ?, ?)");
 			st.setString(1, idLocataire);
 			st.setString(2,  nomLocataire);
 			st.setString(3,  prenomLocataire);
@@ -31,7 +33,8 @@ public class RequeteInsert {
 	public void insererLogement(String idLog, int superficieLog, String cplmAdrLog, String typeLog, double prixAcquisitionLog, 
 								int nbPiece, int nbChambre, String descLog, boolean avoirGarageLog, double fraisAcquiLog, 
 								boolean estActifLog, int montantCaution, String idImmeuble) throws SQLException {
-		PreparedStatement st = this.cn.prepareStatement("call InsererLOGEMENT(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
+		Connection cn = ConnexionBD.getConnectionBase();
+		PreparedStatement st = cn.prepareStatement("call InsererLOGEMENT(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
 		st.setString(1, idLog);
 		st.setInt(2, superficieLog);
 		st.setString(3, cplmAdrLog);
@@ -45,7 +48,7 @@ public class RequeteInsert {
 		st.setBoolean(11, estActifLog);
 		st.setInt(12, montantCaution);
 		st.setString(13, idImmeuble);
-		st.setString(14, "1");//correspond à l'id du proprio. Ici on en a seulement 1
-		this.cn.commit();
+		st.setString(14, "1");//correspond ï¿½ l'id du proprio. Ici on en a seulement 1
+		cn.commit();
 	}
 }
