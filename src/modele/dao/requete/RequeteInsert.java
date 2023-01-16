@@ -35,22 +35,27 @@ public class RequeteInsert {
 								boolean estActifLog, String montantCaution, String idImmeuble) throws SQLException {
 		
 		Connection cn = ConnexionBD.getConnectionBase();
-		 
-		PreparedStatement st = cn.prepareStatement("call InsererLOGEMENT(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
-		st.setString(1, idLog);//String idLogement,
-		st.setString(2, superficieLog);//String superficie,
-		st.setString(3, cplmAdrLog);//String complementAdresseLogement
-		st.setString(4, typeLog);//String typeLogement,
-		st.setString(5, prixAcquisitionLog);//double prixAcquisitionLog
-		st.setString(6, nbPiece);//int nbPiece
-		st.setString(7, nbChambre);//int nbChambre
-		st.setString(8, descLog);//String descriptionLogement,
-		st.setBoolean(9, avoirGarageLog);//boolean avoirGarageLog,
-		st.setString(10, fraisAcquiLog);//double fraisAcquiLog,
-		st.setBoolean(11, estActifLog);//boolean actifLogement,
-		st.setString(12, montantCaution);//double montantCaution,
-		st.setString(13, idImmeuble);//String immeuble
-		st.setString(14, "1");//correspond � l'id du proprio. Ici on en a seulement 1
+		try {
+			PreparedStatement st = cn.prepareStatement("call InsererLOGEMENT(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			st.setString(1, idLog);//String idLogement,
+			st.setString(2, superficieLog);//String superficie,
+			st.setString(3, cplmAdrLog);//String complementAdresseLogement
+			st.setString(4, typeLog);//String typeLogement,
+			st.setString(5, prixAcquisitionLog);//double prixAcquisitionLog
+			st.setString(6, nbPiece);//int nbPiece
+			st.setString(7, nbChambre);//int nbChambre
+			st.setString(8, descLog);//String descriptionLogement,
+			st.setBoolean(9, avoirGarageLog);//boolean avoirGarageLog,
+			st.setString(10, fraisAcquiLog);//double fraisAcquiLog,
+			st.setBoolean(11, estActifLog);//boolean actifLogement,
+			st.setString(12, montantCaution);//double montantCaution,
+			st.setString(13, idImmeuble);//String immeuble
+			st.setString(14, "1");//correspond � l'id du proprio. Ici on en a seulement 1
+			st.executeUpdate();
+			st.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -62,9 +67,11 @@ public class RequeteInsert {
 			st.setString(1,  idImmeuble);
 			st.setInt(2, numAdr);
 			st.setString(3, nomRueAdr);
-			st.setString(4, anneeConstruction);
+			st.setString(4,anneeConstruction);
 			st.setString(5, cp);
 			st.setBoolean(6, coPro);
+			st.executeUpdate();
+			st.close();
 		} catch (Exception e3) {
 			e3.printStackTrace();
 		}

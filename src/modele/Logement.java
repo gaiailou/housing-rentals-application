@@ -1,5 +1,6 @@
 package modele;
 
+import java.sql.SQLException;
 import java.util.Objects;
 
 import javax.swing.JTextField;
