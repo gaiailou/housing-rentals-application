@@ -30,8 +30,7 @@ import javax.swing.JTextPane;
 
 public class InfoLogement extends JInternalFrame implements ActionListener {
 	
-	//private Logement logement;
-	private Object selected;
+	private Logement logementSelected;
 	
 	//Les attributs a modifier pour connecter a la bd
 	private String Id1Logement=null;
@@ -54,16 +53,31 @@ public class InfoLogement extends JInternalFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public InfoLogement(Object selected) {
+	public InfoLogement(Logement logementSelected) {
 		setBounds(100, 100, 450, 348);
-		//this.logement = (Logement) selected;
-		this.selected=selected;
+		this.logementSelected = logementSelected;
+		this.Id1Logement=this.logementSelected.getIdLogement();
+		this.Nom1Logement=null;
+		this.Caution1Logement=this.logementSelected.getMontantCaution();
+		this.Desc1Logement=this.logementSelected.getDescriptionLogement();
+		this.Type1Logement=this.logementSelected.getTypeLogement();
+		this.NbPiece1Logement=this.logementSelected.getNbPiece();
+		this.Surface1Logement=this.logementSelected.getSuperficieLogement();
+		this.NbChambre1Logement=this.logementSelected.getNbChambre();
+		this.Adresse1Logement=null;
+		this.Cpt1Logement=this.logementSelected.getComplementAdresseLogement();
+		this.Ville1Logement=null;
+		this.Prix1Logement=this.logementSelected.getPrixAcquisitionLogement();
+		this.CP1Logement=null;
+		this.Frai1Logement=this.logementSelected.getFraisAcquisitionLogement();
+		this.boxCopro=false;
+		this.boxGarage=false;
 		
 		JPanel panelHeader = new JPanel();
 		getContentPane().add(panelHeader, BorderLayout.NORTH);
 		
-		JLabel labelNom = new JLabel((String)this.selected);
-		//labelNom.setText(logement.getNom());
+		JLabel labelNom = new JLabel();
+		labelNom.setText("Logement "+this.logementSelected.getIdLogement());
 		panelHeader.add(labelNom);
 		
 		JPanel panelContent = new JPanel();

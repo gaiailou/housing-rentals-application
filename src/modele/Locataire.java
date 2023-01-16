@@ -1,9 +1,6 @@
 package modele;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.Objects;
 
 import javax.sql.DataSource;
@@ -15,15 +12,14 @@ public class Locataire {
 	private String nomLocataire;
 	private String prenomLocataire;
 	private char genreLocataire;
-	private char[] telephoneFixeLocataire = new char[10];
-	private char[]telephoneMobileLocataire = new char[10];
+	private String telephoneFixeLocataire;
+	private String telephoneMobileLocataire;
 	private String mailLocataire;
 	private String ddnLocataire;
 	private String pieceIdentiteLocataire;
-	private DataSource bd;
-	
+  
 	public Locataire(String idLocataire, String nomLocataire, String prenomLocataire, char genreLocataire,
-			char[] telephoneFixeLocataire, char[] telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
+			String telephoneFixeLocataire, String telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
 			String pieceIdentiteLocataire) {
 		this.idLocataire = idLocataire;
 		this.nomLocataire = nomLocataire;
@@ -40,8 +36,8 @@ public class Locataire {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(telephoneFixeLocataire);
-		result = prime * result + Arrays.hashCode(telephoneMobileLocataire);
+		result = prime * result + Objects.hashCode(telephoneFixeLocataire);
+		result = prime * result + Objects.hashCode(telephoneMobileLocataire);
 		result = prime * result + Objects.hash(ddnLocataire, genreLocataire, idLocataire, mailLocataire, nomLocataire,
 				pieceIdentiteLocataire, prenomLocataire);
 		return result;
@@ -61,8 +57,8 @@ public class Locataire {
 				&& Objects.equals(nomLocataire, other.nomLocataire)
 				&& Objects.equals(pieceIdentiteLocataire, other.pieceIdentiteLocataire)
 				&& Objects.equals(prenomLocataire, other.prenomLocataire)
-				&& Arrays.equals(telephoneFixeLocataire, other.telephoneFixeLocataire)
-				&& Arrays.equals(telephoneMobileLocataire, other.telephoneMobileLocataire);
+				&& Objects.equals(telephoneFixeLocataire, other.telephoneFixeLocataire)
+				&& Objects.equals(telephoneMobileLocataire, other.telephoneMobileLocataire);
 	}
 
 	public String getIdLocataire() {
@@ -97,19 +93,19 @@ public class Locataire {
 		this.genreLocataire = genreLocataire;
 	}
 
-	public char[] getTelephoneFixeLocataire() {
+	public String getTelephoneFixeLocataire() {
 		return telephoneFixeLocataire;
 	}
 
-	public void setTelephoneFixeLocataire(char[] telephoneFixeLocataire) {
+	public void setTelephoneFixeLocataire(String telephoneFixeLocataire) {
 		this.telephoneFixeLocataire = telephoneFixeLocataire;
 	}
 
-	public char[] getTelephoneMobileLocataire() {
+	public String getTelephoneMobileLocataire() {
 		return telephoneMobileLocataire;
 	}
 
-	public void setTelephoneMobileLocataire(char[] telephoneMobileLocataire) {
+	public void setTelephoneMobileLocataire(String telephoneMobileLocataire) {
 		this.telephoneMobileLocataire = telephoneMobileLocataire;
 	}
 

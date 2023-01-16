@@ -1,7 +1,5 @@
 package modele;
 
-import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.Objects;
 
 import javax.swing.JTextField;
@@ -9,24 +7,24 @@ import javax.swing.JTextField;
 import modele.dao.requete.RequeteInsert;
 
 public class Logement {
-	private char[] idLogement = new char[15];
-	private double superficieLogement;
+	private String idLogement;
+	private String superficieLogement;
 	private String complementAdresseLogement;
 	private String typeLogement;
 	private String prixAcquisitionLogement;
-	private int nbPiece;
-	private int nbChambre;
+	private String nbPiece;
+	private String nbChambre;
 	private String descriptionLogement;
 	private boolean avoirGarageLogement;
 	private String fraisAcquisitionLogement;
 	private boolean actifLogement;
-	private double montantCaution;
+	private String montantCaution;
 	private String immeuble;
-	
-	public Logement(char[] idLogement, double superficieLogement, String complementAdresseLogement, String typeLogement,
-			String prixAcquisitionLogement, int nbPiece, int nbChambre, String descriptionLogement,
-			boolean avoirGarageLogement, String fraisAcquisitionLogement, boolean actifLogement, double montantCaution,
-			String immeuble, Proprietaire proprietaire) {
+	private String proprietaire;
+	public Logement(String idLogement, String superficieLogement, String complementAdresseLogement, String typeLogement,
+			String prixAcquisitionLogement, String nbPiece, String nbChambre, String descriptionLogement,
+			boolean avoirGarageLogement, String fraisAcquisitionLogement, boolean actifLogement, String montantCaution,
+			String immeuble, String proprietaire) {
 		super();
 		this.idLogement = idLogement;
 		this.superficieLogement = superficieLogement;
@@ -47,26 +45,45 @@ public class Logement {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(idLogement);
+		result = prime * result + Objects.hashCode(idLogement);
 		result = prime * result + Objects.hash(actifLogement, avoirGarageLogement, complementAdresseLogement,
 				descriptionLogement, fraisAcquisitionLogement, immeuble, montantCaution, nbChambre, nbPiece,
 				prixAcquisitionLogement, superficieLogement, typeLogement);
 		return result;
 	}
-	
-	
-	
-	public char[] getIdLogement() {
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Logement)) {
+			return false;
+		}
+		Logement other = (Logement) obj;
+		return actifLogement == other.actifLogement && avoirGarageLogement == other.avoirGarageLogement
+				&& Objects.equals(complementAdresseLogement, other.complementAdresseLogement)
+				&& Objects.equals(descriptionLogement, other.descriptionLogement)
+				&& Objects.equals(fraisAcquisitionLogement,other.fraisAcquisitionLogement)
+				&& Objects.equals(idLogement, other.idLogement) && Objects.equals(immeuble, other.immeuble)
+				&& Objects.equals(montantCaution,other.montantCaution)
+				&& nbChambre == other.nbChambre && nbPiece == other.nbPiece
+				&& Objects.equals(prixAcquisitionLogement,other.prixAcquisitionLogement)
+				&& Objects.equals(proprietaire, other.proprietaire)
+				&& Objects.equals(superficieLogement,other.superficieLogement)
+				&& Objects.equals(typeLogement, other.typeLogement);
+	}
+	public String getIdLogement() {
 		return idLogement;
 	}
-	
-	public void setIdLogement(char[] idLogement) {
+	public void setIdLogement(String idLogement) {
+
 		this.idLogement = idLogement;
 	}
-	public double getSuperficieLogement() {
+	public String getSuperficieLogement() {
 		return superficieLogement;
 	}
-	public void setSuperficieLogement(double superficieLogement) {
+	public void setSuperficieLogement(String superficieLogement) {
 		this.superficieLogement = superficieLogement;
 	}
 	public String getComplementAdresseLogement() {
@@ -87,16 +104,16 @@ public class Logement {
 	public void setPrixAcquisitionLogement(String prixAcquisitionLogement) {
 		this.prixAcquisitionLogement = prixAcquisitionLogement;
 	}
-	public int getNbPiece() {
+	public String getNbPiece() {
 		return nbPiece;
 	}
-	public void setNbPiece(int nbPiece) {
+	public void setNbPiece(String nbPiece) {
 		this.nbPiece = nbPiece;
 	}
-	public int getNbChambre() {
+	public String getNbChambre() {
 		return nbChambre;
 	}
-	public void setNbChambre(int nbChambre) {
+	public void setNbChambre(String nbChambre) {
 		this.nbChambre = nbChambre;
 	}
 	public String getDescriptionLogement() {
@@ -123,10 +140,10 @@ public class Logement {
 	public void setActifLogement(boolean actifLogement) {
 		this.actifLogement = actifLogement;
 	}
-	public double getMontantCaution() {
+	public String getMontantCaution() {
 		return montantCaution;
 	}
-	public void setMontantCaution(double montantCaution) {
+	public void setMontantCaution(String montantCaution) {
 		this.montantCaution = montantCaution;
 	}
 	public String getImmeuble() {
@@ -135,7 +152,12 @@ public class Logement {
 	public void setImmeuble(String immeuble) {
 		this.immeuble = immeuble;
 	}
-	
+	public String getProprietaire() {
+		return proprietaire;
+	}
+	public void setProprietaire(String proprietaire) {
+		this.proprietaire = proprietaire;
+	}
 	
 	public static void insererLogement(String idLogement, String superficie, String complementAdresseLogement, String typeLogement, String prixAcquisitionLog, String nbPiece, String nbChambre, String descriptionLogement,boolean avoirGarageLog, String fraisAcquiLog, boolean actifLogement, String montantCaution, String immeuble) throws SQLException {
 		RequeteInsert.insererLogement(idLogement, superficie, complementAdresseLogement, typeLogement, prixAcquisitionLog, nbPiece, nbChambre, descriptionLogement, avoirGarageLog, fraisAcquiLog, actifLogement, montantCaution, immeuble);
