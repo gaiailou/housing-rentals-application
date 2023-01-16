@@ -9,8 +9,8 @@ public class Location {
 	private Logement logement;
 	private Locataire locataire;
 	private double indiceInitial;
-	private double dateDebutLocation;
-	private double dateFinLocation;
+	private String dateDebutLocation;
+	private String dateFinLocation;
 	private double montantLoyerLocation;
 	private String typeLocation;
 	private double montantChargesLocation;
@@ -23,8 +23,8 @@ public class Location {
 	private String fichierBail;
 	private String fichierQuittanceLoyer;
 	private Contrat contrat;
-	public Location(Logement logement, Locataire locataire, double indiceInitial, double dateDebutLocation,
-			double dateFinLocation, double montantLoyerLocation, String typeLocation, double montantChargesLocation,
+	public Location(Logement logement, Locataire locataire, double indiceInitial, String dateDebutLocation,
+			String dateFinLocation, double montantLoyerLocation, String typeLocation, double montantChargesLocation,
 			double montantTaxeFonciereLocation, String photoLocation, String periodicitePaiementLoyer,
 			double ajustementLoyer, String dateVersementDernierLoyer, String dateVersementLoyer, String fichierBail,
 			String fichierQuittanceLoyer, Contrat contrat) {
@@ -54,19 +54,22 @@ public class Location {
 				montantChargesLocation, montantLoyerLocation, montantTaxeFonciereLocation, periodicitePaiementLoyer,
 				photoLocation, typeLocation);
 	}
+	
+	public Logement getLogement() {
+		return logement;
+	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-		if (!(obj instanceof Location)) {
+		if (obj == null)
 			return false;
-		}
+		if (getClass() != obj.getClass())
+			return false;
 		Location other = (Location) obj;
 		return Double.doubleToLongBits(ajustementLoyer) == Double.doubleToLongBits(other.ajustementLoyer)
-				&& Objects.equals(contrat, other.contrat)
-				&& Double.doubleToLongBits(dateDebutLocation) == Double.doubleToLongBits(other.dateDebutLocation)
-				&& Double.doubleToLongBits(dateFinLocation) == Double.doubleToLongBits(other.dateFinLocation)
+				&& Objects.equals(contrat, other.contrat) && Objects.equals(dateDebutLocation, other.dateDebutLocation)
+				&& Objects.equals(dateFinLocation, other.dateFinLocation)
 				&& Objects.equals(dateVersementDernierLoyer, other.dateVersementDernierLoyer)
 				&& Objects.equals(dateVersementLoyer, other.dateVersementLoyer)
 				&& Objects.equals(fichierBail, other.fichierBail)
@@ -81,9 +84,6 @@ public class Location {
 				&& Objects.equals(periodicitePaiementLoyer, other.periodicitePaiementLoyer)
 				&& Objects.equals(photoLocation, other.photoLocation)
 				&& Objects.equals(typeLocation, other.typeLocation);
-	}
-	public Logement getLogement() {
-		return logement;
 	}
 	public void setLogement(Logement logement) {
 		this.logement = logement;
@@ -100,16 +100,16 @@ public class Location {
 	public void setIndiceInitial(double indiceInitial) {
 		this.indiceInitial = indiceInitial;
 	}
-	public double getDateDebutLocation() {
+	public String getDateDebutLocation() {
 		return dateDebutLocation;
 	}
-	public void setDateDebutLocation(double dateDebutLocation) {
+	public void setDateDebutLocation(String dateDebutLocation) {
 		this.dateDebutLocation = dateDebutLocation;
 	}
-	public double getDateFinLocation() {
+	public String getDateFinLocation() {
 		return dateFinLocation;
 	}
-	public void setDateFinLocation(double dateFinLocation) {
+	public void setDateFinLocation(String dateFinLocation) {
 		this.dateFinLocation = dateFinLocation;
 	}
 	public double getMontantLoyerLocation() {
