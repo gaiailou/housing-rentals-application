@@ -26,100 +26,87 @@ import java.awt.Component;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.SwingConstants;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 
 public class AjouterLogement extends JInternalFrame {
 	private JTextField textId;
-	private JTextField textSurface;
 	private JTextField textNumAdresse;
-	private JTextField textVille;
-	private JTextField textCptAdresse;
-	private JTextField textCP;
 	private JTextField textNomLogement;
-	private JTextField textPrixAcquisition;
-	private JTextField textFraiAcquisition;
 	private JTextField textNomRueAdresse;
 	private JTextField textFieldCaution;
-	
 
 	private GestionAjouterLogement gestionClic;
 	
 	private JButton btnAnnuler;
 	private JButton btnValider;
+	private JTextField textFieldCplmtAdr;
+	private JTextField textFieldVille;
+	private JTextField textFieldCP;
+	private JTextField textFieldSuperficie;
+	private JTextField textFieldPrixAcquisition;
+	private JTextField textFieldFraisAcquisition;
 	
- 	public String getTextId() {
-		return textId.getText();
+	private JComboBox comboType;
+	
+	private JSpinner spinnerNbPiece;
+	private JSpinner spinnerNbChambre;
+	
+	private JTextArea textDescription;
+	
+	private JCheckBox CheckboxCopro;
+	private JCheckBox CheckboxGarage;
+	
+	public String getCheckboxCoPro() {
+		return this.CheckboxCopro.getSelectedIcon().toString();
+	}
+	
+	public boolean getCheckboxGarage() {
+		return this.CheckboxGarage.isSelected();
+	}
+	
+	public String getTextDescription() {
+		return this.textDescription.getSelectedText();
+	}
+	
+	public String getSpinnerNbChambre() {
+		return this.spinnerNbChambre.getValue().toString();
+	}
+	
+	public String getSpinnerNbPiece() {
+		return this.spinnerNbPiece.getValue().toString();
+	}
+	
+	public String getComboType() {
+		return this.comboType.getSelectedItem().toString();
+	}
+
+	public String getTextId() {
+		return this.textId.getText();
 	}
 
 	public void setTextId(JTextField textId) {
 		this.textId = textId;
 	}
 
-	public String getTextSurface() {
-		return textSurface.getText();
-	}
-
-	public void setTextSurface(JTextField textSurface) {
-		this.textSurface = textSurface;
-	}
-
 	public String getTextNumAdresse() {
-		return textNumAdresse.getText();
+		return this.textNumAdresse.getText();
 	}
 
 	public void setTextNumAdresse(JTextField textNumAdresse) {
 		this.textNumAdresse = textNumAdresse;
 	}
 
-	public String getTextVille() {
-		return textVille.getText();
-	}
-
-	public void setTextVille(JTextField textVille) {
-		this.textVille = textVille;
-	}
-
-	public String getTextCptAdresse() {
-		return textCptAdresse.getText();
-	}
-
-	public void setTextCptAdresse(JTextField textCptAdresse) {
-		this.textCptAdresse = textCptAdresse;
-	}
-
-	public String getTextCP() {
-		return textCP.getText();
-	}
-
-	public void setTextCP(JTextField textCP) {
-		this.textCP = textCP;
-	}
-
 	public String getTextNomLogement() {
-		return textNomLogement.getText();
+		return this.textNomLogement.getText();
 	}
 
 	public void setTextNomLogement(JTextField textNomLogement) {
 		this.textNomLogement = textNomLogement;
 	}
 
-	public String getTextPrixAcquisition() {
-		return textPrixAcquisition.getText();
-	}
-
-	public void setTextPrixAcquisition(JTextField textPrixAcquisition) {
-		this.textPrixAcquisition = textPrixAcquisition;
-	}
-
-	public String getTextFraiAcquisition() {
-		return textFraiAcquisition.getText();
-	}
-
-	public void setTextFraiAcquisition(JTextField textFraiAcquisition) {
-		this.textFraiAcquisition = textFraiAcquisition;
-	}
-
 	public String getTextNomRueAdresse() {
-		return textNomRueAdresse.getText();
+		return this.textNomRueAdresse.getText();
 	}
 
 	public void setTextNomRueAdresse(JTextField textNomRueAdresse) {
@@ -127,11 +114,83 @@ public class AjouterLogement extends JInternalFrame {
 	}
 
 	public String getTextFieldCaution() {
-		return textFieldCaution.getText();
+		return this.textFieldCaution.getText();
 	}
 
 	public void setTextFieldCaution(JTextField textFieldCaution) {
 		this.textFieldCaution = textFieldCaution;
+	}
+
+	public GestionAjouterLogement getGestionClic() {
+		return gestionClic;
+	}
+
+	public void setGestionClic(GestionAjouterLogement gestionClic) {
+		this.gestionClic = gestionClic;
+	}
+
+	public JButton getBtnAnnuler() {
+		return btnAnnuler;
+	}
+
+	public void setBtnAnnuler(JButton btnAnnuler) {
+		this.btnAnnuler = btnAnnuler;
+	}
+
+	public JButton getBtnValider() {
+		return btnValider;
+	}
+
+	public void setBtnValider(JButton btnValider) {
+		this.btnValider = btnValider;
+	}
+
+	public String getTextFieldCplmtAdr() {
+		return this.textFieldCplmtAdr.getText();
+	}
+
+	public void setTextFieldCplmtAdr(JTextField textFieldCplmtAdr) {
+		this.textFieldCplmtAdr = textFieldCplmtAdr;
+	}
+
+	public String getTextFieldVille() {
+		return this.textFieldVille.getText();
+	}
+
+	public void setTextFieldVille(JTextField textFieldVille) {
+		this.textFieldVille = textFieldVille;
+	}
+
+	public String getTextFieldCP() {
+		return this.textFieldCP.getText();
+	}
+
+	public void setTextFieldCP(JTextField textFieldCP) {
+		this.textFieldCP = textFieldCP;
+	}
+
+	public String getTextFieldSuperficie() {
+		return this.textFieldSuperficie.getText();
+	}
+
+	public void setTextFieldSuperficie(JTextField textFieldExempleSurface) {
+		this.textFieldSuperficie = textFieldExempleSurface;
+	}
+
+	public String getTextFieldPrixAcquisition() {
+		return this.textFieldPrixAcquisition.getText();
+	}
+
+	public void setTextFieldPrixAcquisition(JTextField textFieldPrixAcquisition) {
+		this.textFieldPrixAcquisition = textFieldPrixAcquisition;
+	}
+
+	public String getTextFieldFraisAcquisition() {
+		return this.textFieldFraisAcquisition.getText();
+	}
+
+	public void setTextFieldFraisAcquisition(JTextField textFieldFraisAcquisition) {
+		this.textFieldFraisAcquisition = textFieldFraisAcquisition;
 	}
 
 	public AjouterLogement() {
@@ -161,10 +220,11 @@ public class AjouterLogement extends JInternalFrame {
 		
 		JPanel panelNom = new JPanel();
 		panel1.add(panelNom);
-		panelNom.setLayout(new BoxLayout(panelNom, BoxLayout.Y_AXIS));
+		panelNom.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_17 = new JPanel();
 		panelNom.add(panel_17);
+		panel_17.setLayout(new GridLayout(3, 1, 0, 0));
 		
 		JLabel LabelId = new JLabel("Identifiant :");
 		panel_17.add(LabelId);
@@ -183,20 +243,21 @@ public class AjouterLogement extends JInternalFrame {
 		
 		JPanel panel_Description = new JPanel();
 		panel1.add(panel_Description);
-		panel_Description.setLayout(new BorderLayout(0, 0));
+		panel_Description.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel LabelDesc = new JLabel("Description :");
 		LabelDesc.setAlignmentY(Component.TOP_ALIGNMENT);
-		panel_Description.add(LabelDesc, BorderLayout.NORTH);
+		panel_Description.add(LabelDesc);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_Description.add(scrollPane);
 		
-		JTextArea textDescription = new JTextArea();
+		this.textDescription = new JTextArea();
+		textDescription.setColumns(1);
 		scrollPane.setViewportView(textDescription);
-		textDescription.setToolTipText("Une tr\u00E8s longue description langoureuse sur le logement parce qu'il a toute les qualit\u00E9 du monde rien qu'a lui");
-		textDescription.setTabSize(7);
-		textDescription.setRows(3);
+		textDescription.setToolTipText("Description du logement");
+		textDescription.setTabSize(5);
+		textDescription.setRows(1);
 		
 		JPanel panel2 = new JPanel();
 		panelContent.add(panel2);
@@ -205,14 +266,29 @@ public class AjouterLogement extends JInternalFrame {
 		JPanel panel_type = new JPanel();
 		panel_type.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panel2.add(panel_type);
-		panel_type.setLayout(new BoxLayout(panel_type, BoxLayout.X_AXIS));
+		panel_type.setLayout(new GridLayout(2, 3, 0, 0));
 		
 		JLabel LabelType = new JLabel("Type                      ");
 		panel_type.add(LabelType);
 		
-		JComboBox comboType = new JComboBox();
+		this.comboType = new JComboBox();
 		comboType.setModel(new DefaultComboBoxModel(new String[] {"Appartement", "Maison", "Garage"}));
 		panel_type.add(comboType);
+		
+		JLabel lblEspace = new JLabel(" ");
+		panel_type.add(lblEspace);
+		
+		JLabel LabelSurface = new JLabel("Surface                     ");
+		panel_type.add(LabelSurface);
+		
+		textFieldSuperficie = new JTextField();
+		textFieldSuperficie.setText("25");
+		textFieldSuperficie.setForeground(Color.LIGHT_GRAY);
+		textFieldSuperficie.setColumns(10);
+		panel_type.add(textFieldSuperficie);
+		
+		JLabel LabelUnite = new JLabel("m\u00B2");
+		panel_type.add(LabelUnite);
 		
 		JPanel panel_nb_piece = new JPanel();
 		FlowLayout fl_panel_nb_piece = (FlowLayout) panel_nb_piece.getLayout();
@@ -222,36 +298,26 @@ public class AjouterLogement extends JInternalFrame {
 		JLabel LabelNbPiece = new JLabel("Nombre de pi\u00E8ce");
 		panel_nb_piece.add(LabelNbPiece);
 		
-		JSpinner spinnerPiece = new JSpinner();
-		panel_nb_piece.add(spinnerPiece);
+		this.spinnerNbPiece = new JSpinner();
+		panel_nb_piece.add(spinnerNbPiece);
 		
-		JPanel panel_surface = new JPanel();
-		FlowLayout fl_panel_surface = (FlowLayout) panel_surface.getLayout();
-		fl_panel_surface.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_surface);
+		JLabel labelNbChambre = new JLabel("dont");
+		panel_nb_piece.add(labelNbChambre);
 		
-		JLabel LabelSurface = new JLabel("Surface                     ");
-		panel_surface.add(LabelSurface);
+		this.spinnerNbChambre = new JSpinner();
+		panel_nb_piece.add(spinnerNbChambre);
 		
-		textSurface = new JTextField();
-		textSurface.setForeground(Color.LIGHT_GRAY);
-		textSurface.setText("25");
-		panel_surface.add(textSurface);
-		textSurface.setColumns(10);
+		JLabel lblnbChambre = new JLabel("chambre(s)");
+		panel_nb_piece.add(lblnbChambre);
 		
-		JLabel LabelUnite = new JLabel("m\u00B2");
-		panel_surface.add(LabelUnite);
+		JPanel panelCoproGarage = new JPanel();
+		panel_nb_piece.add(panelCoproGarage);
 		
-		JPanel panel_nb_chambre = new JPanel();
-		FlowLayout fl_panel_nb_chambre = (FlowLayout) panel_nb_chambre.getLayout();
-		fl_panel_nb_chambre.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_nb_chambre);
+		this.CheckboxCopro = new JCheckBox("Co-propri\u00E9t\u00E9");
+		panelCoproGarage.add(CheckboxCopro);
 		
-		JLabel labelNbChambre = new JLabel("Nombre de chambre");
-		panel_nb_chambre.add(labelNbChambre);
-		
-		JSpinner spinnerChambre = new JSpinner();
-		panel_nb_chambre.add(spinnerChambre);
+		this.CheckboxGarage = new JCheckBox("Garage");
+		panelCoproGarage.add(CheckboxGarage);
 		
 		JPanel panel_adresse = new JPanel();
 		FlowLayout fl_panel_adresse = (FlowLayout) panel_adresse.getLayout();
@@ -263,7 +329,7 @@ public class AjouterLogement extends JInternalFrame {
 		
 		textNumAdresse = new JTextField();
 		panel_adresse.add(textNumAdresse);
-		textNumAdresse.setColumns(10);
+		textNumAdresse.setColumns(3);
 		
 		JLabel LabelNomRueAdresse = new JLabel("Rue");
 		panel_adresse.add(LabelNomRueAdresse);
@@ -272,28 +338,26 @@ public class AjouterLogement extends JInternalFrame {
 		panel_adresse.add(textNomRueAdresse);
 		textNomRueAdresse.setColumns(10);
 		
-		JPanel panelCoproGarage = new JPanel();
-		FlowLayout fl_panelCoproGarage = (FlowLayout) panelCoproGarage.getLayout();
-		fl_panelCoproGarage.setAlignment(FlowLayout.LEFT);
-		panel2.add(panelCoproGarage);
-		
-		JCheckBox CheckboxCopro = new JCheckBox("Co-propri\u00E9t\u00E9");
-		panelCoproGarage.add(CheckboxCopro);
-		
-		JCheckBox CheckboxGarage = new JCheckBox("Garage");
-		panelCoproGarage.add(CheckboxGarage);
-		
-		JPanel panel_cpt_adresse = new JPanel();
-		FlowLayout fl_panel_cpt_adresse = (FlowLayout) panel_cpt_adresse.getLayout();
-		fl_panel_cpt_adresse.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_cpt_adresse);
-		
 		JLabel LabelCptAdresse = new JLabel("Compl\u00E9ment adresse ");
-		panel_cpt_adresse.add(LabelCptAdresse);
+		panel_adresse.add(LabelCptAdresse);
 		
-		textCptAdresse = new JTextField();
-		panel_cpt_adresse.add(textCptAdresse);
-		textCptAdresse.setColumns(10);
+		textFieldCplmtAdr = new JTextField();
+		textFieldCplmtAdr.setColumns(10);
+		panel_adresse.add(textFieldCplmtAdr);
+		
+		JLabel LabelVille = new JLabel("Ville                            ");
+		panel_adresse.add(LabelVille);
+		
+		textFieldVille = new JTextField();
+		textFieldVille.setColumns(10);
+		panel_adresse.add(textFieldVille);
+		
+		JLabel LabelCP = new JLabel("Code postal               ");
+		panel_adresse.add(LabelCP);
+		
+		textFieldCP = new JTextField();
+		textFieldCP.setColumns(10);
+		panel_adresse.add(textFieldCP);
 		
 		JPanel panelCaution = new JPanel();
 		FlowLayout fl_panelCaution = (FlowLayout) panelCaution.getLayout();
@@ -310,57 +374,30 @@ public class AjouterLogement extends JInternalFrame {
 		JLabel lblEuros = new JLabel("\u20AC");
 		panelCaution.add(lblEuros);
 		
-		JPanel panel_ville = new JPanel();
-		FlowLayout fl_panel_ville = (FlowLayout) panel_ville.getLayout();
-		fl_panel_ville.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_ville);
-		
-		JLabel LabelVille = new JLabel("Ville                            ");
-		panel_ville.add(LabelVille);
-		
-		textVille = new JTextField();
-		panel_ville.add(textVille);
-		textVille.setColumns(10);
-		
 		JPanel panel_prix_acqui = new JPanel();
-		FlowLayout fl_panel_prix_acqui = (FlowLayout) panel_prix_acqui.getLayout();
-		fl_panel_prix_acqui.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_prix_acqui);
+		panelCaution.add(panel_prix_acqui);
+		panel_prix_acqui.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JLabel labelPrixAcquisition = new JLabel("Prix d'acquisition");
-		panel_prix_acqui.add(labelPrixAcquisition);
+		JLabel lblPrixDacquisition = new JLabel("Prix d'acquisition : ");
+		panel_prix_acqui.add(lblPrixDacquisition);
 		
-		textPrixAcquisition = new JTextField();
-		panel_prix_acqui.add(textPrixAcquisition);
-		textPrixAcquisition.setColumns(10);
+		textFieldPrixAcquisition = new JTextField();
+		textFieldPrixAcquisition.setColumns(5);
+		panel_prix_acqui.add(textFieldPrixAcquisition);
 		
-		JPanel panel_codepostal = new JPanel();
-		FlowLayout fl_panel_codepostal = (FlowLayout) panel_codepostal.getLayout();
-		fl_panel_codepostal.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_codepostal);
+		JLabel lblEuro1 = new JLabel("\u20AC");
+		panel_prix_acqui.add(lblEuro1);
 		
-		JLabel LabelCP = new JLabel("Code postal               ");
-		panel_codepostal.add(LabelCP);
+		JLabel lblFraisDacquisition = new JLabel("Frais d'acquisition : ");
+		lblFraisDacquisition.setHorizontalAlignment(SwingConstants.LEFT);
+		panel_prix_acqui.add(lblFraisDacquisition);
 		
-		textCP = new JTextField();
-		panel_codepostal.add(textCP);
-		textCP.setColumns(10);
+		textFieldFraisAcquisition = new JTextField();
+		textFieldFraisAcquisition.setColumns(5);
+		panel_prix_acqui.add(textFieldFraisAcquisition);
 		
-		JPanel panel_frai_acqui = new JPanel();
-		FlowLayout fl_panel_frai_acqui = (FlowLayout) panel_frai_acqui.getLayout();
-		fl_panel_frai_acqui.setAlignment(FlowLayout.LEFT);
-		panel2.add(panel_frai_acqui);
-		
-		JLabel labelFraiAcquisition = new JLabel("Frais d'acquisition");
-		labelFraiAcquisition.setHorizontalAlignment(SwingConstants.LEFT);
-		panel_frai_acqui.add(labelFraiAcquisition);
-		
-		textFraiAcquisition = new JTextField();
-		panel_frai_acqui.add(textFraiAcquisition);
-		textFraiAcquisition.setColumns(10);
-		
-		
-
+		JLabel lblEuro2 = new JLabel("\u20AC");
+		panel_prix_acqui.add(lblEuro2);
 
 	}
 }

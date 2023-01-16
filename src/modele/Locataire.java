@@ -22,7 +22,6 @@ public class Locataire {
 	private String pieceIdentiteLocataire;
 	private DataSource bd;
 	
-	
 	public Locataire(String idLocataire, String nomLocataire, String prenomLocataire, char genreLocataire,
 			char[] telephoneFixeLocataire, char[] telephoneMobileLocataire, String mailLocataire, String ddnLocataire,
 			String pieceIdentiteLocataire) {
