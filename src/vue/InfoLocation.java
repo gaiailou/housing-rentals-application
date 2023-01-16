@@ -24,7 +24,8 @@ import java.awt.event.ActionListener;
 public class InfoLocation extends JInternalFrame implements ActionListener {
 	
 	//private Location location;
-		private Object selected;
+		private Object selected1;
+		private Object selected2;
 		
 	//Les attributs a modifier pour connecter a la bd
 	//...
@@ -41,9 +42,10 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public InfoLocation(Object selected) {
+	public InfoLocation(Object selected1,Object selected2) {
 		//this.location = (Location) selected;
-		this.selected=selected;
+		this.selected1=selected1;
+		this.selected2=selected2;
 		setResizable(true);
 		setBounds(100, 100, 822, 693);
 		
@@ -51,7 +53,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		getContentPane().add(panelContent, BorderLayout.NORTH);
 		panelContent.setLayout(new BoxLayout(panelContent, BoxLayout.Y_AXIS));
 		
-		JLabel labelNom = new JLabel((String)this.selected);
+		JLabel labelNom = new JLabel((String)this.selected1+" "+this.selected2);
 		//labelNom.setText(locataire.getNom());
 		panelContent.add(labelNom);
 		

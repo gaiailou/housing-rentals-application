@@ -22,6 +22,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import modele.Locataire;
+import modele.Location;
 import modele.Logement;
 import modele.dao.requete.RequeteSelect;
 
@@ -277,8 +278,8 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		});
 		jListLogements.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
-				   Object selected = listeDeLogements.get(jListLogements.getSelectedIndex()).getIdLogement();
-				   InfoLogement infoLogement = new InfoLogement(selected);
+				   Logement logementSelected = listeDeLogements.get(jListLogements.getSelectedIndex());
+				   InfoLogement infoLogement = new InfoLogement(logementSelected);
 				   getLayeredPane().add(infoLogement);
 				   infoLogement.setVisible(true);
 				   infoLogement.moveToFront();
@@ -378,10 +379,18 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JScrollPane scrollPane_3 = new JScrollPane();
 		panelContentLoca.add(scrollPane_3);
 		
-		JList listLocations = new JList();
-		scrollPane_3.setViewportView(listLocations);
-		listLocations.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Location 1 : Logement 3, Pierre Lacoste, 750\u20AC, 85\u20AC", "Location 2 : Logement 6, Patrick JeanJean, 1500\u20AC,700\u20AC", "Location 3 : Logement 4, Laly Miline, 450\u20AC, 50\u20AC"};
+		JList jListLocations = new JList();
+		scrollPane_3.setViewportView(jListLocations);
+		ArrayList<Location> listeDeLocations;
+		listeDeLocations = RequeteSelect.SelectLocation() ;
+		String[] tableauDeLocations = new String[listeDeLocations.size()];
+		for (int i=0; i<listeDeLocations.size();i++) {
+			tableauDeLocations[i] = "Location de logement " + listeDeLocations.get(i).getLogement()
+					+ "locataire "+listeDeLocations.get(i).getLocataire() 
+					+ ", débuté le " +listeDeLocations.get(i).getDateDebutLocation();
+		}
+		jListLocations.setModel(new AbstractListModel() {
+			String[] values = tableauDeLocations;
 			public int getSize() {
 				return values.length;
 			}
@@ -389,10 +398,11 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				return values[index];
 			}
 		});
-		listLocations.addMouseListener(new MouseAdapter() {
+		jListLocations.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
-				   Object selected = listLocations.getSelectedValue();
-				   InfoLocation infoLocation = new InfoLocation(selected);
+				   Object selected1 = listeDeLocations.get(jListLocations.getSelectedIndex()).getLocataire();
+				   Object selected2 = listeDeLocations.get(jListLocations.getSelectedIndex()).getLogement();
+				   InfoLocation infoLocation = new InfoLocation(selected1,selected2);
 				   getLayeredPane().add(infoLocation);
 				   infoLocation.setVisible(true);
 				   infoLocation.moveToFront();

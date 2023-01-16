@@ -3,28 +3,28 @@ package modele;
 import java.util.Objects;
 
 public class Location {
-	private Logement logement;
-	private Locataire locataire;
-	private double indiceInitial;
+	private String logement;
+	private String locataire;
+	private String indiceInitial;
 	private String dateDebutLocation;
 	private String dateFinLocation;
-	private double montantLoyerLocation;
+	private String montantLoyerLocation;
 	private String typeLocation;
-	private double montantChargesLocation;
-	private double montantTaxeFonciereLocation;
+	private String montantChargesLocation;
+	private String montantTaxeFonciereLocation;
 	private String photoLocation;
 	private String periodicitePaiementLoyer;
-	private double ajustementLoyer;
+	private String ajustementLoyer;
 	private String dateVersementDernierLoyer;
 	private String dateVersementLoyer;
 	private String fichierBail;
 	private String fichierQuittanceLoyer;
-	private Contrat contrat;
-	public Location(Logement logement, Locataire locataire, double indiceInitial, String dateDebutLocation,
-			String dateFinLocation, double montantLoyerLocation, String typeLocation, double montantChargesLocation,
-			double montantTaxeFonciereLocation, String photoLocation, String periodicitePaiementLoyer,
-			double ajustementLoyer, String dateVersementDernierLoyer, String dateVersementLoyer, String fichierBail,
-			String fichierQuittanceLoyer, Contrat contrat) {
+	private String contrat;
+	public Location(String logement, String locataire, String indiceInitial, String dateDebutLocation,
+			String dateFinLocation, String montantLoyerLocation, String typeLocation, String montantChargesLocation,
+			String montantTaxeFonciereLocation, String photoLocation, String periodicitePaiementLoyer,
+			String ajustementLoyer, String dateVersementDernierLoyer, String dateVersementLoyer, String fichierBail,
+			String fichierQuittanceLoyer, String contrat) {
 		super();
 		this.logement = logement;
 		this.locataire = locataire;
@@ -52,7 +52,7 @@ public class Location {
 				photoLocation, typeLocation);
 	}
 	
-	public Logement getLogement() {
+	public String getLogement() {
 		return logement;
 	}
 	@Override
@@ -64,37 +64,35 @@ public class Location {
 		if (getClass() != obj.getClass())
 			return false;
 		Location other = (Location) obj;
-		return Double.doubleToLongBits(ajustementLoyer) == Double.doubleToLongBits(other.ajustementLoyer)
+		return Objects.equals(ajustementLoyer,other.ajustementLoyer)
 				&& Objects.equals(contrat, other.contrat) && Objects.equals(dateDebutLocation, other.dateDebutLocation)
 				&& Objects.equals(dateFinLocation, other.dateFinLocation)
 				&& Objects.equals(dateVersementDernierLoyer, other.dateVersementDernierLoyer)
 				&& Objects.equals(dateVersementLoyer, other.dateVersementLoyer)
 				&& Objects.equals(fichierBail, other.fichierBail)
 				&& Objects.equals(fichierQuittanceLoyer, other.fichierQuittanceLoyer)
-				&& Double.doubleToLongBits(indiceInitial) == Double.doubleToLongBits(other.indiceInitial)
+				&& Objects.equals(indiceInitial,other.indiceInitial)
 				&& Objects.equals(locataire, other.locataire) && Objects.equals(logement, other.logement)
-				&& Double.doubleToLongBits(montantChargesLocation) == Double
-						.doubleToLongBits(other.montantChargesLocation)
-				&& Double.doubleToLongBits(montantLoyerLocation) == Double.doubleToLongBits(other.montantLoyerLocation)
-				&& Double.doubleToLongBits(montantTaxeFonciereLocation) == Double
-						.doubleToLongBits(other.montantTaxeFonciereLocation)
+				&& Objects.equals(montantChargesLocation,other.montantChargesLocation)
+				&& Objects.equals(montantLoyerLocation,other.montantLoyerLocation)
+				&& Objects.equals(montantTaxeFonciereLocation,other.montantTaxeFonciereLocation)
 				&& Objects.equals(periodicitePaiementLoyer, other.periodicitePaiementLoyer)
 				&& Objects.equals(photoLocation, other.photoLocation)
 				&& Objects.equals(typeLocation, other.typeLocation);
 	}
-	public void setLogement(Logement logement) {
+	public void setLogement(String logement) {
 		this.logement = logement;
 	}
-	public Locataire getLocataire() {
+	public String getLocataire() {
 		return locataire;
 	}
-	public void setLocataire(Locataire locataire) {
+	public void setLocataire(String locataire) {
 		this.locataire = locataire;
 	}
-	public double getIndiceInitial() {
+	public String getIndiceInitial() {
 		return indiceInitial;
 	}
-	public void setIndiceInitial(double indiceInitial) {
+	public void setIndiceInitial(String indiceInitial) {
 		this.indiceInitial = indiceInitial;
 	}
 	public String getDateDebutLocation() {
@@ -109,10 +107,10 @@ public class Location {
 	public void setDateFinLocation(String dateFinLocation) {
 		this.dateFinLocation = dateFinLocation;
 	}
-	public double getMontantLoyerLocation() {
+	public String getMontantLoyerLocation() {
 		return montantLoyerLocation;
 	}
-	public void setMontantLoyerLocation(double montantLoyerLocation) {
+	public void setMontantLoyerLocation(String montantLoyerLocation) {
 		this.montantLoyerLocation = montantLoyerLocation;
 	}
 	public String getTypeLocation() {
@@ -121,16 +119,16 @@ public class Location {
 	public void setTypeLocation(String typeLocation) {
 		this.typeLocation = typeLocation;
 	}
-	public double getMontantChargesLocation() {
+	public String getMontantChargesLocation() {
 		return montantChargesLocation;
 	}
-	public void setMontantChargesLocation(double montantChargesLocation) {
+	public void setMontantChargesLocation(String montantChargesLocation) {
 		this.montantChargesLocation = montantChargesLocation;
 	}
-	public double getMontantTaxeFonciereLocation() {
+	public String getMontantTaxeFonciereLocation() {
 		return montantTaxeFonciereLocation;
 	}
-	public void setMontantTaxeFonciereLocation(double montantTaxeFonciereLocation) {
+	public void setMontantTaxeFonciereLocation(String montantTaxeFonciereLocation) {
 		this.montantTaxeFonciereLocation = montantTaxeFonciereLocation;
 	}
 	public String getPhotoLocation() {
@@ -145,10 +143,10 @@ public class Location {
 	public void setPeriodicitePaiementLoyer(String periodicitePaiementLoyer) {
 		this.periodicitePaiementLoyer = periodicitePaiementLoyer;
 	}
-	public double getAjustementLoyer() {
+	public String getAjustementLoyer() {
 		return ajustementLoyer;
 	}
-	public void setAjustementLoyer(double ajustementLoyer) {
+	public void setAjustementLoyer(String ajustementLoyer) {
 		this.ajustementLoyer = ajustementLoyer;
 	}
 	public String getDateVersementDernierLoyer() {
@@ -175,10 +173,10 @@ public class Location {
 	public void setFichierQuittanceLoyer(String fichierQuittanceLoyer) {
 		this.fichierQuittanceLoyer = fichierQuittanceLoyer;
 	}
-	public Contrat getContrat() {
+	public String getContrat() {
 		return contrat;
 	}
-	public void setContrat(Contrat contrat) {
+	public void setContrat(String contrat) {
 		this.contrat = contrat;
 	}
 	

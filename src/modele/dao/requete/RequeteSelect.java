@@ -3,6 +3,7 @@ package modele.dao.requete;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modele.Locataire;
+import modele.Location;
 import modele.Logement;
 
 import java.sql.Connection;
@@ -29,8 +30,8 @@ public class RequeteSelect {
                 		curseurLogement.getString("complémentAdresseLogement"),
                 		curseurLogement.getString("typeLogement"),
                 		curseurLogement.getString("prixAcquisitionLogement"),
-                		curseurLogement.getInt("nbPièce"),
-                		curseurLogement.getInt("nbChambre"),
+                		curseurLogement.getString("nbPièce"),
+                		curseurLogement.getString("nbChambre"),
                 		curseurLogement.getString("descriptionLogement"),
                 		curseurLogement.getBoolean("avoirGarageLogement"),
                 		curseurLogement.getString("fraisAcquisitionLogement"),
@@ -83,5 +84,50 @@ public class RequeteSelect {
             throw ex;
         }
 		return liste;
+	}
+	
+	public static ArrayList<Location> SelectLocation() throws SQLException {
+
+        ArrayList<Location> liste = new ArrayList<Location>();
+		Connection cn = ConnexionBD.getConnectionBase();
+
+        String req = "SELECT * FROM BSJ3657A.location";
+        
+        try {
+            Statement st = cn.createStatement();
+            ResultSet curseurLocation = st.executeQuery(req);
+            boolean enregistrementExiste = curseurLocation.next();
+            while (enregistrementExiste) {
+            	 
+                liste.add(new Location(
+                		curseurLocation.getString("idlogement"), 
+                		curseurLocation.getString("id_locataire"), 
+                		curseurLocation.getString("indiceInitial"), 
+                		curseurLocation.getString("dateDébutLocation"),
+                		curseurLocation.getString("dateFinLocation"), 
+                		curseurLocation.getString("montantLoyerLocation"), 
+                		curseurLocation.getString("typeLocation"), 
+                		curseurLocation.getString("montantChargesLocation"),
+                		curseurLocation.getString("montantTaxeFoncièreLocation"), 
+                		curseurLocation.getString("photoLocation"), 
+                		curseurLocation.getString("périodicitéPaiementLoyer"),
+                		curseurLocation.getString("ajustementLoyer"), 
+                		curseurLocation.getString("dateVersementDernierLoyer"), 
+                		curseurLocation.getString("dateVersementLoyer"), 
+                		curseurLocation.getString("fichierBail"),
+                		curseurLocation.getString("fichierQuittanceLoyer"), 
+                		curseurLocation.getString("idcontrat")));
+                
+                enregistrementExiste = curseurLocation.next();
+            }
+            System.out.println("Fin de la liste des locations…");
+            curseurLocation.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+            throw ex;
+        }
+		return liste;
+	
 	}
 }

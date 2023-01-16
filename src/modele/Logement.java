@@ -8,8 +8,8 @@ public class Logement {
 	private String complementAdresseLogement;
 	private String typeLogement;
 	private String prixAcquisitionLogement;
-	private int nbPiece;
-	private int nbChambre;
+	private String nbPiece;
+	private String nbChambre;
 	private String descriptionLogement;
 	private boolean avoirGarageLogement;
 	private String fraisAcquisitionLogement;
@@ -18,7 +18,7 @@ public class Logement {
 	private String immeuble;
 	private String proprietaire;
 	public Logement(String idLogement, String superficieLogement, String complementAdresseLogement, String typeLogement,
-			String prixAcquisitionLogement, int nbPiece, int nbChambre, String descriptionLogement,
+			String prixAcquisitionLogement, String nbPiece, String nbChambre, String descriptionLogement,
 			boolean avoirGarageLogement, String fraisAcquisitionLogement, boolean actifLogement, String montantCaution,
 			String immeuble, String proprietaire) {
 		super();
@@ -98,16 +98,16 @@ public class Logement {
 	public void setPrixAcquisitionLogement(String prixAcquisitionLogement) {
 		this.prixAcquisitionLogement = prixAcquisitionLogement;
 	}
-	public int getNbPiece() {
+	public String getNbPiece() {
 		return nbPiece;
 	}
-	public void setNbPiece(int nbPiece) {
+	public void setNbPiece(String nbPiece) {
 		this.nbPiece = nbPiece;
 	}
-	public int getNbChambre() {
+	public String getNbChambre() {
 		return nbChambre;
 	}
-	public void setNbChambre(int nbChambre) {
+	public void setNbChambre(String nbChambre) {
 		this.nbChambre = nbChambre;
 	}
 	public String getDescriptionLogement() {
