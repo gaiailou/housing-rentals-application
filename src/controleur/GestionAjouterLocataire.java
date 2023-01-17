@@ -38,14 +38,14 @@ public class GestionAjouterLocataire implements ActionListener {
 				try {
 					Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField(), null);
 					JOptionPane jpn = new JOptionPane();
-					jpn.showMessageDialog(jpn, "Votre nouveau locataire a été inséré avec succès", "Insertion OK", JOptionPane.INFORMATION_MESSAGE);
+					jpn.showMessageDialog(this.al, "Votre nouveau locataire a été inséré avec succès.", "Insertion OK", JOptionPane.INFORMATION_MESSAGE);
 					this.al.dispose();
 				} catch (SQLException e1) {
 					int msgErreur = e1.getErrorCode();
 					JOptionPane jpn = new JOptionPane();
 					switch (msgErreur) {
 					case 12899 :
-						jpn.showMessageDialog(jpn, "Valeur trop grande pour le champ de saisie de l'identifiant du locataire.\n V�rifiez les informations et recommencez.", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
+						jpn.showMessageDialog(this.al, "Valeur trop grande pour le champ de saisie de l'identifiant du locataire.\n V�rifiez les informations et recommencez.", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
 						break;
 					default :
 						jpn.showMessageDialog(jpn, "Il semble que les param�tres entr�s rencontrent un probl�me.\n V�rifiez les informations et recommencez.", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
