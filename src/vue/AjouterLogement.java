@@ -210,7 +210,7 @@ public class AjouterLogement extends JInternalFrame {
 	public AjouterLogement() {
 		this.gestionClic = new GestionAjouterLogement(this);
 		
-		setBounds(100, 100, 550, 400);
+		setBounds(50, 50, 550, 400);
 		
 		JPanel panelFooter = new JPanel();
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);

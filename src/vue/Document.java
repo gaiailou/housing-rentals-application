@@ -11,9 +11,10 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
+
 public class Document extends JInternalFrame {
 
-	/**
+
 	 * Create the frame.
 	 */
 	public Document() {
@@ -65,4 +66,7 @@ public class Document extends JInternalFrame {
 		panel_1.add(lblRegulCharge);
 
 	}
+
+	}
+
 }
