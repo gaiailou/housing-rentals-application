@@ -135,7 +135,7 @@ public class InfoLocataire extends JInternalFrame {
 		this.NbFixe1Locataire=this.locataireSelected.getTelephoneFixeLocataire();
 		this.NbPortable1Locataire=this.locataireSelected.getTelephoneMobileLocataire();
 		
-		setBounds(100, 100, 577, 507);
+		setBounds(50, 50, 577, 507);
 		
 		JPanel panelHeader = new JPanel();
 		getContentPane().add(panelHeader, BorderLayout.NORTH);
