@@ -28,8 +28,11 @@ public class GestionAjouterLogement implements ActionListener {
 					//TODO;
 				}else {
 					Immeuble.insererImmeuble(this.al.getTextNomLogement(), this.al.getTextNumAdresse(), this.al.getTextNomRueAdresse(), null, this.al.getTextFieldCP(), this.al.getTextFieldVille(), this.al.getCheckboxCoPro());
-					//Logement.insererLogement(this.al.getTextId(), this.al.getTextFieldSuperficie(), this.al.getTextFieldCplmtAdr(), this.al.getComboType(), this.al.getTextFieldPrixAcquisition(), this.al.getSpinnerNbPiece(), this.al.getSpinnerNbChambre(), this.al.getTextDescription(), this.al.getCheckboxGarage(), this.al.getTextFieldFraisAcquisition(), true, this.al.getTextFieldCaution(), this.al.getTextNomLogement());
-					//idLogement, 									superficie, 						complementAdresseLogement, 	typeLogement, 					prixAcquisitionLog, 				nbPiece, 					nbChambre, 						descriptionLogement, 		avoirGarageLog, 				fraisAcquiLog, 				actifLogement, montantCaution, 			immeuble
+					try {
+						Logement.insererLogement(this.al.getTextId(), this.al.getTextFieldSuperficie(), this.al.getTextFieldCplmtAdr(), this.al.getComboType(), this.al.getTextFieldPrixAcquisition(), this.al.getSpinnerNbPiece(), this.al.getSpinnerNbChambre(), this.al.getTextDescription(), this.al.getCheckboxGarage(), this.al.getTextFieldFraisAcquisition(), true, this.al.getTextFieldCaution(), this.al.getTextNomLogement());
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
 				}
 				this.al.dispose();
 				break;
