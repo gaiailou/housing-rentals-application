@@ -32,16 +32,28 @@ public class GestionAjouterLocataire implements ActionListener {
 		case "Valider":
 			if (this.al.getTextId().compareTo("") == 0) {
 				this.al.getLblIdLoc().setText(this.al.getLblIdLoc().getText() + "      *vide*");
-				//voir comment le mettre en rouge ou le mettre en évidence pour si on se trompe en entrant les données
+				this.al.getLblIdLoc().setForeground(new Color(255, 0, 0));
+				//voir comment le mettre en rouge ou le mettre en ï¿½vidence pour si on se trompe en entrant les donnï¿½es
 			}else {
 				try {
 					Locataire.insererLocataire(this.al.getTextId(), this.al.getTextNom(), this.al.getTextPrenom(), this.al.getComboCivilite(), this.al.getTextNbFixe(), this.al.getTextNbPortable(), this.al.getTextDateNaissance(), this.al.getTextField(), null);
-				} catch (SQLException e1) {
 					JOptionPane jpn = new JOptionPane();
-					jpn.showMessageDialog(jpn, "Il semble que les paramètres entrés rencontrent un problème.\n Vérifiez les informations et recommencez.", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
+					jpn.showMessageDialog(jpn, "Votre nouveau locataire a Ã©tÃ© insÃ©rÃ© avec succÃ¨s", "Insertion OK", JOptionPane.INFORMATION_MESSAGE);
+					this.al.dispose();
+				} catch (SQLException e1) {
+					int msgErreur = e1.getErrorCode();
+					JOptionPane jpn = new JOptionPane();
+					switch (msgErreur) {
+					case 12899 :
+						jpn.showMessageDialog(jpn, "Valeur trop grande pour le champ de saisie de l'identifiant du locataire.\n Vï¿½rifiez les informations et recommencez.", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
+						break;
+					default :
+						jpn.showMessageDialog(jpn, "Il semble que les paramï¿½tres entrï¿½s rencontrent un problï¿½me.\n Vï¿½rifiez les informations et recommencez.", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
+						e1.printStackTrace();
+					}
+					
 				}
-				this.al.dispose();
+				//this.al.dispose();
 			}
 			
 		}
