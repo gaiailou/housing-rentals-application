@@ -35,6 +35,7 @@ public class AjouterLogement extends JInternalFrame {
 	private JTextField textNomLogement;
 	private JTextField textNomRueAdresse;
 	private JTextField textFieldCaution;
+	private JTextField textFieldAnneeConstruction;
 
 	private GestionAjouterLogement gestionClic;
 	
@@ -56,9 +57,22 @@ public class AjouterLogement extends JInternalFrame {
 	
 	private JCheckBox CheckboxCopro;
 	private JCheckBox CheckboxGarage;
+	private JTextField textField;
 	
-	public String getCheckboxCoPro() {
-		return this.CheckboxCopro.getSelectedIcon().toString();
+	public String getTextFieldAnneeConstruction() {
+		return this.textFieldAnneeConstruction.getText();
+	}
+
+	public void setTextFieldAnneeConstruction(JTextField textFieldAnneeConstruction) {
+		this.textFieldAnneeConstruction = textFieldAnneeConstruction;
+	}
+	
+	public boolean getCheckboxCoPro() {
+		if (this.CheckboxCopro.getSelectedIcon() != null) {
+			return true;
+		}
+		//return this.CheckboxCopro.getSelectedIcon().toString();
+		return false;
 	}
 	
 	public boolean getCheckboxGarage() {
@@ -216,9 +230,10 @@ public class AjouterLogement extends JInternalFrame {
 		JPanel panel1 = new JPanel();
 		panel1.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panelContent.add(panel1);
-		panel1.setLayout(new GridLayout(0, 2, 0, 0));
+		panel1.setLayout(null);
 		
 		JPanel panelNom = new JPanel();
+		panelNom.setBounds(5, 5, 264, 145);
 		panel1.add(panelNom);
 		panelNom.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -226,15 +241,15 @@ public class AjouterLogement extends JInternalFrame {
 		panelNom.add(panel_17);
 		panel_17.setLayout(new GridLayout(3, 1, 0, 0));
 		
-		JLabel LabelId = new JLabel("Identifiant :");
-		panel_17.add(LabelId);
+		JLabel LabelIdLogement = new JLabel("Identifiant du logement :");
+		panel_17.add(LabelIdLogement);
 		
 		textId = new JTextField();
 		textId.setColumns(10);
 		panel_17.add(textId);
 		
-		JLabel LabelNom = new JLabel("Nom du logement :");
-		panel_17.add(LabelNom);
+		JLabel LabelNomImmeuble = new JLabel("Nom de l'immeuble :");
+		panel_17.add(LabelNomImmeuble);
 		
 		textNomLogement = new JTextField();
 		textNomLogement.setColumns(10);
@@ -242,8 +257,9 @@ public class AjouterLogement extends JInternalFrame {
 		
 		
 		JPanel panel_Description = new JPanel();
+		panel_Description.setBounds(269, 5, 264, 145);
 		panel1.add(panel_Description);
-		panel_Description.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_Description.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		JLabel LabelDesc = new JLabel("Description :");
 		LabelDesc.setAlignmentY(Component.TOP_ALIGNMENT);
@@ -254,7 +270,7 @@ public class AjouterLogement extends JInternalFrame {
 		
 		this.textDescription = new JTextArea();
 		textDescription.setColumns(1);
-		scrollPane.setViewportView(textDescription);
+		scrollPane.setColumnHeaderView(textDescription);
 		textDescription.setToolTipText("Description du logement");
 		textDescription.setTabSize(5);
 		textDescription.setRows(1);
@@ -318,6 +334,13 @@ public class AjouterLogement extends JInternalFrame {
 		
 		this.CheckboxGarage = new JCheckBox("Garage");
 		panelCoproGarage.add(CheckboxGarage);
+		
+		JLabel lblAnneeConstruction = new JLabel("Année de construction : ");
+		panel_nb_piece.add(lblAnneeConstruction);
+		
+		textField = new JTextField();
+		panel_nb_piece.add(textField);
+		textField.setColumns(10);
 		
 		JPanel panel_adresse = new JPanel();
 		FlowLayout fl_panel_adresse = (FlowLayout) panel_adresse.getLayout();

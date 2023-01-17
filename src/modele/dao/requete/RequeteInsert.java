@@ -59,17 +59,18 @@ public class RequeteInsert {
 		
 	}
 
-	public static void insererImmeuble(String idImmeuble, int numAdr, String nomRueAdr, String anneeConstruction, String cp, boolean coPro){
+	public static void insererImmeuble(String idImmeuble, String numAdr, String nomRueAdr, String anneeConstruction, String cp, String ville, boolean coPro){
 		Connection cn = ConnexionBD.getConnectionBase();
 		
 		try {
 			PreparedStatement st  = cn.prepareStatement("call insererIMMEUBLE(?, ?, ?, ?, ?, ?, ?)");
 			st.setString(1,  idImmeuble);
-			st.setInt(2, numAdr);
+			st.setString(2, numAdr);
 			st.setString(3, nomRueAdr);
 			st.setString(4,anneeConstruction);
 			st.setString(5, cp);
-			st.setBoolean(6, coPro);
+			st.setString(6, ville);
+			st.setBoolean(7, coPro);
 			st.executeUpdate();
 			st.close();
 		} catch (Exception e3) {

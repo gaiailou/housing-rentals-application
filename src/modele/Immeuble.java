@@ -3,6 +3,8 @@ package modele;
 import java.util.Arrays;
 import java.util.Objects;
 
+import modele.dao.requete.RequeteInsert;
+
 public class Immeuble {
 	private char[] idImmeuble = new char[10];
 	private int numeroAdresseLogement;
@@ -85,5 +87,7 @@ public class Immeuble {
 		this.coPropriete = coPropriete;
 	}
 	
-	
+	public static void insererImmeuble(String idImmeuble, String string, String nomRueAdr, String anneeConstruction, String cp, String ville, boolean coPro) {
+		RequeteInsert.insererImmeuble(idImmeuble, string, nomRueAdr, anneeConstruction, cp, ville, coPro);
+	}
 }
