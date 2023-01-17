@@ -211,7 +211,7 @@ public class AjouterLocation extends JInternalFrame{
 		this.gestionClic = new GestionAjouterLocation(this);
 		
 		setResizable(true);
-		setBounds(100, 100, 795, 563);
+		setBounds(50, 50, 795, 563);
 		
 		JPanel panelContent = new JPanel();
 		getContentPane().add(panelContent, BorderLayout.NORTH);

@@ -51,7 +51,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 	public InfoLocation(Location locationSelected) {
 		this.locationSelected = locationSelected;
 		setResizable(true);
-		setBounds(100, 100, 822, 693);
+		setBounds(50, 50, 822, 693);
 		
 		JPanel panelContent = new JPanel();
 		getContentPane().add(panelContent, BorderLayout.NORTH);

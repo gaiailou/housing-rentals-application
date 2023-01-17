@@ -56,7 +56,7 @@ public class InfoLogement extends JInternalFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public InfoLogement(Logement logementSelected) {
-		setBounds(100, 100, 450, 348);
+		setBounds(50, 50, 450, 348);
 		this.logementSelected = logementSelected;
 		this.Id1Logement=this.logementSelected.getIdLogement();
 		this.Nom1Logement=null;

@@ -102,7 +102,7 @@ public class AjouterLocataire extends JInternalFrame {
 	public AjouterLocataire() {
 		this.gestionClic = new GestionAjouterLocataire(this);
 		
-		setBounds(100, 100, 577, 507);
+		setBounds(50, 50, 577, 507);
 		
 		JPanel panelFooter = new JPanel();
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
