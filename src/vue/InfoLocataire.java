@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -20,13 +21,14 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import controleur.GestionInfoLocataire;
 import modele.Locataire;
 
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
-public class InfoLocataire extends JInternalFrame implements ActionListener {
+public class InfoLocataire extends JInternalFrame {
 
 	private Locataire locataireSelected;
 	
@@ -39,10 +41,89 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 	private String Document1Locataire=null;
 	private String NbFixe1Locataire=null;
 	private String NbPortable1Locataire=null;
+
+	private GestionInfoLocataire gestionClic;
 	
-	/**
-	 * Create the frame.
-	 */
+	public Locataire getLocataireSelected() {
+		return locataireSelected;
+	}
+
+	public void setLocataireSelected(Locataire locataireSelected) {
+		this.locataireSelected = locataireSelected;
+	}
+
+	public String getId1Locataire() {
+		return Id1Locataire;
+	}
+
+	public void setId1Locataire(String id1Locataire) {
+		Id1Locataire = id1Locataire;
+	}
+
+	public char getCivilite1Locataire() {
+		return Civilite1Locataire;
+	}
+
+	public void setCivilite1Locataire(char civilite1Locataire) {
+		Civilite1Locataire = civilite1Locataire;
+	}
+
+	public String getDateDeNaissance1Locataire() {
+		return DateDeNaissance1Locataire;
+	}
+
+	public void setDateDeNaissance1Locataire(String dateDeNaissance1Locataire) {
+		DateDeNaissance1Locataire = dateDeNaissance1Locataire;
+	}
+
+	public String getNom1Locataire() {
+		return Nom1Locataire;
+	}
+
+	public void setNom1Locataire(String nom1Locataire) {
+		Nom1Locataire = nom1Locataire;
+	}
+
+	public String getPrenom1Locataire() {
+		return Prenom1Locataire;
+	}
+
+	public void setPrenom1Locataire(String prenom1Locataire) {
+		Prenom1Locataire = prenom1Locataire;
+	}
+
+	public String getDocument1Locataire() {
+		return Document1Locataire;
+	}
+
+	public void setDocument1Locataire(String document1Locataire) {
+		Document1Locataire = document1Locataire;
+	}
+
+	public String getNbFixe1Locataire() {
+		return NbFixe1Locataire;
+	}
+
+	public void setNbFixe1Locataire(String nbFixe1Locataire) {
+		NbFixe1Locataire = nbFixe1Locataire;
+	}
+
+	public String getNbPortable1Locataire() {
+		return NbPortable1Locataire;
+	}
+
+	public void setNbPortable1Locataire(String nbPortable1Locataire) {
+		NbPortable1Locataire = nbPortable1Locataire;
+	}
+
+	public GestionInfoLocataire getGestionClic() {
+		return gestionClic;
+	}
+
+	public void setGestionClic(GestionInfoLocataire gestionClic) {
+		this.gestionClic = gestionClic;
+	}
+
 	public InfoLocataire(Locataire locataireSelected) {
 		this.locataireSelected=locataireSelected;
 		this.Id1Locataire=this.locataireSelected.getIdLocataire();
@@ -68,11 +149,11 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
 		JButton btnFermer = new JButton("Fermer");
-		btnFermer.addActionListener(this);
+		btnFermer.addActionListener(this.gestionClic);
 		panelFooter.add(btnFermer);
 		
 		JButton btnSuppr = new JButton("Supprimer");
-		btnSuppr.addActionListener(this);
+		btnSuppr.addActionListener(this.gestionClic);
 		panelFooter.add(btnSuppr);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -240,23 +321,5 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		tabbedPane.addTab("Documents", null, layeredDocuments, null);
 	
 
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		JButton btn =(JButton)e.getSource();
-		switch(btn.getText()) {
-			case"Fermer":
-				this.dispose();
-				break;
-			case"Supprimer":
-				try {
-					this.locataireSelected.deleteLocataire();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				this.dispose();
-				break;
-		}
 	}
 }

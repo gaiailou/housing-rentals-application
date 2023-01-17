@@ -51,6 +51,8 @@ public class AjouterLocataire extends JInternalFrame {
 	private JButton btnAnnuler;
 	private JButton btnValider;
 	
+	private GestionAjouterLocataire gestionClic;
+	
 	private JLabel lblIdLoc;
 	
 	public JLabel getLblIdLoc() {
@@ -61,7 +63,6 @@ public class AjouterLocataire extends JInternalFrame {
 		this.lblIdLoc = lblIdLoc;
 	}
 
-	private GestionAjouterLocataire gestionClic;
 
 	public String getTextNom() {
 		return this.textNom.getText();
