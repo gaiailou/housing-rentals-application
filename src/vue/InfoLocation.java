@@ -19,13 +19,17 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import modele.Locataire;
+import modele.Location;
+import modele.Logement;
+
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class InfoLocation extends JInternalFrame implements ActionListener {
 	
-	//private Location location;
-		private Object selected1;
-		private Object selected2;
+		private Location locationSelected;
 		
 	//Les attributs a modifier pour connecter a la bd
 	//...
@@ -42,10 +46,8 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public InfoLocation(Object selected1,Object selected2) {
-		//this.location = (Location) selected;
-		this.selected1=selected1;
-		this.selected2=selected2;
+	public InfoLocation(Location locationSelected) {
+		this.locationSelected = locationSelected;
 		setResizable(true);
 		setBounds(100, 100, 822, 693);
 		
@@ -53,7 +55,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		getContentPane().add(panelContent, BorderLayout.NORTH);
 		panelContent.setLayout(new BoxLayout(panelContent, BoxLayout.Y_AXIS));
 		
-		JLabel labelNom = new JLabel((String)this.selected1+" "+this.selected2);
+		JLabel labelNom = new JLabel((String)locationSelected.getLocataire()+locationSelected.getLogement());
 		//labelNom.setText(locataire.getNom());
 		panelContent.add(labelNom);
 		
@@ -173,7 +175,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		
 		textField_2 = new JTextField();
 		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setText("600 €");
+		textField_2.setText("600 ï¿½");
 		textField_2.setForeground(Color.LIGHT_GRAY);
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textField_2.setColumns(10);
@@ -224,7 +226,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		
 		textField_4 = new JTextField();
 		textField_4.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_4.setText("100 €");
+		textField_4.setText("100 ï¿½");
 		textField_4.setForeground(Color.LIGHT_GRAY);
 		textField_4.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_4.setColumns(10);
@@ -282,7 +284,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		
 		textField_3 = new JTextField();
 		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setText("600 €");
+		textField_3.setText("600 ï¿½");
 		textField_3.setForeground(Color.LIGHT_GRAY);
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textField_3.setColumns(10);
@@ -343,7 +345,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		
 		txtEx = new JTextField();
 		txtEx.setHorizontalAlignment(SwingConstants.CENTER);
-		txtEx.setText("Ex : 18 € ou -18€");
+		txtEx.setText("Ex : 18 ï¿½ ou -18ï¿½");
 		txtEx.setForeground(Color.LIGHT_GRAY);
 		txtEx.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtEx.setColumns(10);
@@ -367,7 +369,8 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 			case"Retour":
 				this.dispose();
 				break;
-			case"OK":
+			case"Supprimer":
+				this.locationSelected.deleteLocation();
 				this.dispose();
 				break;
 			/*case"Ajouter un logement":

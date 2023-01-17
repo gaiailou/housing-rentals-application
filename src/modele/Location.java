@@ -3,6 +3,7 @@ package modele;
 import java.sql.SQLException;
 import java.util.Objects;
 
+import modele.dao.requete.RequeteDelete;
 import modele.dao.requete.RequetesAjouterLocation;
 
 public class Location {
@@ -190,6 +191,10 @@ public class Location {
 			String telGarant) throws SQLException {
 
 		RequetesAjouterLocation.insererLocation(textLogement, textLocataire, textIndiceInitial, textDateDebut, textDateFin, textMontantLoyer, acteDeCaution, textTypeLocation, textMontantCharges, photo, textTypeLocation, textPeriodicite, ajustement, versementDernierLoyer, textVersement, bail, quittance, textIdContrat, prenomGarant, nomGarant, telGarant);
+	}
+	
+	public void deleteLocation() {
+		RequeteDelete.deleteLocation(this.getLogement(),this.getLocataire());
 	}
 	
 	

@@ -26,6 +26,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
 import javax.swing.JTextPane;
 
 public class InfoLogement extends JInternalFrame implements ActionListener {
@@ -291,35 +293,24 @@ public class InfoLogement extends JInternalFrame implements ActionListener {
 		
 		JButton btnAnnuler = new JButton("Fermer");
 		btnAnnuler.addActionListener(this);
-		/*btnAnnuler.addActionListener(this);*/
 		panelFooter.add(btnAnnuler);
 		
-		JButton btnValider = new JButton("OK");
-		btnValider.addActionListener(this);
-		/*btnValider.addActionListener(this);*/
-		panelFooter.add(btnValider);
+		JButton btnSuppr = new JButton("Supprimer");
+		btnSuppr.addActionListener(this);
+		panelFooter.add(btnSuppr);
 
 	}
 
-	/*public void actionPerformed(ActionEvent e) {
-		JButton btn =(JButton)e.getSource();
-		switch(btn.getText()) {
-			case"Annuler":
-				this.dispose();
-				break;
-			case"Valider":
-				this.dispose();
-				break;
-		}*/
 	public void actionPerformed(ActionEvent e) {
 		JButton btn =(JButton)e.getSource();
 		switch(btn.getText()) {
 			case"Fermer":
 				this.dispose();
 				break;
-			case"OK":
+			case"Supprimer":
+				this.logementSelected.deleteLogement();
 				this.dispose();
 				break;
-	}
+		}
 	}
 }
