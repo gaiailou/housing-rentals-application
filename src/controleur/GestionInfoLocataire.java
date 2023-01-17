@@ -24,11 +24,12 @@ public class GestionInfoLocataire implements ActionListener {
 				break;
 			case"Supprimer":
 				try {
+					System.out.println("wesh");
 					int res = JOptionPane.showConfirmDialog(this.il, "Voulez-vous vraiment supprimer un locataire ?");
 				    if(res == JOptionPane.YES_OPTION){
 				      this.il.getLocataireSelected().deleteLocataire();
 				      JOptionPane jpn = new JOptionPane();
-				      jpn.showMessageDialog(jpn, "Votre locataire a bien été supprimé", "Message de confirmation", JOptionPane.PLAIN_MESSAGE);
+				      jpn.showMessageDialog(this.il, "Votre locataire a bien été supprimé", "Message de confirmation", JOptionPane.PLAIN_MESSAGE);
 					}
 				} catch (SQLException e1) {
 					//JOptionPane jpn = new JOptionPane();

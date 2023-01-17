@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
-public class InfoLocataire extends JInternalFrame {
+public class InfoLocataire extends JInternalFrame implements ActionListener{
 
 	private Locataire locataireSelected;
 	
@@ -149,11 +149,11 @@ public class InfoLocataire extends JInternalFrame {
 		getContentPane().add(panelFooter, BorderLayout.SOUTH);
 		
 		JButton btnFermer = new JButton("Fermer");
-		btnFermer.addActionListener(this.gestionClic);
+		btnFermer.addActionListener(this);
 		panelFooter.add(btnFermer);
 		
 		JButton btnSuppr = new JButton("Supprimer");
-		btnSuppr.addActionListener(this.gestionClic);
+		btnSuppr.addActionListener(this);
 		panelFooter.add(btnSuppr);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -319,6 +319,30 @@ public class InfoLocataire extends JInternalFrame {
 		
 		JLayeredPane layeredDocuments = new JLayeredPane();
 		tabbedPane.addTab("Documents", null, layeredDocuments, null);
-	
+
+	}
+	public void actionPerformed(ActionEvent e) {
+		JButton item =(JButton)e.getSource();
+		switch(item.getText()) {
+			case"Fermer":
+				this.dispose();
+				break;
+			case"Supprimer":
+				try {
+					System.out.println("wesh");
+					int res = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment supprimer un locataire ?");
+				    if(res == JOptionPane.YES_OPTION){
+				      this.getLocataireSelected().deleteLocataire();
+				      JOptionPane jpn = new JOptionPane();
+				      jpn.showMessageDialog(jpn, "Votre locataire a bien été supprimé.\n Appuyez sur le bouton 'Refresh' pour voir les changements", "Message de confirmation", JOptionPane.PLAIN_MESSAGE);
+					}
+				} catch (SQLException e1) {
+					//JOptionPane jpn = new JOptionPane();
+				    //jpn.showMessageDialog(jpn, "Votre locataire n'a pas bien été supprimé", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+				this.dispose();
+				break;
+		}
 	}
 }
