@@ -19,17 +19,20 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import modele.Locataire;
+
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class InfoLocataire extends JInternalFrame implements ActionListener {
 
-	//private Locataire locataire;
-	private Object selected;
+	private Locataire locataireSelected;
 	
 	//Les attributs a modifier pour connecter a la bd
 	private String Id1Locataire=null;
-	private String Civilite1Locataire=null;
+	private char Civilite1Locataire;
 	private String DateDeNaissance1Locataire=null;
 	private String Nom1Locataire=null;
 	private String Prenom1Locataire=null;
@@ -40,16 +43,24 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public InfoLocataire(Object selected) {
-		//this.locataire = (Locataire) selected;
-		this.selected=selected;
+	public InfoLocataire(Locataire locataireSelected) {
+		this.locataireSelected=locataireSelected;
+		this.Id1Locataire=this.locataireSelected.getIdLocataire();
+		this.Civilite1Locataire=this.locataireSelected.getGenreLocataire();
+		this.DateDeNaissance1Locataire=this.locataireSelected.getDdnLocataire();
+		this.Nom1Locataire=this.locataireSelected.getNomLocataire();
+		this.Prenom1Locataire=this.locataireSelected.getPrenomLocataire();
+		this.Document1Locataire=this.locataireSelected.getPieceIdentiteLocataire();
+		this.NbFixe1Locataire=this.locataireSelected.getTelephoneFixeLocataire();
+		this.NbPortable1Locataire=this.locataireSelected.getTelephoneMobileLocataire();
+		
 		setBounds(100, 100, 577, 507);
 		
 		JPanel panelHeader = new JPanel();
 		getContentPane().add(panelHeader, BorderLayout.NORTH);
 		
-		JLabel labelNomLocataire = new JLabel((String)this.selected);
-		//labelNomLocataire.setText(locataire.getNom());
+		JLabel labelNomLocataire = new JLabel();
+		labelNomLocataire.setText("Locataire "+this.locataireSelected.getIdLocataire());
 		panelHeader.add(labelNomLocataire);
 
 		
@@ -60,9 +71,9 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		btnFermer.addActionListener(this);
 		panelFooter.add(btnFermer);
 		
-		JButton btnOK = new JButton("OK");
-		btnOK.addActionListener(this);
-		panelFooter.add(btnOK);
+		JButton btnSuppr = new JButton("Supprimer");
+		btnSuppr.addActionListener(this);
+		panelFooter.add(btnSuppr);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		getContentPane().add(tabbedPane, BorderLayout.CENTER);
@@ -123,10 +134,10 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		fl_panelCivilite.setAlignment(FlowLayout.LEFT);
 		panel_5.add(panelCivilite);
 		
-		JLabel labelCivilite = new JLabel("Civilit\u00E9                   ");
+		JLabel labelCivilite = new JLabel("Civilité");
 		panelCivilite.add(labelCivilite);
 		
-		JLabel LabelCivilite1Locataire = new JLabel(this.Civilite1Locataire);
+		JLabel LabelCivilite1Locataire = new JLabel(""+this.Civilite1Locataire);
 		LabelCivilite1Locataire.setForeground(new Color(192, 192, 192));
 		panelCivilite.add(LabelCivilite1Locataire);
 		
@@ -159,7 +170,7 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		fl_panelPrenom.setAlignment(FlowLayout.LEFT);
 		panel_5.add(panelPrenom);
 		
-		JLabel labelPrenom = new JLabel("Pr\u00E9nom                     ");
+		JLabel labelPrenom = new JLabel("Prénom                     ");
 		panelPrenom.add(labelPrenom);
 		
 		JLabel LabelPrenom1Locataire = new JLabel(this.Prenom1Locataire);
@@ -176,7 +187,7 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
 		panel_5.add(panelCarteId);
 		
-		JLabel labelDocument = new JLabel("Document d'identit\u00E9 ");
+		JLabel labelDocument = new JLabel("Document d'identité ");
 		panelCarteId.add(labelDocument);
 		
 		JLabel LabelDocument1Locataire = new JLabel(this.Document1Locataire);
@@ -188,7 +199,7 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		panelNbTel.setBorder(new EmptyBorder(10, 0, 0, 0));
 		panelNbTel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel labelNumeroPerso = new JLabel("Num\u00E9ro de t\u00E9l\u00E9phone");
+		JLabel labelNumeroPerso = new JLabel("Numéro de téléphone");
 		labelNumeroPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panelNbTel.add(labelNumeroPerso, BorderLayout.NORTH);
 		
@@ -202,7 +213,7 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		fl_panelFixe.setAlignment(FlowLayout.LEFT);
 		panelNumeroTel.add(panelFixe);
 		
-		JLabel labelNbFixe = new JLabel("Num\u00E9ro fixe");
+		JLabel labelNbFixe = new JLabel("Numéro fixe");
 		panelFixe.add(labelNbFixe);
 		
 		JLabel LabelNbFixe1Locataire = new JLabel(this.NbFixe1Locataire);
@@ -214,7 +225,7 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		fl_panelPortable.setAlignment(FlowLayout.LEFT);
 		panelNumeroTel.add(panelPortable);
 		
-		JLabel labelNbPortable = new JLabel("Num\u00E9ro portable");
+		JLabel labelNbPortable = new JLabel("Numéro portable");
 		panelPortable.add(labelNbPortable);
 		
 		JLabel LabelNbPortable1Locataire = new JLabel(this.NbPortable1Locataire);
@@ -237,7 +248,13 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 			case"Fermer":
 				this.dispose();
 				break;
-			case"OK":
+			case"Supprimer":
+				try {
+					this.locataireSelected.deleteLocataire();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				this.dispose();
 				break;
 		}
