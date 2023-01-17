@@ -365,9 +365,8 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		setJListLocations();
 		jListLocations.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
-				   Object selected1 = listeDeLocations.get(jListLocations.getSelectedIndex()).getLocataire();
-				   Object selected2 = listeDeLocations.get(jListLocations.getSelectedIndex()).getLogement();
-				   InfoLocation infoLocation = new InfoLocation(selected1,selected2);
+				   Location locationSelected = listeDeLocations.get(jListLocations.getSelectedIndex());
+				   InfoLocation infoLocation = new InfoLocation(locationSelected);
 				   getLayeredPane().add(infoLocation);
 				   infoLocation.setVisible(true);
 				   infoLocation.moveToFront();
@@ -463,7 +462,15 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		listeDeLocataires = RequeteSelect.SelectLocataire() ;
 		String[] tableauDeLocataires = new String[listeDeLocataires.size()];
 		for (int i=0; i<listeDeLocataires.size();i++) {
-			tableauDeLocataires[i] = listeDeLocataires.get(i).getPrenomLocataire() + " " + listeDeLocataires.get(i).getNomLocataire();
+			String civilite="????";
+			if (listeDeLocataires.get(i).getGenreLocataire()=='M') {
+				civilite = "Monsieur";
+			}else {
+				if (listeDeLocataires.get(i).getGenreLocataire()=='F') {
+					civilite = "Madame";
+				}
+			}
+			tableauDeLocataires[i] = civilite +" "+ listeDeLocataires.get(i).getPrenomLocataire() + " " + listeDeLocataires.get(i).getNomLocataire();
 		}
 		this.jListLocataires.setModel(new AbstractListModel(){
 			String[] values = tableauDeLocataires;

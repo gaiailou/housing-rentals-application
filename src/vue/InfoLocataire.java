@@ -239,7 +239,6 @@ public class InfoLocataire extends JInternalFrame implements ActionListener {
 		JLayeredPane layeredDocuments = new JLayeredPane();
 		tabbedPane.addTab("Documents", null, layeredDocuments, null);
 	
-
 	}
 
 	public void actionPerformed(ActionEvent e) {

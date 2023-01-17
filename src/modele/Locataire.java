@@ -141,7 +141,6 @@ public class Locataire {
 	
 	public void deleteLocataire() throws SQLException {
 		RequeteDelete.deleteLocataire(this.getIdLocataire());
-		System.out.println("Delete reussie");
 	}
 
 }

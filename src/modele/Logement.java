@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.swing.JTextField;
 
+import modele.dao.requete.RequeteDelete;
 import modele.dao.requete.RequeteInsert;
 
 public class Logement {
@@ -162,6 +163,10 @@ public class Logement {
 	
 	public static void insererLogement(String idLogement, String superficie, String complementAdresseLogement, String typeLogement, String prixAcquisitionLog, String nbPiece, String nbChambre, String descriptionLogement,boolean avoirGarageLog, String fraisAcquiLog, boolean actifLogement, String montantCaution, String immeuble) throws SQLException {
 		RequeteInsert.insererLogement(idLogement, superficie, complementAdresseLogement, typeLogement, prixAcquisitionLog, nbPiece, nbChambre, descriptionLogement, avoirGarageLog, fraisAcquiLog, actifLogement, montantCaution, immeuble);
+	}
+	
+	public void deleteLogement() {
+		RequeteDelete.deleteLogement(this.getIdLogement());
 	}
 
 }
