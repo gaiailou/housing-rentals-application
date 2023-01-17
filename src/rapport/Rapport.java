@@ -21,11 +21,6 @@ import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 
 public class Rapport{
 
-	public static void main(String[] args) throws IOException {
-		new Rapport().creerUneQuittanceLoyer("12-02-2022", "Insane Potatoes", "4 RUE DU TEST ULTIME", "Le Pirate", "11 rue de jack", "Le nouveau bateau", 900, 150);
-		new Rapport().creerUnSoldeDeToutCompte("12-02-2022", "Insane Potatoes", "4 RUE DU TEST ULTIME", "Le Pirate", "11 rue de jack", "Le nouveau bateau", 900, 150);
-
-	}
 	
 	public void creerUnSoldeDeToutCompte(String ladateQuittance, String leNomBailleur, String adressedubailleur,String nomduLocataire,String adressedulocataire,String adressedelaLocation, int leloyer, int lescharges) throws IOException {
     	String dateSoldeDeToutCompte = ladateQuittance;
@@ -133,7 +128,8 @@ public class Rapport{
     }
 	
 	
-    public void creerUneQuittanceLoyer(String ladateQuittance, String leNomBailleur, String adressedubailleur,String nomduLocataire,String adressedulocataire,String adressedelaLocation, int leloyer, int lescharges) throws IOException {
+    public void creerUneQuittanceLoyer(String idLocataire, String ladateQuittance, String leNomBailleur, String adressedubailleur,String nomduLocataire,String adressedulocataire,String adressedelaLocation, int leloyer, int lescharges) throws IOException {
+    	String idLocat = idLocataire;
     	String dateQuittance = ladateQuittance;
     	String nomBailleur = leNomBailleur;
     	String addresseBailleur = adressedubailleur;
@@ -150,7 +146,7 @@ public class Rapport{
         InputStream modele = new FileInputStream("modele.docx");
         
         XWPFDocument document = new XWPFDocument(modele);
-        try(FileOutputStream fileOut = new FileOutputStream(new File("Quittance du "+dateQuittance+".docx"))) {
+        try(FileOutputStream fileOut = new FileOutputStream(new File("Quittance "+idLocat+" du "+dateQuittance+".docx"))) {
         XWPFParagraph titre = document.createParagraph();
         titre.setAlignment(ParagraphAlignment.CENTER);  
         XWPFRun run = titre.createRun();
