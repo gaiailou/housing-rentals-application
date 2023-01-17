@@ -38,6 +38,7 @@ public class RequeteSelect {
                 		curseurLogement.getBoolean("actifLogement"),
                 		curseurLogement.getString("montant_Caution"),
                 		curseurLogement.getString("numimmeuble"),
+                		//new Immeuble()
                 		curseurLogement.getString("Idproprietaire")));
                 enregistrementExiste = curseurLogement.next();
             }
