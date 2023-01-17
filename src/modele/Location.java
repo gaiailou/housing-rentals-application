@@ -12,9 +12,9 @@ public class Location {
 	private String indiceInitial;
 	private String dateDebutLocation;
 	private String dateFinLocation;
-	private String montantLoyerLocation;
+	private int montantLoyerLocation;
 	private String typeLocation;
-	private String montantChargesLocation;
+	private int montantChargesLocation;
 	private String montantTaxeFonciereLocation;
 	private String photoLocation;
 	private String periodicitePaiementLoyer;
@@ -25,7 +25,7 @@ public class Location {
 	private String fichierQuittanceLoyer;
 	private String contrat;
 	public Location(String logement, String locataire, String indiceInitial, String dateDebutLocation,
-			String dateFinLocation, String montantLoyerLocation, String typeLocation, String montantChargesLocation,
+			String dateFinLocation, int montantLoyerLocation, String typeLocation, int montantChargesLocation,
 			String montantTaxeFonciereLocation, String photoLocation, String periodicitePaiementLoyer,
 			String ajustementLoyer, String dateVersementDernierLoyer, String dateVersementLoyer, String fichierBail,
 			String fichierQuittanceLoyer, String contrat) {
@@ -111,10 +111,10 @@ public class Location {
 	public void setDateFinLocation(String dateFinLocation) {
 		this.dateFinLocation = dateFinLocation;
 	}
-	public String getMontantLoyerLocation() {
+	public int getMontantLoyerLocation() {
 		return montantLoyerLocation;
 	}
-	public void setMontantLoyerLocation(String montantLoyerLocation) {
+	public void setMontantLoyerLocation(int montantLoyerLocation) {
 		this.montantLoyerLocation = montantLoyerLocation;
 	}
 	public String getTypeLocation() {
@@ -123,10 +123,10 @@ public class Location {
 	public void setTypeLocation(String typeLocation) {
 		this.typeLocation = typeLocation;
 	}
-	public String getMontantChargesLocation() {
+	public int getMontantChargesLocation() {
 		return montantChargesLocation;
 	}
-	public void setMontantChargesLocation(String montantChargesLocation) {
+	public void setMontantChargesLocation(int montantChargesLocation) {
 		this.montantChargesLocation = montantChargesLocation;
 	}
 	public String getMontantTaxeFonciereLocation() {

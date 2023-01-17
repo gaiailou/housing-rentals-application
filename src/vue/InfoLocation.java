@@ -23,8 +23,10 @@ import javax.swing.border.LineBorder;
 import modele.Locataire;
 import modele.Location;
 import modele.Logement;
+import rapport.Rapport;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class InfoLocation extends JInternalFrame implements ActionListener {
@@ -158,7 +160,8 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		panelInfoComplementaires.add(panelQuittance);
 		panelQuittance.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnQuittance = new JButton("Ajouter une quittance");
+		JButton btnQuittance = new JButton("Générer une quittance");
+		btnQuittance.addActionListener(this);
 		btnQuittance.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelQuittance.add(btnQuittance);
 		
@@ -373,6 +376,13 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 				this.locationSelected.deleteLocation();
 				this.dispose();
 				break;
+			case"Générer une quittance":
+			try {
+				new Rapport().creerUneQuittanceLoyer(locationSelected.getLocataire(),java.time.LocalDate.now().toString(), "Mr.Milan", "1 rue des professeur", locationSelected.getLocataire(), locationSelected.getLogement(), locationSelected.getLogement(), locationSelected.getMontantLoyerLocation(), locationSelected.getMontantChargesLocation());
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			/*case"Ajouter un logement":
 				Accueil fp1 = (Accueil) this.getTopLevelAncestor();
 				AjouterLogement logement=new AjouterLogement();
