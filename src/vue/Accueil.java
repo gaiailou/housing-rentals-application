@@ -516,7 +516,11 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				rendreVisible(this.layeredLocations);
 				break;
 			case"Documents":
-				rendreVisible(this.layeredDocuments);
+				//rendreVisible(this.layeredDocuments);
+				Document doc = new Document();
+				this.getLayeredPane().add(doc);
+				doc.setVisible(true);
+				doc.moveToFront();
 				break;
 			case"Calc":
 				break;

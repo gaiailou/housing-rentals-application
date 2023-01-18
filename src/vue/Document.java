@@ -11,14 +11,15 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
+import modele.dao.requete.RequetesAjouterLocation;
+
 
 public class Document extends JInternalFrame {
+	 
+	private JComboBox comboBoxLocataire;
 
-
-	 * Create the frame.
-	 */
 	public Document() {
-		setBounds(50, 50, 450, 300);
+		setBounds(50, 50, 500, 400);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -39,9 +40,13 @@ public class Document extends JInternalFrame {
 		lblIdLoc.setBounds(10, 82, 106, 13);
 		panel.add(lblIdLoc);
 		
-		JComboBox comboBoxIdLocataire = new JComboBox();
-		comboBoxIdLocataire.setBounds(10, 99, 85, 21);
-		panel.add(comboBoxIdLocataire);
+		
+		this.comboBoxLocataire = new JComboBox();
+		this.comboBoxLocataire.setSelectedItem(null);
+		this.comboBoxLocataire.setModel(RequetesAjouterLocation.comboLocataire(this.comboBoxLocataire));
+		this.comboBoxLocataire.setMaximumRowCount(20);
+		this.comboBoxLocataire.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		panel.add(this.comboBoxLocataire);
 		
 		JLabel lblIdLogement = new JLabel("Identifiant logement : ");
 		lblIdLogement.setBounds(10, 133, 102, 13);
@@ -69,4 +74,3 @@ public class Document extends JInternalFrame {
 
 	}
 
-}
