@@ -21,6 +21,7 @@ import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controleur.GestionInfoLocataire;
 import modele.Locataire;
 import modele.Location;
 import modele.Logement;
@@ -53,13 +54,10 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 	private JLayeredPane layeredDocuments;
 	private JLayeredPane layeredblabla;
 	private JTextField txtSearchDoc;
-	private JTextField textSearchLog;
-	private JTextField textSearchLoc;
-	private JTextField textSearchLoca;
 	private JList jListLogements;
 	private JList jListLocataires;
 	private JList jListLocations;
-	private JList listDocs;
+	private JList jListDocs;
 	private ArrayList<Location> listeDeLocations;
 	private ArrayList<Locataire> listeDeLocataires;
 	private ArrayList<Logement> listeDeLogements;
@@ -253,11 +251,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JPanel panelLog = new JPanel();
 		panelHeaderLog.add(panelLog);
 		
-		textSearchLog = new JTextField();
-		textSearchLog.setText("Search");
-		textSearchLog.setForeground(Color.LIGHT_GRAY);
-		textSearchLog.setColumns(10);
-		panelLog.add(textSearchLog);
+		JButton btnRefreshLogement = new JButton("Refresh logement");
+		btnRefreshLogement.addActionListener(this);
+		panelLog.add(btnRefreshLogement);
 		
 		JPanel panelContentLog = new JPanel();
 		layeredLogements.add(panelContentLog);
@@ -302,11 +298,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JPanel panelloc = new JPanel();
 		panelHeaderLoc.add(panelloc);
 		
-		textSearchLoc = new JTextField();
-		textSearchLoc.setText("Search");
-		textSearchLoc.setForeground(Color.LIGHT_GRAY);
-		textSearchLoc.setColumns(10);
-		panelloc.add(textSearchLoc);
+		JButton btnRefreshLocataire = new JButton("Refresh locataire");
+		btnRefreshLocataire.addActionListener(this);
+		panelloc.add(btnRefreshLocataire);
 		
 		JPanel panelContentLoc = new JPanel();
 		this.layeredLocataires.add(panelContentLoc);
@@ -347,11 +341,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JPanel panelLoca = new JPanel();
 		panelHeaderLoca.add(panelLoca);
 		
-		textSearchLoca = new JTextField();
-		textSearchLoca.setText("Search");
-		textSearchLoca.setForeground(Color.LIGHT_GRAY);
-		textSearchLoca.setColumns(10);
-		panelLoca.add(textSearchLoca);
+		JButton btnRefreshLocation = new JButton("Refresh location");
+		btnRefreshLocation.addActionListener(this);
+		panelLoca.add(btnRefreshLocation);
 		
 		JPanel panelContentLoca = new JPanel();
 		this.layeredLocations.add(panelContentLoca, BorderLayout.CENTER);
@@ -412,8 +404,8 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JScrollPane scrollPaneDoc = new JScrollPane();
 		this.layeredDocuments.add(scrollPaneDoc);
 		
-		listDocs = new JList();
-		listDocs.setModel(new AbstractListModel() {
+		jListDocs = new JList();
+		jListDocs.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Assurance.pdf", "Fac_logement1_novembre2010.pdf"};
 			public int getSize() {
 				return values.length;
@@ -422,7 +414,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				return values[index];
 			}
 		});
-		scrollPaneDoc.setViewportView(listDocs);
+		scrollPaneDoc.setViewportView(jListDocs);
 		
 		JPanel panelFooterDoc = new JPanel();
 		this.layeredDocuments.add(panelFooterDoc, BorderLayout.SOUTH);
@@ -432,10 +424,6 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		
 		//Pour mettre l'accueil a la premi�re page
 		contentPane.add(this.layeredAccueil, BorderLayout.CENTER);
-		
-		JLayeredPane blabla = new JLayeredPane();
-		contentPane.add(blabla, BorderLayout.CENTER);
-		blabla.setLayout(new BorderLayout(0, 0));
 		
 	}
 
@@ -557,6 +545,28 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 			case"New button":
 				rendreVisible(this.layeredblabla);
 			case"Refresh":
+				try {
+					refresh();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			case"Refresh logement":
+				try {
+					refresh();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			case"Refresh locataire":
+				try {
+					refresh();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			case"Refresh location":
 				try {
 					refresh();
 				} catch (SQLException e1) {
