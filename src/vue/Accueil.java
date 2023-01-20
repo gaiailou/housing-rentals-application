@@ -358,7 +358,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		jListLocations.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
 				   Location locationSelected = listeDeLocations.get(jListLocations.getSelectedIndex());
-				   InfoLocation2 infoLocation = new InfoLocation2(locationSelected);
+				   InfoLocation infoLocation = new InfoLocation(locationSelected);
 				   getLayeredPane().add(infoLocation);
 				   infoLocation.setVisible(true);
 				   infoLocation.moveToFront();

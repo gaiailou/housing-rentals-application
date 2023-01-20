@@ -20,11 +20,13 @@ import javax.swing.border.LineBorder;
 
 import controleur.GestionAjouterLocation;
 import modele.Location;
+import modele.dao.requete.RequeteFonction;
 import modele.dao.requete.RequetesAjouterLocation;
 import rapport.Rapport;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class InfoLocation extends JInternalFrame implements ActionListener {
@@ -61,7 +63,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 	private String ajustementLoyer1Location;
 	private String nomGarant1Location;
 	private String prenomGarant1Location;
-	private String telGarant1Location;
+	private Integer telGarant1Location;
 	
 	
 	/**
@@ -87,7 +89,12 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		this.ajustementLoyer1Location=this.locationSelected.getAjustementLoyer();
 		this.nomGarant1Location=null;
 		this.prenomGarant1Location=null;
-		this.telGarant1Location=null;
+		try {
+			this.telGarant1Location=RequeteFonction.soldeToutCompte(this.id1Locataire,this.id1Logement);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		setResizable(true);
 		setBounds(50, 50, 795, 563);
@@ -155,7 +162,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		panelGlobalTop.add(panelPhoto, BorderLayout.EAST);
 		panelPhoto.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		this.btnPhoto = new JButton("PHOTOOOOOOOOOOOOOOOOOOOOO");
+		this.btnPhoto = new JButton("PHOTO");
 		panelPhoto.add(btnPhoto);
 		
 		JPanel panelFooter = new JPanel();
@@ -427,7 +434,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		LabelTelGarant.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelTel.add(LabelTelGarant);
 		
-		JLabel labelTelGarant1Location = new JLabel(this.telGarant1Location);
+		JLabel labelTelGarant1Location = new JLabel(""+this.telGarant1Location);
 		labelTelGarant1Location.setHorizontalAlignment(SwingConstants.CENTER);
 		labelTelGarant1Location.setForeground(Color.GRAY);
 		labelTelGarant1Location.setFont(new Font("Tahoma", Font.PLAIN, 16));
