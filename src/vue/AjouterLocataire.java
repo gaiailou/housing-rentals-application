@@ -1,40 +1,26 @@
 package vue;
 
-import java.awt.EventQueue;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.awt.event.ActionEvent;
-import javax.swing.JTabbedPane;
-import javax.swing.JLayeredPane;
-import javax.swing.JLabel;
-import javax.sql.DataSource;
-import javax.swing.BoxLayout;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 import java.awt.FlowLayout;
-import javax.swing.JTextField;
-import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
-import javax.swing.JSeparator;
 import java.awt.Font;
-import javax.swing.border.BevelBorder;
+import java.awt.GridLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import controleur.CictOracleDataSource;
 import controleur.GestionAjouterLocataire;
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.GridLayout;
 
 public class AjouterLocataire extends JInternalFrame {
 	private JTextField textNom;
@@ -182,8 +168,9 @@ public class AjouterLocataire extends JInternalFrame {
 		panelCivilite.add(this.comboCivilite);
 		
 		JPanel panelDateNaissance = new JPanel();
-		FlowLayout fl_panelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
-		fl_panelDateNaissance.setAlignment(FlowLayout.LEFT);
+
+		FlowLayout flPanelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
+		flPanelDateNaissance.setAlignment(FlowLayout.LEFT);
 		panel5.add(panelDateNaissance);
 		
 		JLabel labelDateDeNaissance = new JLabel("Date de naissance    ");
@@ -195,8 +182,10 @@ public class AjouterLocataire extends JInternalFrame {
 		this.textDateNaissance.setColumns(10);
 		
 		JPanel panelNom = new JPanel();
-		FlowLayout fl_panelNom = (FlowLayout) panelNom.getLayout();
-		fl_panelNom.setAlignment(FlowLayout.LEFT);
+
+		FlowLayout flpanelNom = (FlowLayout) panelNom.getLayout();
+		flpanelNom.setAlignment(FlowLayout.LEFT);
+
 		panel5.add(panelNom);
 		
 		JLabel labelNom = new JLabel("Nom                      ");
@@ -207,8 +196,10 @@ public class AjouterLocataire extends JInternalFrame {
 		this.textNom.setColumns(10);
 		
 		JPanel panelPrenom = new JPanel();
-		FlowLayout fl_panelPrenom = (FlowLayout) panelPrenom.getLayout();
-		fl_panelPrenom.setAlignment(FlowLayout.LEFT);
+
+		FlowLayout flPanelPrenom = (FlowLayout) panelPrenom.getLayout();
+		flPanelPrenom.setAlignment(FlowLayout.LEFT);
+
 		panel5.add(panelPrenom);
 		
 		JLabel labelPrenom = new JLabel("Pr\u00E9nom                     ");
@@ -219,6 +210,15 @@ public class AjouterLocataire extends JInternalFrame {
 		this.textPrenom.setColumns(10);
 		
 		JPanel panelId = new JPanel();
+
+		FlowLayout fl3 = (FlowLayout) panelId.getLayout();
+		fl3.setAlignment(FlowLayout.LEADING);
+		panel5.add(panelId);
+		
+		JPanel panelCarteId = new JPanel();
+		FlowLayout fl4 = (FlowLayout) panelCarteId.getLayout();
+		fl4.setAlignment(FlowLayout.LEFT);
+
 		FlowLayout flowLayout_3 = (FlowLayout) panelId.getLayout();
 		flowLayout_3.setAlignment(FlowLayout.LEADING);
 		panel5.add(panelId);
@@ -226,6 +226,7 @@ public class AjouterLocataire extends JInternalFrame {
 		JPanel panelCarteId = new JPanel();
 		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
+
 		panel5.add(panelCarteId);
 		
 		JLabel labelDocument = new JLabel("Document d'identit\u00E9 ");
@@ -250,8 +251,8 @@ public class AjouterLocataire extends JInternalFrame {
 		panelNumeroTel.setLayout(new BoxLayout(panelNumeroTel, BoxLayout.Y_AXIS));
 		
 		JPanel panelFixe = new JPanel();
-		FlowLayout fl_panelFixe = (FlowLayout) panelFixe.getLayout();
-		fl_panelFixe.setAlignment(FlowLayout.LEFT);
+		FlowLayout flPanelFixe = (FlowLayout) panelFixe.getLayout();
+		flPanelFixe.setAlignment(FlowLayout.LEFT);
 		panelNumeroTel.add(panelFixe);
 		
 		JLabel labelNbFixe = new JLabel("Num\u00E9ro fixe");

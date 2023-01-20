@@ -129,9 +129,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		btnRefresh.addActionListener(this);
 		panelContent.add(btnRefresh);
 		
-		JButton btnNewButton_5 = new JButton("New button");
-		btnNewButton_5.addActionListener(this);
-		panelContent.add(btnNewButton_5);
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(this);
+		panelContent.add(btnNewButton);
 		
 		JButton btnDocuments = new JButton("Documents");
 		btnDocuments.addActionListener(this);
@@ -161,9 +161,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredAccueil.add(panel11);
 		panel11.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_2 = new JLabel("Joli graphique");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		panel11.add(lblNewLabel_2, BorderLayout.NORTH);
+		JLabel lblJoliGraphique = new JLabel("Joli graphique");
+		lblJoliGraphique.setHorizontalAlignment(SwingConstants.CENTER);
+		panel11.add(lblJoliGraphique, BorderLayout.NORTH);
 		
 		txtPasDeDonnes = new JTextField();
 		txtPasDeDonnes.setHorizontalAlignment(SwingConstants.CENTER);
