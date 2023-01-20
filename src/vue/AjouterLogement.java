@@ -57,7 +57,6 @@ public class AjouterLogement extends JInternalFrame {
 	
 	private JCheckBox CheckboxCopro;
 	private JCheckBox CheckboxGarage;
-	private JTextField textField;
 	
 	public String getTextFieldAnneeConstruction() {
 		return this.textFieldAnneeConstruction.getText();
@@ -335,12 +334,12 @@ public class AjouterLogement extends JInternalFrame {
 		this.CheckboxGarage = new JCheckBox("Garage");
 		panelCoproGarage.add(CheckboxGarage);
 		
-		JLabel lblAnneeConstruction = new JLabel("Année de construction : ");
+		JLabel lblAnneeConstruction = new JLabel("date de construction : ");
 		panel_nb_piece.add(lblAnneeConstruction);
 		
-		textField = new JTextField();
-		panel_nb_piece.add(textField);
-		textField.setColumns(10);
+		textFieldAnneeConstruction = new JTextField();
+		panel_nb_piece.add(textFieldAnneeConstruction);
+		textFieldAnneeConstruction.setColumns(10);
 		
 		JPanel panel_adresse = new JPanel();
 		FlowLayout fl_panel_adresse = (FlowLayout) panel_adresse.getLayout();
