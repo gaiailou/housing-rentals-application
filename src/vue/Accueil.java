@@ -544,13 +544,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				break;
 			case"New button":
 				rendreVisible(this.layeredblabla);
-			case"Refresh":
-				try {
-					refresh();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				break;
 			case"Refresh logement":
 				try {
 					refresh();
@@ -558,6 +552,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				break;
 			case"Refresh locataire":
 				try {
 					refresh();
@@ -565,6 +560,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				break;
 				
 			case"Refresh location":
 				try {
@@ -573,6 +569,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				break;
 		}
 	}
 		
