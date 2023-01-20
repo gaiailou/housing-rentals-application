@@ -358,7 +358,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		jListLocations.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
 				   Location locationSelected = listeDeLocations.get(jListLocations.getSelectedIndex());
-				   InfoLocation infoLocation = new InfoLocation(locationSelected);
+				   InfoLocation2 infoLocation = new InfoLocation2(locationSelected);
 				   getLayeredPane().add(infoLocation);
 				   infoLocation.setVisible(true);
 				   infoLocation.moveToFront();
@@ -544,13 +544,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 				break;
 			case"New button":
 				rendreVisible(this.layeredblabla);
-			case"Refresh":
-				try {
-					refresh();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				break;
 			case"Refresh logement":
 				try {
 					refresh();
@@ -558,6 +552,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				break;
 			case"Refresh locataire":
 				try {
 					refresh();
@@ -565,6 +560,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				break;
 				
 			case"Refresh location":
 				try {
@@ -573,6 +569,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				break;
 		}
 	}
 		
