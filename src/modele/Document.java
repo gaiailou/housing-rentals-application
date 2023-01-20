@@ -74,6 +74,7 @@ public class Document {
 	public void setLocataire(Locataire locataire) {
 		this.locataire = locataire;
 	}
+
 	
 	
 }

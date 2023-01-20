@@ -49,7 +49,6 @@ public class AjouterLocataire extends JInternalFrame {
 		this.lblIdLoc = lblIdLoc;
 	}
 
-
 	public String getTextNom() {
 		return this.textNom.getText();
 	}
