@@ -27,7 +27,7 @@ public class GestionDocument implements ActionListener{
 		            e2.printStackTrace();
 		        }
 		            this.doc.dispose();
-		            break;
+		        break;
 			case "Fermer":
 				this.doc.dispose();
 		}
