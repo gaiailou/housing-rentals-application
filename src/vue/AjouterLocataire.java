@@ -223,7 +223,7 @@ public class AjouterLocataire extends JInternalFrame {
 		flowLayout_3.setAlignment(FlowLayout.LEADING);
 		panel5.add(panelId);
 		
-		JPanel panelCarteId = new JPanel();
+	
 		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
 
