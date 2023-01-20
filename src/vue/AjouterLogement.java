@@ -241,15 +241,15 @@ public class AjouterLogement extends JInternalFrame {
 		panelNom.add(panel_17);
 		panel_17.setLayout(new GridLayout(3, 1, 0, 0));
 		
-		JLabel LabelIdLogement = new JLabel("Identifiant du logement :");
-		panel_17.add(LabelIdLogement);
+		JLabel lblIdLogement = new JLabel("Identifiant du logement :");
+		panel_17.add(lblIdLogement);
 		
 		textId = new JTextField();
 		textId.setColumns(10);
 		panel_17.add(textId);
 		
-		JLabel LabelNomImmeuble = new JLabel("Nom de l'immeuble :");
-		panel_17.add(LabelNomImmeuble);
+		JLabel lblNomImmeuble = new JLabel("Nom de l'immeuble :");
+		panel_17.add(lblNomImmeuble);
 		
 		textNomLogement = new JTextField();
 		textNomLogement.setColumns(10);
@@ -261,9 +261,9 @@ public class AjouterLogement extends JInternalFrame {
 		panel1.add(panel_Description);
 		panel_Description.setLayout(new GridLayout(2, 1, 0, 0));
 		
-		JLabel LabelDesc = new JLabel("Description :");
-		LabelDesc.setAlignmentY(Component.TOP_ALIGNMENT);
-		panel_Description.add(LabelDesc);
+		JLabel lblDesc = new JLabel("Description :");
+		lblDesc.setAlignmentY(Component.TOP_ALIGNMENT);
+		panel_Description.add(lblDesc);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_Description.add(scrollPane);
@@ -284,8 +284,8 @@ public class AjouterLogement extends JInternalFrame {
 		panel2.add(panel_type);
 		panel_type.setLayout(new GridLayout(2, 3, 0, 0));
 		
-		JLabel LabelType = new JLabel("Type                      ");
-		panel_type.add(LabelType);
+		JLabel lblType = new JLabel("Type                      ");
+		panel_type.add(lblType);
 		
 		this.comboType = new JComboBox();
 		comboType.setModel(new DefaultComboBoxModel(new String[] {"Appartement", "Maison", "Garage"}));
@@ -294,8 +294,8 @@ public class AjouterLogement extends JInternalFrame {
 		JLabel lblEspace = new JLabel(" ");
 		panel_type.add(lblEspace);
 		
-		JLabel LabelSurface = new JLabel("Surface                     ");
-		panel_type.add(LabelSurface);
+		JLabel lblSurface = new JLabel("Surface                     ");
+		panel_type.add(lblSurface);
 		
 		textFieldSuperficie = new JTextField();
 		textFieldSuperficie.setText("25");
@@ -303,22 +303,22 @@ public class AjouterLogement extends JInternalFrame {
 		textFieldSuperficie.setColumns(10);
 		panel_type.add(textFieldSuperficie);
 		
-		JLabel LabelUnite = new JLabel("m\u00B2");
-		panel_type.add(LabelUnite);
+		JLabel lblUnite = new JLabel("m\u00B2");
+		panel_type.add(lblUnite);
 		
 		JPanel panel_nb_piece = new JPanel();
 		FlowLayout fl_panel_nb_piece = (FlowLayout) panel_nb_piece.getLayout();
 		fl_panel_nb_piece.setAlignment(FlowLayout.LEFT);
 		panel2.add(panel_nb_piece);
 		
-		JLabel LabelNbPiece = new JLabel("Nombre de pi\u00E8ce");
-		panel_nb_piece.add(LabelNbPiece);
+		JLabel lblNbPiece = new JLabel("Nombre de pi\u00E8ce");
+		panel_nb_piece.add(lblNbPiece);
 		
 		this.spinnerNbPiece = new JSpinner();
 		panel_nb_piece.add(spinnerNbPiece);
 		
-		JLabel labelNbChambre = new JLabel("dont");
-		panel_nb_piece.add(labelNbChambre);
+		JLabel lblNbChambre = new JLabel("dont");
+		panel_nb_piece.add(lblNbChambre);
 		
 		this.spinnerNbChambre = new JSpinner();
 		panel_nb_piece.add(spinnerNbChambre);
@@ -347,44 +347,44 @@ public class AjouterLogement extends JInternalFrame {
 		fl_panel_adresse.setAlignment(FlowLayout.LEFT);
 		panel2.add(panel_adresse);
 		
-		JLabel LabelNumAdresse = new JLabel("Num\u00E9ro");
-		panel_adresse.add(LabelNumAdresse);
+		JLabel lblNumAdresse = new JLabel("Num\u00E9ro");
+		panel_adresse.add(lblNumAdresse);
 		
 		textNumAdresse = new JTextField();
 		panel_adresse.add(textNumAdresse);
 		textNumAdresse.setColumns(3);
 		
-		JLabel LabelNomRueAdresse = new JLabel("Rue");
-		panel_adresse.add(LabelNomRueAdresse);
+		JLabel lblNomRueAdresse = new JLabel("Rue");
+		panel_adresse.add(lblNomRueAdresse);
 		
 		textNomRueAdresse = new JTextField();
 		panel_adresse.add(textNomRueAdresse);
 		textNomRueAdresse.setColumns(10);
 		
-		JLabel LabelCptAdresse = new JLabel("Compl\u00E9ment adresse ");
-		panel_adresse.add(LabelCptAdresse);
+		JLabel lblCptAdresse = new JLabel("Compl\u00E9ment adresse ");
+		panel_adresse.add(lblCptAdresse);
 		
 		textFieldCplmtAdr = new JTextField();
 		textFieldCplmtAdr.setColumns(10);
 		panel_adresse.add(textFieldCplmtAdr);
 		
-		JLabel LabelVille = new JLabel("Ville                            ");
-		panel_adresse.add(LabelVille);
+		JLabel lblVille = new JLabel("Ville                            ");
+		panel_adresse.add(lblVille);
 		
 		textFieldVille = new JTextField();
 		textFieldVille.setColumns(10);
 		panel_adresse.add(textFieldVille);
 		
-		JLabel LabelCP = new JLabel("Code postal               ");
-		panel_adresse.add(LabelCP);
+		JLabel lblCP = new JLabel("Code postal               ");
+		panel_adresse.add(lblCP);
 		
 		textFieldCP = new JTextField();
 		textFieldCP.setColumns(10);
 		panel_adresse.add(textFieldCP);
 		
 		JPanel panelCaution = new JPanel();
-		FlowLayout fl_panelCaution = (FlowLayout) panelCaution.getLayout();
-		fl_panelCaution.setAlignment(FlowLayout.LEFT);
+		FlowLayout flPanelCaution = (FlowLayout) panelCaution.getLayout();
+		flPanelCaution.setAlignment(FlowLayout.LEFT);
 		panel2.add(panelCaution);
 		
 		JLabel lblCaution = new JLabel("Caution : ");
@@ -397,30 +397,30 @@ public class AjouterLogement extends JInternalFrame {
 		JLabel lblEuros = new JLabel("\u20AC");
 		panelCaution.add(lblEuros);
 		
-		JPanel panel_prix_acqui = new JPanel();
-		panelCaution.add(panel_prix_acqui);
-		panel_prix_acqui.setLayout(new GridLayout(2, 2, 0, 0));
+		JPanel panelPrixAcqui = new JPanel();
+		panelCaution.add(panelPrixAcqui);
+		panelPrixAcqui.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JLabel lblPrixDacquisition = new JLabel("Prix d'acquisition : ");
-		panel_prix_acqui.add(lblPrixDacquisition);
+		panelPrixAcqui.add(lblPrixDacquisition);
 		
 		textFieldPrixAcquisition = new JTextField();
 		textFieldPrixAcquisition.setColumns(5);
-		panel_prix_acqui.add(textFieldPrixAcquisition);
+		panelPrixAcqui.add(textFieldPrixAcquisition);
 		
 		JLabel lblEuro1 = new JLabel("\u20AC");
-		panel_prix_acqui.add(lblEuro1);
+		panelPrixAcqui.add(lblEuro1);
 		
 		JLabel lblFraisDacquisition = new JLabel("Frais d'acquisition : ");
 		lblFraisDacquisition.setHorizontalAlignment(SwingConstants.LEFT);
-		panel_prix_acqui.add(lblFraisDacquisition);
+		panelPrixAcqui.add(lblFraisDacquisition);
 		
 		textFieldFraisAcquisition = new JTextField();
 		textFieldFraisAcquisition.setColumns(5);
-		panel_prix_acqui.add(textFieldFraisAcquisition);
+		panelPrixAcqui.add(textFieldFraisAcquisition);
 		
 		JLabel lblEuro2 = new JLabel("\u20AC");
-		panel_prix_acqui.add(lblEuro2);
+		panelPrixAcqui.add(lblEuro2);
 
 	}
 }

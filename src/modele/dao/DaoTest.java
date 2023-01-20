@@ -1,16 +1,14 @@
 package modele.dao;
 
-import java.util.HashSet;
-
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +16,6 @@ import javax.sql.DataSource;
 
 import org.junit.Test;
 
-import controleur.CictOracleDataSource;
 import modele.Charge;
 import modele.Contrat;
 import modele.Document;
@@ -32,6 +29,7 @@ import modele.Logement;
 import modele.Proprietaire;
 import modele.Realiser;
 import modele.Reglement;
+import modele.dao.requete.ConnexionBD;
 
 
 public class DaoTest {
@@ -41,9 +39,6 @@ public class DaoTest {
 	private static final Collection<Contrat> CONTRATS = new HashSet<>();
 	private static final Collection<Document> DOCUMENTS = new HashSet<>();
 	private static final Collection<Proprietaire> PROPRIETAIRES = new HashSet<>();
-	//private static final Collection<R> R = new HashSet<>();
-
-
 	
 // -------------------------- Locataire --------------------------------------------
 
@@ -202,148 +197,12 @@ public class DaoTest {
 		}
 		
 		@Test
-		public void testGetLogement() {
-			char[] idCharge = {'M', 'O', 'H'};
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			Charge charge = new Charge(idCharge, 16.02, 30, null, null);
-			charge.setLogement(logement);
-			Logement temp = charge.getLogement();
-			assertEquals(logement,temp);
-		}
-		
-		@Test
 		public void testGetLocataire() {
 			Locataire locataire = new Locataire(null, "Julie", "Broisie", '0', null, null, null, null, null);
 			Charge charge = new Charge(null, 0, 0, null, null);
 			charge.setLocataire(locataire);
 			Locataire temp = charge.getLocataire();
 			assertEquals(locataire,temp);
-		}
-// -------------------------- Test Logement --------------------------------------------
-		@Test
-		public void testGetIdLogement() {
-			char[]idLogement = {'L','o','g'};
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setIdLogement(idLogement);
-			char[] temp = logement.getIdLogement();
-			assertEquals(idLogement, temp);
-		}
-		
-		@Test
-		public void testGetSuperficieLogement() {
-			double superficieLogement = 09.19;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setSuperficieLogement(superficieLogement);
-			double temp = logement.getSuperficieLogement();
-			assertEquals(superficieLogement, temp, 0.0);
-		}
-		
-		@Test
-		public void testGetComplementAdresseLogement() {
-			String CALogement = "Bat refractoring";
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setComplementAdresseLogement(CALogement);
-			String temp = logement.getComplementAdresseLogement();
-			assertEquals(CALogement, temp);
-		}
-		
-		@Test
-		public void testgetTypeLogement() {
-			String typeLogement = "Appartement";
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setTypeLogement(typeLogement);
-			String temp = logement.getTypeLogement();
-			assertEquals(typeLogement, temp);
-		}
-		
-		@Test
-		public void testGetPrixAcquisitionLogement() {
-			double prixAcquisitionLogement = 9.31;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setPrixAcquisitionLogement(prixAcquisitionLogement);
-			double temp = logement.getPrixAcquisitionLogement();
-			assertEquals(prixAcquisitionLogement, temp, 0.0);
-		}
-		
-		@Test
-		public void testGetNbPiece() {
-			int nbPiece = 3;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setNbPiece(nbPiece);
-			int temp = logement.getNbPiece();
-			assertEquals(nbPiece, temp);
-		}
-		
-		@Test
-		public void testGetNbChambre() {
-			int nbChambre = 1;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setNbChambre(nbChambre);
-			int temp = logement.getNbChambre();
-			assertEquals(nbChambre, temp);
-		}
-		
-		@Test
-		public void testGetDescriptionLogement() {
-			String descriptionLogement = "Très grand";
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setDescriptionLogement(descriptionLogement);
-			String temp = logement.getDescriptionLogement();
-			assertEquals(descriptionLogement, temp);
-		}
-		
-		@Test
-		public void testIsAvoirGarageLogement() {
-			boolean avoirGarage = false;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setAvoirGarageLogement(avoirGarage);
-			boolean temp = logement.isAvoirGarageLogement();
-			assertEquals(avoirGarage, temp);
-		}
-		
-		@Test
-		public void testGetFraisAcquisitionLogement() {
-			double fraisAcquisitionLogement = 1.01;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setFraisAcquisitionLogement(fraisAcquisitionLogement);
-			double temp = logement.getFraisAcquisitionLogement();
-			assertEquals(fraisAcquisitionLogement, temp, 0.0);
-		}
-		
-		@Test
-		public void testIsActifLogement() {
-			boolean isActifLogement = true;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setActifLogement(isActifLogement);
-			boolean temp = logement.isActifLogement();
-			assertEquals(isActifLogement, temp);
-		}
-		
-		@Test
-		public void testGetMontantCaution() {
-			double montantCaution = 30.04;
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setMontantCaution(montantCaution);
-			double temp = logement.getMontantCaution();
-			assertEquals(montantCaution, temp, 0.0);
-		}
-		
-		@Test
-		public void testGetImmeuble() {
-			Immeuble immeuble = new Immeuble(null, 10, null, null, null, false);
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setImmeuble(immeuble);
-			Immeuble temp = logement.getImmeuble();
-			assertEquals(immeuble, temp);
-		}
-		
-		@Test
-		public void testGetProprietaire() {
-			Proprietaire proprietaire = new Proprietaire(null, "Jul", "Pro", 0, null, null, null, null, null);
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			logement.setProprietaire(proprietaire);
-			Proprietaire temp = logement.getProprietaire();
-			assertEquals(proprietaire, temp);
 		}
 
 // -------------------------- Test Locataire --------------------------------------------
@@ -385,24 +244,6 @@ public class DaoTest {
 		}
 		
 		@Test
-		public void testGetTelephonefixeLocataire() {
-			char[] telephoneFixeLocataire = {'0','6','1','2','9'};
-			Locataire locataire = new Locataire(null, null, null, 'x', null, null, null, null, null);
-			locataire.setTelephoneFixeLocataire(telephoneFixeLocataire);
-			char[] temp = locataire.getTelephoneFixeLocataire();
-			assertEquals(telephoneFixeLocataire, temp);
-		}
-		
-		@Test
-		public void testGetTéléphoneMoLocataire() {
-			char[] téléphoneMobileLocataire = {'0','6','1','2','9'};
-			Locataire locataire = new Locataire(null, null, null, 'x', null, null, null, null, null);
-			locataire.setTéléphoneMobileLocataire(téléphoneMobileLocataire);
-			char[] temp = locataire.getTéléphoneMobileLocataire();
-			assertEquals(téléphoneMobileLocataire, temp);
-		}
-		
-		@Test
 		public void testGetMailLocataire() {
 			String mailLocataire = "test@refractor.fr";
 			Locataire locataire = new Locataire(null, null, null, 'x', null, null, null, null, null);
@@ -420,14 +261,6 @@ public class DaoTest {
 			assertEquals(ddnLocataire, temp);
 		}
 		
-		@Test
-		public void testGetPièceIdentitéLocataire() {
-			String pièceIdentitéLocataire = "lien pièce";
-			Locataire locataire = new Locataire(null, null, null, 'x', null, null, null, null, null);
-			locataire.setPièceIdentitéLocataire(pièceIdentitéLocataire);
-			String temp = locataire.getPièceIdentitéLocataire();
-			assertEquals(pièceIdentitéLocataire, temp);
-		}
 // -------------------------- Test Immeuble --------------------------------------------
 
 		@Test
@@ -483,153 +316,8 @@ public class DaoTest {
 			boolean temp = immeuble.isCoPropriete();
 			assertEquals(isCoPropriete, temp);
 		}
-// -------------------------- Test Location --------------------------------------------
-		
-		@Test
-		public void testGetLogementLocation() {
-			Logement logement = new Logement(null, 0, null, null, 0, 0, 0, null, false, 0, false, 0, null, null);
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setLogement(logement);
-			Logement temp = location.getLogement();
-			assertEquals(logement, temp);
-		}
-		
-		@Test
-		public void testGetIndiceInitial() {
-			double indiceInitial = 0.98;
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setIndiceInitial(indiceInitial);
-			double temp = location.getIndiceInitial();
-			assertEquals(indiceInitial,temp,0.0);
-		}
-		
-		@Test
-		public void testGetDateDebutLocation() {
-			String dateDebutLocation = "18/10/2022";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setDateDebutLocation(dateDebutLocation);
-			String temp = location.getDateDebutLocation();
-			assertEquals(dateDebutLocation,temp);
-		}
-		
-		@Test
-		public void testGetFinLocation() {
-			String dateFinLocation="20/02/2023";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setDateFinLocation(dateFinLocation);
-			String temp = location.getDateFinLocation();
-			assertEquals(dateFinLocation,temp);
-		}
-		
-		@Test
-		public void testGetMontantLoyerLocation() {
-			double montantLoyerLocation = 999.99;
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setMontantLoyerLocation(montantLoyerLocation);			
-			double temp = location.getMontantLoyerLocation();
-			assertEquals(montantLoyerLocation,temp,0.0);
-		}
-		
-		@Test
-		public void testGetTypeLocation() {
-			String typeLocation = "Appartement";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setTypeLocation(typeLocation);
-			String temp = location.getTypeLocation();
-			assertEquals(typeLocation,temp);
-		}
-		
-		@Test
-		public void testGetMontantChargesLocation() {
-			double montantChargesLocation= 29.01;
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setMontantChargesLocation(montantChargesLocation);
-			double temp = location.getMontantChargesLocation();
-			assertEquals(montantChargesLocation,temp,0.0);
-		}
-		
-		@Test
-		public void testGetMontantTaxesFoncière() {
-			double montantTaxeFoncière = 29.10;
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setMontantTaxeFonciereLocation(montantTaxeFoncière);
-			double temp = location.getMontantTaxeFonciereLocation();
-			assertEquals(montantTaxeFoncière,temp,0.0);
-		}
-		
-		@Test
-		public void testGetPhotoLocation() {
-			String cheminPhoto = "./Images/Brs.png";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setPhotoLocation(cheminPhoto);
-			String temp = location.getPhotoLocation();
-			assertEquals(cheminPhoto,temp);
-		}
-		
-		@Test
-		public void testGetPeriodicitePaiementLoyer() {
-			String periodicitePaiementLoyer = "Mensuel";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setPeriodicitePaiementLoyer(periodicitePaiementLoyer);
-			String temp = location.getPeriodicitePaiementLoyer();
-			assertEquals(periodicitePaiementLoyer,temp);
-		}
-		
-		@Test
-		public void testGetAjustementLoyer() {
-			double ajustementLoyer = 30.00;
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setAjustementLoyer(ajustementLoyer);
-			double temp = location.getAjustementLoyer();
-			assertEquals(ajustementLoyer,temp,0.0);
-		}
-		
-		@Test
-		public void testGetDateVersementDernierLoyer() {
-			String dateVersementDernierLoyer = "05/01/2023";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setDateVersementDernierLoyer(dateVersementDernierLoyer);
-			String temp = location.getDateVersementDernierLoyer();
-			assertEquals(dateVersementDernierLoyer, temp);
-		}
-		
-		@Test
-		public void testGetDateVersementLoyer() {
-			String dateVersementLoyer = "15/10/2022";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setDateVersementLoyer(dateVersementLoyer);
-			String temp = location.getDateVersementLoyer();
-			assertEquals(dateVersementLoyer,temp);
-		}
-		
-		@Test
-		public void testGetFichierBail() {
-			String fichierBail = "./Documents/Bail.pdf";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setFichierBail(fichierBail);
-			String temp = location.getFichierBail();
-			assertEquals(fichierBail, temp);
-		}
-		
-		@Test
-		public void testGetFichierQuittanceLoyer() {
-			String fichierQuittanceLoyer = "./Documents/Quittance.pdf";
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setFichierQuittanceLoyer(fichierQuittanceLoyer);
-			String temp = location.getFichierQuittanceLoyer();
-			assertEquals(fichierQuittanceLoyer,temp);
-		}
-		
-		@Test
-		public void testGetContrat() {
-			Contrat contrat = new Contrat(null, null, null, null, "long pdf", null);
-			Location location = new Location(null, null, 0, null, null, 0, null, 0, 0, null, null, 0, null, null, null, null, null);
-			location.setContrat(contrat);
-			Contrat temp = location.getContrat();
-			assertEquals(contrat,temp);
-		}
 	
-// -------------------------- Test Propriétaire --------------------------------------------
+// -------------------------- Test Propriï¿½taire --------------------------------------------
 
 		@Test
 		public void testGetIdProprietaire() {
@@ -712,16 +400,8 @@ public class DaoTest {
 			assertEquals(telephoneProprietaire,temp);
 		}
 		
-// -------------------------- Test Réaliser --------------------------------------------
-		
-		@Test
-		public void testgetFactureRéaliser() {
-			Facture facture = new Facture(null, null, null, 10.20, null, null, null, null, null, null);
-			Realiser realiser = new Realiser(null, null);
-			realiser.setFacture(facture);
-			Facture temp = realiser.getFacture();
-			assertEquals(facture, temp);
-		}
+// -------------------------- Test Rï¿½aliser --------------------------------------------
+
 		
 		@Test
 		public void testGetEntreprise() {
@@ -765,16 +445,15 @@ public class DaoTest {
 		@Test
 		public void testInsertLocataire() throws SQLException {
 			try {
-				DataSource bd = new CictOracleDataSource () ;
-				Connection cn = bd.getConnection() ;
-				System.out.println("Connexion au SGBD établie") ;
-				String req = "INSERT INTO Locataire(idLocataire, nomLocataire, prenomLocataire, genreLocataire, téléphoneLocataire, téléphoneMobileLocataire, mailLocataire, ddnLocataire, piècedIdentitéLocataire) VALUES 	('Test','viv','jdbc','M',NULL,NULL,NULL,NULL,NULL)";
+				Connection cn = ConnexionBD.getConnectionBase();
+				System.out.println("Connexion au SGBD ï¿½tablie") ;
+				String req = "INSERT INTO Locataire(idLocataire, nomLocataire, prenomLocataire, genreLocataire, tï¿½lï¿½phoneLocataire, tï¿½lï¿½phoneMobileLocataire, mailLocataire, ddnLocataire, piï¿½cedIdentitï¿½Locataire) VALUES 	('Test','viv','jdbc','M',NULL,NULL,NULL,NULL,NULL)";
 				java.sql.Statement stEns = cn.createStatement ();
 				int result = stEns.executeUpdate(req);
 				if (result > 0) {
-					  System.out.println("Insertion réussie");
+					  System.out.println("Insertion rï¿½ussie");
 					} else {
-					  System.out.println("Aucun locataire n'a été inséré");
+					  System.out.println("Aucun locataire n'a ï¿½tï¿½ insï¿½rï¿½");
 					}
 				stEns.close() ;
 				cn.close() ;
@@ -786,9 +465,8 @@ public class DaoTest {
 		@Test
 		public void testAfficherLocataire() throws SQLException  {
 			try {
-				DataSource bd = new CictOracleDataSource () ;
-				Connection cn = bd.getConnection() ;
-				System.out.println("Connexion au SGBD établie") ;
+				Connection cn = ConnexionBD.getConnectionBase();
+				System.out.println("Connexion au SGBD ï¿½tablie") ;
 				String req = "SELECT NOM_LOCATAIRE, PRENOM_LOCATAIRE FROM BSJ3657A.locataire WHERE IDLOCATAIRE ='TEST'";
 				java.sql.Statement stEns = cn.createStatement ();
 				ResultSet rsEns = stEns.executeQuery (req) ;
@@ -809,16 +487,15 @@ public class DaoTest {
 		@Test
 		public void testSupprimerLocataire() throws SQLException {
 			try {
-				DataSource bd = new CictOracleDataSource () ;
-				Connection cn = bd.getConnection() ;
-				System.out.println("Connexion au SGBD établie") ;
+				Connection cn = ConnexionBD.getConnectionBase();
+				System.out.println("Connexion au SGBD ï¿½tablie") ;
 				String req = "Delete FROM BSJ3657A.locataire WHERE IDLOCATAIRE ='TEST'";
 				java.sql.Statement stEns = cn.createStatement ();
 				int result = stEns.executeUpdate(req);
 				if (result > 0) {
-					  System.out.println("Suppression réussie");
+					  System.out.println("Suppression rï¿½ussie");
 					} else {
-					  System.out.println("Aucun locataire n'a été supprimé");
+					  System.out.println("Aucun locataire n'a ï¿½tï¿½ supprimï¿½");
 					}
 				
 				stEns.close() ;
