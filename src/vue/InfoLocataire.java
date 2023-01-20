@@ -189,9 +189,9 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		JLabel lblIdLocataire = new JLabel("Identifiant du locataire  ");
 		panel7.add(lblIdLocataire);
 		
-		JLabel LabelId1Locataire = new JLabel(this.id1Locataire);
-		LabelId1Locataire.setForeground(new Color(192, 192, 192));
-		panel7.add(LabelId1Locataire);
+		JLabel lblId1Locataire = new JLabel(this.id1Locataire);
+		lblId1Locataire.setForeground(new Color(192, 192, 192));
+		panel7.add(lblId1Locataire);
 		
 		JPanel panelInfoPerso = new JPanel();
 		panel.add(panelInfoPerso);
@@ -208,8 +208,8 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		panel5.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel panelCivilite = new JPanel();
-		FlowLayout fl_panelCivilite = (FlowLayout) panelCivilite.getLayout();
-		fl_panelCivilite.setAlignment(FlowLayout.LEFT);
+		FlowLayout flPanelCivilite = (FlowLayout) panelCivilite.getLayout();
+		flPanelCivilite.setAlignment(FlowLayout.LEFT);
 		panel5.add(panelCivilite);
 		
 		JLabel labelCivilite = new JLabel("Civilité");
@@ -220,8 +220,8 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		panelCivilite.add(lblCivilite1Locataire);
 		
 		JPanel panelDateNaissance = new JPanel();
-		FlowLayout fl_panelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
-		fl_panelDateNaissance.setAlignment(FlowLayout.LEFT);
+		FlowLayout flPanelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
+		flPanelDateNaissance.setAlignment(FlowLayout.LEFT);
 		panel5.add(panelDateNaissance);
 		
 		JLabel lblDateDeNaissance = new JLabel("Date de naissance    ");
@@ -244,8 +244,8 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		panelNom.add(lblNom1Locataire);
 		
 		JPanel panelPrenom = new JPanel();
-		FlowLayout fl_panelPrenom = (FlowLayout) panelPrenom.getLayout();
-		fl_panelPrenom.setAlignment(FlowLayout.LEFT);
+		FlowLayout flPanelPrenom = (FlowLayout) panelPrenom.getLayout();
+		flPanelPrenom.setAlignment(FlowLayout.LEFT);
 		panel5.add(panelPrenom);
 		
 		JLabel lblPrenom = new JLabel("Prénom                     ");
@@ -256,13 +256,13 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		panelPrenom.add(lblPrenom1Locataire);
 		
 		JPanel panelId = new JPanel();
-		FlowLayout flowLayout_3 = (FlowLayout) panelId.getLayout();
-		flowLayout_3.setAlignment(FlowLayout.LEADING);
+		FlowLayout fl3 = (FlowLayout) panelId.getLayout();
+		fl3.setAlignment(FlowLayout.LEADING);
 		panel5.add(panelId);
 		
 		JPanel panelCarteId = new JPanel();
-		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
-		flowLayout_4.setAlignment(FlowLayout.LEFT);
+		FlowLayout fl4 = (FlowLayout) panelCarteId.getLayout();
+		fl4.setAlignment(FlowLayout.LEFT);
 		panel5.add(panelCarteId);
 		
 		JLabel lblDocument = new JLabel("Document d'identité ");
@@ -299,8 +299,8 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		panelFixe.add(lblNbFixe1Locataire);
 		
 		JPanel panelPortable = new JPanel();
-		FlowLayout fl_panelPortable = (FlowLayout) panelPortable.getLayout();
-		fl_panelPortable.setAlignment(FlowLayout.LEFT);
+		FlowLayout flPanelPortable = (FlowLayout) panelPortable.getLayout();
+		flPanelPortable.setAlignment(FlowLayout.LEFT);
 		panelNumeroTel.add(panelPortable);
 		
 		JLabel lblNbPortable = new JLabel("Numéro portable");
