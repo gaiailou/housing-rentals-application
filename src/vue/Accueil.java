@@ -125,13 +125,13 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		btnLocations.addActionListener(this);
 		panelContent.add(btnLocations);
 		
-		JButton btnNewButton_4 = new JButton("Refresh");
-		btnNewButton_4.addActionListener(this);
-		panelContent.add(btnNewButton_4);
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(this);
+		panelContent.add(btnRefresh);
 		
-		JButton btnNewButton_5 = new JButton("New button");
-		btnNewButton_5.addActionListener(this);
-		panelContent.add(btnNewButton_5);
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(this);
+		panelContent.add(btnNewButton);
 		
 		JButton btnDocuments = new JButton("Documents");
 		btnDocuments.addActionListener(this);
@@ -161,9 +161,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredAccueil.add(panel11);
 		panel11.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_2 = new JLabel("Joli graphique");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		panel11.add(lblNewLabel_2, BorderLayout.NORTH);
+		JLabel lblJoliGraphique = new JLabel("Joli graphique");
+		lblJoliGraphique.setHorizontalAlignment(SwingConstants.CENTER);
+		panel11.add(lblJoliGraphique, BorderLayout.NORTH);
 		
 		txtPasDeDonnes = new JTextField();
 		txtPasDeDonnes.setHorizontalAlignment(SwingConstants.CENTER);
@@ -191,12 +191,12 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredAccueil.add(panel21);
 		panel21.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_4 = new JLabel("Loyer impay\u00E9");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		panel21.add(lblNewLabel_4, BorderLayout.NORTH);
+		JLabel lblLoyerImpaye = new JLabel("Loyer impay\u00E9");
+		lblLoyerImpaye.setHorizontalAlignment(SwingConstants.CENTER);
+		panel21.add(lblLoyerImpaye, BorderLayout.NORTH);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		panel21.add(scrollPane_1, BorderLayout.CENTER);
+		JScrollPane scrollPane1 = new JScrollPane();
+		panel21.add(scrollPane1, BorderLayout.CENTER);
 		
 		tableImpaye = new JTable();
 		tableImpaye.setModel(new DefaultTableModel(
@@ -210,7 +210,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 			}
 		));
 		tableImpaye.getColumnModel().getColumn(0).setPreferredWidth(29);
-		scrollPane_1.setViewportView(tableImpaye);
+		scrollPane1.setViewportView(tableImpaye);
 		
 		JPanel panel22 = new JPanel();
 		panel22.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -375,8 +375,8 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JLayeredPane layeredPane = new JLayeredPane();
 		contentPane.add(layeredPane, BorderLayout.CENTER);
 		
-		JLayeredPane layeredPane_1 = new JLayeredPane();
-		contentPane.add(layeredPane_1, BorderLayout.CENTER);
+		JLayeredPane layeredPane1 = new JLayeredPane();
+		contentPane.add(layeredPane1, BorderLayout.CENTER);
 		
 		this.layeredDocuments = new JLayeredPane();
 		this.layeredDocuments.setBorder(new EmptyBorder(0, 5, 0, 5));

@@ -56,8 +56,10 @@ public class RequeteSelect {
 	 * @throws SQLException
 	 */
 	public static ArrayList<Locataire> selectLocataire() throws SQLException {
+		
 		ArrayList<Locataire> liste = new ArrayList<Locataire>();
 		Connection cn = ConnexionBD.getConnectionBase();
+
         try {
             Statement st = cn.createStatement();
             ResultSet curseurLocataire = st.executeQuery("SELECT * FROM BSJ3657A.locataire");
@@ -76,7 +78,9 @@ public class RequeteSelect {
             }
             curseurLocataire.close();
         } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
             ex.printStackTrace();
+            throw ex;
         }
 		return liste;
 	}
@@ -89,6 +93,7 @@ public class RequeteSelect {
 	public static ArrayList<Location> selectLocation() throws SQLException {
         ArrayList<Location> liste = new ArrayList<Location>();
 		Connection cn = ConnexionBD.getConnectionBase();
+        
         try {
             Statement st = cn.createStatement();
             ResultSet curseurLocation = st.executeQuery("SELECT * FROM BSJ3657A.location");
