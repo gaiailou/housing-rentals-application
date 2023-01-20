@@ -306,11 +306,11 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredLocataires.add(panelContentLoc);
 		panelContentLoc.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		panelContentLoc.add(scrollPane_2);
+		JScrollPane scrollPane2 = new JScrollPane();
+		panelContentLoc.add(scrollPane2);
 		
 		jListLocataires = new JList();
-		scrollPane_2.setViewportView(jListLocataires);
+		scrollPane2.setViewportView(jListLocataires);
 		setJListLocataires();
 		jListLocataires.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
@@ -349,11 +349,11 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredLocations.add(panelContentLoca, BorderLayout.CENTER);
 		panelContentLoca.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane scrollPane_3 = new JScrollPane();
-		panelContentLoca.add(scrollPane_3);
+		JScrollPane scrollPane3 = new JScrollPane();
+		panelContentLoca.add(scrollPane3);
 		
 		jListLocations = new JList();
-		scrollPane_3.setViewportView(jListLocations);
+		scrollPane3.setViewportView(jListLocations);
 		setJListLocations();
 		jListLocations.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
