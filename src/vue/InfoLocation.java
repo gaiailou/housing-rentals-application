@@ -429,7 +429,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		panelInfoComplémentaires.add(panelTel);
 		panelTel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel LabelTelGarant = new JLabel("Téléphone garant");
+		JLabel LabelTelGarant = new JLabel("Résultat soldeToutCompte");
 		LabelTelGarant.setHorizontalAlignment(SwingConstants.CENTER);
 		LabelTelGarant.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelTel.add(LabelTelGarant);
@@ -481,6 +481,7 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 		panelSoldeToutCompte.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		this.btnSolde = new JButton("Solde tout comptes");
+		btnSolde.setForeground(Color.LIGHT_GRAY);
 		btnSolde.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelSoldeToutCompte.add(btnSolde);
 		

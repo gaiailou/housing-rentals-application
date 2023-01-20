@@ -11,7 +11,8 @@ public class RequeteFonction {
 
         Connection cn = ConnexionBD.getConnectionBase();
         try {
-            PreparedStatement st = cn.prepareStatement("call BSJ3657A.provisionPourCharges(?, ?, ?)");
+            PreparedStatement st = cn.prepareStatement("call provisionPourCharges(?, ?, ?)");
+            //BSJ3657A.
             st.setString(1, dateDebutLocation);
             st.setString(2,  dateFinLocation);
             st.setInt(2,  provision_mois);
@@ -27,7 +28,7 @@ public class RequeteFonction {
     	
     	Connection cn = ConnexionBD.getConnectionBase();
         try {
-            PreparedStatement st = cn.prepareStatement("call BSJ3657A.soldeToutCompte(?, ?)");
+            PreparedStatement st = cn.prepareStatement("call soldeToutCompte(?, ?)");
             st.setString(1, idLocataire);
             st.setString(2, idLogement);
             
