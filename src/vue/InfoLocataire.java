@@ -2,13 +2,11 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.BoxLayout;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -17,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
@@ -33,14 +30,14 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 	private Locataire locataireSelected;
 	
 	//Les attributs a modifier pour connecter a la bd
-	private String Id1Locataire=null;
-	private char Civilite1Locataire;
-	private String DateDeNaissance1Locataire=null;
-	private String Nom1Locataire=null;
-	private String Prenom1Locataire=null;
-	private String Document1Locataire=null;
-	private String NbFixe1Locataire=null;
-	private String NbPortable1Locataire=null;
+	private String id1Locataire=null;
+	private char civilite1Locataire;
+	private String dateDeNaissance1Locataire=null;
+	private String nom1Locataire=null;
+	private String prenom1Locataire=null;
+	private String document1Locataire=null;
+	private String nbFixe1Locataire=null;
+	private String nbPortable1Locataire=null;
 
 	private GestionInfoLocataire gestionClic;
 	
@@ -53,67 +50,67 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 	}
 
 	public String getId1Locataire() {
-		return Id1Locataire;
+		return id1Locataire;
 	}
 
 	public void setId1Locataire(String id1Locataire) {
-		Id1Locataire = id1Locataire;
+		id1Locataire = id1Locataire;
 	}
 
 	public char getCivilite1Locataire() {
-		return Civilite1Locataire;
+		return civilite1Locataire;
 	}
 
 	public void setCivilite1Locataire(char civilite1Locataire) {
-		Civilite1Locataire = civilite1Locataire;
+		civilite1Locataire = civilite1Locataire;
 	}
 
 	public String getDateDeNaissance1Locataire() {
-		return DateDeNaissance1Locataire;
+		return dateDeNaissance1Locataire;
 	}
 
 	public void setDateDeNaissance1Locataire(String dateDeNaissance1Locataire) {
-		DateDeNaissance1Locataire = dateDeNaissance1Locataire;
+		dateDeNaissance1Locataire = dateDeNaissance1Locataire;
 	}
 
 	public String getNom1Locataire() {
-		return Nom1Locataire;
+		return nom1Locataire;
 	}
 
 	public void setNom1Locataire(String nom1Locataire) {
-		Nom1Locataire = nom1Locataire;
+		nom1Locataire = nom1Locataire;
 	}
 
 	public String getPrenom1Locataire() {
-		return Prenom1Locataire;
+		return prenom1Locataire;
 	}
 
 	public void setPrenom1Locataire(String prenom1Locataire) {
-		Prenom1Locataire = prenom1Locataire;
+		prenom1Locataire = prenom1Locataire;
 	}
 
 	public String getDocument1Locataire() {
-		return Document1Locataire;
+		return document1Locataire;
 	}
 
 	public void setDocument1Locataire(String document1Locataire) {
-		Document1Locataire = document1Locataire;
+		document1Locataire = document1Locataire;
 	}
 
 	public String getNbFixe1Locataire() {
-		return NbFixe1Locataire;
+		return nbFixe1Locataire;
 	}
 
 	public void setNbFixe1Locataire(String nbFixe1Locataire) {
-		NbFixe1Locataire = nbFixe1Locataire;
+		nbFixe1Locataire = nbFixe1Locataire;
 	}
 
 	public String getNbPortable1Locataire() {
-		return NbPortable1Locataire;
+		return nbPortable1Locataire;
 	}
 
 	public void setNbPortable1Locataire(String nbPortable1Locataire) {
-		NbPortable1Locataire = nbPortable1Locataire;
+		nbPortable1Locataire = nbPortable1Locataire;
 	}
 
 	public GestionInfoLocataire getGestionClic() {
@@ -126,14 +123,14 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 
 	public InfoLocataire(Locataire locataireSelected) {
 		this.locataireSelected=locataireSelected;
-		this.Id1Locataire=this.locataireSelected.getIdLocataire();
-		this.Civilite1Locataire=this.locataireSelected.getGenreLocataire();
-		this.DateDeNaissance1Locataire=this.locataireSelected.getDdnLocataire();
-		this.Nom1Locataire=this.locataireSelected.getNomLocataire();
-		this.Prenom1Locataire=this.locataireSelected.getPrenomLocataire();
-		this.Document1Locataire=this.locataireSelected.getPieceIdentiteLocataire();
-		this.NbFixe1Locataire=this.locataireSelected.getTelephoneFixeLocataire();
-		this.NbPortable1Locataire=this.locataireSelected.getTelephoneMobileLocataire();
+		this.id1Locataire=this.locataireSelected.getIdLocataire();
+		this.civilite1Locataire=this.locataireSelected.getGenreLocataire();
+		this.dateDeNaissance1Locataire=this.locataireSelected.getDdnLocataire();
+		this.nom1Locataire=this.locataireSelected.getNomLocataire();
+		this.prenom1Locataire=this.locataireSelected.getPrenomLocataire();
+		this.document1Locataire=this.locataireSelected.getPieceIdentiteLocataire();
+		this.nbFixe1Locataire=this.locataireSelected.getTelephoneFixeLocataire();
+		this.nbPortable1Locataire=this.locataireSelected.getTelephoneMobileLocataire();
 		
 		setBounds(50, 50, 577, 507);
 		
@@ -179,110 +176,110 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		labelId.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panelType.add(labelId, BorderLayout.NORTH);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelType.add(panel_4);
-		panel_4.setLayout(new BoxLayout(panel_4, BoxLayout.X_AXIS));
+		JPanel panel4 = new JPanel();
+		panel4.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelType.add(panel4);
+		panel4.setLayout(new BoxLayout(panel4, BoxLayout.X_AXIS));
 		
-		JPanel panel_7 = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panel_7.getLayout();
+		JPanel panel7 = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel7.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
-		panel_4.add(panel_7);
+		panel4.add(panel7);
 		
-		JLabel lblNewLabel_3 = new JLabel("Identifiant du locataire  ");
-		panel_7.add(lblNewLabel_3);
+		JLabel lblIdLocataire = new JLabel("Identifiant du locataire  ");
+		panel7.add(lblIdLocataire);
 		
-		JLabel LabelId1Locataire = new JLabel(this.Id1Locataire);
+		JLabel LabelId1Locataire = new JLabel(this.id1Locataire);
 		LabelId1Locataire.setForeground(new Color(192, 192, 192));
-		panel_7.add(LabelId1Locataire);
+		panel7.add(LabelId1Locataire);
 		
 		JPanel panelInfoPerso = new JPanel();
 		panel.add(panelInfoPerso);
 		panelInfoPerso.setBorder(new EmptyBorder(10, 0, 0, 0));
 		panelInfoPerso.setLayout(new BorderLayout(0, 0));
 		
-		JLabel LabelInfoPerso = new JLabel("Informations Personnelles");
-		LabelInfoPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panelInfoPerso.add(LabelInfoPerso, BorderLayout.NORTH);
+		JLabel lblInfoPerso = new JLabel("Informations Personnelles");
+		lblInfoPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
+		panelInfoPerso.add(lblInfoPerso, BorderLayout.NORTH);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelInfoPerso.add(panel_5);
-		panel_5.setLayout(new GridLayout(0, 2, 0, 0));
+		JPanel panel5 = new JPanel();
+		panel5.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelInfoPerso.add(panel5);
+		panel5.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel panelCivilite = new JPanel();
 		FlowLayout fl_panelCivilite = (FlowLayout) panelCivilite.getLayout();
 		fl_panelCivilite.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelCivilite);
+		panel5.add(panelCivilite);
 		
 		JLabel labelCivilite = new JLabel("Civilité");
 		panelCivilite.add(labelCivilite);
 		
-		JLabel LabelCivilite1Locataire = new JLabel(""+this.Civilite1Locataire);
-		LabelCivilite1Locataire.setForeground(new Color(192, 192, 192));
-		panelCivilite.add(LabelCivilite1Locataire);
+		JLabel lblCivilite1Locataire = new JLabel(""+this.civilite1Locataire);
+		lblCivilite1Locataire.setForeground(new Color(192, 192, 192));
+		panelCivilite.add(lblCivilite1Locataire);
 		
 		JPanel panelDateNaissance = new JPanel();
 		FlowLayout fl_panelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
 		fl_panelDateNaissance.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelDateNaissance);
+		panel5.add(panelDateNaissance);
 		
-		JLabel labelDateDeNaissance = new JLabel("Date de naissance    ");
-		panelDateNaissance.add(labelDateDeNaissance);
+		JLabel lblDateDeNaissance = new JLabel("Date de naissance    ");
+		panelDateNaissance.add(lblDateDeNaissance);
 		
-		JLabel LabelDateDeNaissance1Locataire = new JLabel(this.DateDeNaissance1Locataire);
-		LabelDateDeNaissance1Locataire.setForeground(new Color(192, 192, 192));
-		panelDateNaissance.add(LabelDateDeNaissance1Locataire);
+		JLabel lblDateDeNaissance1Locataire = new JLabel(this.dateDeNaissance1Locataire);
+		lblDateDeNaissance1Locataire.setForeground(new Color(192, 192, 192));
+		panelDateNaissance.add(lblDateDeNaissance1Locataire);
 		
 		JPanel panelNom = new JPanel();
 		FlowLayout fl_panelNom = (FlowLayout) panelNom.getLayout();
 		fl_panelNom.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelNom);
+		panel5.add(panelNom);
 		
-		JLabel labelNom = new JLabel("Nom                      ");
-		panelNom.add(labelNom);
+		JLabel lblNom = new JLabel("Nom                      ");
+		panelNom.add(lblNom);
 		
-		JLabel LabelNom1Locataire = new JLabel(this.Nom1Locataire);
-		LabelNom1Locataire.setForeground(new Color(192, 192, 192));
-		panelNom.add(LabelNom1Locataire);
+		JLabel lblNom1Locataire = new JLabel(this.nom1Locataire);
+		lblNom1Locataire.setForeground(new Color(192, 192, 192));
+		panelNom.add(lblNom1Locataire);
 		
 		JPanel panelPrenom = new JPanel();
 		FlowLayout fl_panelPrenom = (FlowLayout) panelPrenom.getLayout();
 		fl_panelPrenom.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelPrenom);
+		panel5.add(panelPrenom);
 		
-		JLabel labelPrenom = new JLabel("Prénom                     ");
-		panelPrenom.add(labelPrenom);
+		JLabel lblPrenom = new JLabel("Prénom                     ");
+		panelPrenom.add(lblPrenom);
 		
-		JLabel LabelPrenom1Locataire = new JLabel(this.Prenom1Locataire);
-		LabelPrenom1Locataire.setForeground(new Color(192, 192, 192));
-		panelPrenom.add(LabelPrenom1Locataire);
+		JLabel lblPrenom1Locataire = new JLabel(this.prenom1Locataire);
+		lblPrenom1Locataire.setForeground(new Color(192, 192, 192));
+		panelPrenom.add(lblPrenom1Locataire);
 		
 		JPanel panelId = new JPanel();
 		FlowLayout flowLayout_3 = (FlowLayout) panelId.getLayout();
 		flowLayout_3.setAlignment(FlowLayout.LEADING);
-		panel_5.add(panelId);
+		panel5.add(panelId);
 		
 		JPanel panelCarteId = new JPanel();
 		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelCarteId);
+		panel5.add(panelCarteId);
 		
-		JLabel labelDocument = new JLabel("Document d'identité ");
-		panelCarteId.add(labelDocument);
+		JLabel lblDocument = new JLabel("Document d'identité ");
+		panelCarteId.add(lblDocument);
 		
-		JLabel LabelDocument1Locataire = new JLabel(this.Document1Locataire);
-		LabelDocument1Locataire.setForeground(new Color(192, 192, 192));
-		panelCarteId.add(LabelDocument1Locataire);
+		JLabel lblDocument1Locataire = new JLabel(this.document1Locataire);
+		lblDocument1Locataire.setForeground(new Color(192, 192, 192));
+		panelCarteId.add(lblDocument1Locataire);
 		
 		JPanel panelNbTel = new JPanel();
 		panel.add(panelNbTel);
 		panelNbTel.setBorder(new EmptyBorder(10, 0, 0, 0));
 		panelNbTel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel labelNumeroPerso = new JLabel("Numéro de téléphone");
-		labelNumeroPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panelNbTel.add(labelNumeroPerso, BorderLayout.NORTH);
+		JLabel lblNumeroPerso = new JLabel("Numéro de téléphone");
+		lblNumeroPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
+		panelNbTel.add(lblNumeroPerso, BorderLayout.NORTH);
 		
 		JPanel panelNumeroTel = new JPanel();
 		panelNumeroTel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -294,24 +291,24 @@ public class InfoLocataire extends JInternalFrame implements ActionListener{
 		fl_panelFixe.setAlignment(FlowLayout.LEFT);
 		panelNumeroTel.add(panelFixe);
 		
-		JLabel labelNbFixe = new JLabel("Numéro fixe");
-		panelFixe.add(labelNbFixe);
+		JLabel lblNbFixe = new JLabel("Numéro fixe");
+		panelFixe.add(lblNbFixe);
 		
-		JLabel LabelNbFixe1Locataire = new JLabel(this.NbFixe1Locataire);
-		LabelNbFixe1Locataire.setForeground(new Color(192, 192, 192));
-		panelFixe.add(LabelNbFixe1Locataire);
+		JLabel lblNbFixe1Locataire = new JLabel(this.nbFixe1Locataire);
+		lblNbFixe1Locataire.setForeground(new Color(192, 192, 192));
+		panelFixe.add(lblNbFixe1Locataire);
 		
 		JPanel panelPortable = new JPanel();
 		FlowLayout fl_panelPortable = (FlowLayout) panelPortable.getLayout();
 		fl_panelPortable.setAlignment(FlowLayout.LEFT);
 		panelNumeroTel.add(panelPortable);
 		
-		JLabel labelNbPortable = new JLabel("Numéro portable");
-		panelPortable.add(labelNbPortable);
+		JLabel lblNbPortable = new JLabel("Numéro portable");
+		panelPortable.add(lblNbPortable);
 		
-		JLabel LabelNbPortable1Locataire = new JLabel(this.NbPortable1Locataire);
-		LabelNbPortable1Locataire.setForeground(new Color(192, 192, 192));
-		panelPortable.add(LabelNbPortable1Locataire);
+		JLabel lblNbPortable1Locataire = new JLabel(this.nbPortable1Locataire);
+		lblNbPortable1Locataire.setForeground(new Color(192, 192, 192));
+		panelPortable.add(lblNbPortable1Locataire);
 		
 		
 		JLayeredPane layeredGarants = new JLayeredPane();

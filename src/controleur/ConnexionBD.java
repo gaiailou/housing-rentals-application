@@ -1,10 +1,8 @@
-package modele.dao.requete;
+package controleur;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import controleur.Login;
 
 public class ConnexionBD {
 	

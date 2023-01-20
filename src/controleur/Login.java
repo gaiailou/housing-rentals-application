@@ -1,4 +1,4 @@
-package modele.dao.requete;
+package controleur;
 
 public class Login {
 	private final static String LOGIN = "plm4280a";

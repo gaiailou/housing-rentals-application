@@ -440,7 +440,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 	}
 
 	public void setJListLocations() throws SQLException {
-		listeDeLocations = RequeteSelect.SelectLocation() ;
+		listeDeLocations = RequeteSelect.selectLocation() ;
 		String[] tableauDeLocations = new String[listeDeLocations.size()];
 		for (int i=0; i<listeDeLocations.size();i++) {
 			tableauDeLocations[i] = "Location de logement " + listeDeLocations.get(i).getLogement()
@@ -459,7 +459,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 	}
 
 	public void setJListLocataires() throws SQLException {
-		listeDeLocataires = RequeteSelect.SelectLocataire() ;
+		listeDeLocataires = RequeteSelect.selectLocataire() ;
 		String[] tableauDeLocataires = new String[listeDeLocataires.size()];
 		for (int i=0; i<listeDeLocataires.size();i++) {
 			String civilite="????";
@@ -484,7 +484,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 	}
 
 	public void setJListLogements() throws SQLException {
-		listeDeLogements = RequeteSelect.SelectLogement() ;
+		listeDeLogements = RequeteSelect.selectLogement() ;
 		String[] tableauDeLogements = new String[listeDeLogements.size()];
 		for (int i=0; i<listeDeLogements.size();i++) {
 			tableauDeLogements[i] = "Logement "+ listeDeLogements.get(i).getIdLogement() + ", "+ listeDeLogements.get(i).getTypeLogement() +" de superficie " + listeDeLogements.get(i).getSuperficieLogement() + " m²";
