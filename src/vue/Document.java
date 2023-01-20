@@ -60,15 +60,15 @@ public class Document extends JInternalFrame {
 		btnGenSoldeToutCompte.setBounds(10, 193, 127, 46);
 		panel.add(btnGenSoldeToutCompte);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 0, 224, 271);
-		getContentPane().add(panel_1);
-		panel_1.setLayout(null);
+		JPanel panel1 = new JPanel();
+		panel1.setBounds(0, 0, 224, 271);
+		getContentPane().add(panel1);
+		panel1.setLayout(null);
 		
 		JLabel lblRegulCharge = new JLabel("Générer une régularisation des charges");
 		lblRegulCharge.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 12));
 		lblRegulCharge.setBounds(0, 10, 239, 25);
-		panel_1.add(lblRegulCharge);
+		panel1.add(lblRegulCharge);
 
 	}
 
