@@ -1,14 +1,14 @@
-# Housing rentals' application
-A property rental application developed as part of a university project - (2022)
+# Projet de gestion locative
 
-## Languages 
+
+## Langages 
 - Java,Eclipse window builder
 - PL/SQL, SQL developper
 
-## Authors
+## Auteurs
+- Mendy Paul
 - Gaia Ducournau
 - Nicolas Rousseau
-- Mendy Paul
 - Jason Bessier
 - Patrick Jeanjean
 - Kemit Carabin
