@@ -127,9 +127,9 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		btnLocations.addActionListener(this);
 		panelContent.add(btnLocations);
 		
-		JButton btnNewButton_4 = new JButton("Refresh");
-		btnNewButton_4.addActionListener(this);
-		panelContent.add(btnNewButton_4);
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(this);
+		panelContent.add(btnRefresh);
 		
 		JButton btnNewButton_5 = new JButton("New button");
 		btnNewButton_5.addActionListener(this);
@@ -193,12 +193,12 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredAccueil.add(panel21);
 		panel21.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_4 = new JLabel("Loyer impay\u00E9");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		panel21.add(lblNewLabel_4, BorderLayout.NORTH);
+		JLabel lblLoyerImpaye = new JLabel("Loyer impay\u00E9");
+		lblLoyerImpaye.setHorizontalAlignment(SwingConstants.CENTER);
+		panel21.add(lblLoyerImpaye, BorderLayout.NORTH);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		panel21.add(scrollPane_1, BorderLayout.CENTER);
+		JScrollPane scrollPane1 = new JScrollPane();
+		panel21.add(scrollPane1, BorderLayout.CENTER);
 		
 		tableImpaye = new JTable();
 		tableImpaye.setModel(new DefaultTableModel(
@@ -212,7 +212,7 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 			}
 		));
 		tableImpaye.getColumnModel().getColumn(0).setPreferredWidth(29);
-		scrollPane_1.setViewportView(tableImpaye);
+		scrollPane1.setViewportView(tableImpaye);
 		
 		JPanel panel22 = new JPanel();
 		panel22.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -312,11 +312,11 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredLocataires.add(panelContentLoc);
 		panelContentLoc.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		panelContentLoc.add(scrollPane_2);
+		JScrollPane scrollPane2 = new JScrollPane();
+		panelContentLoc.add(scrollPane2);
 		
 		jListLocataires = new JList();
-		scrollPane_2.setViewportView(jListLocataires);
+		scrollPane2.setViewportView(jListLocataires);
 		setJListLocataires();
 		jListLocataires.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
@@ -357,11 +357,11 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		this.layeredLocations.add(panelContentLoca, BorderLayout.CENTER);
 		panelContentLoca.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane scrollPane_3 = new JScrollPane();
-		panelContentLoca.add(scrollPane_3);
+		JScrollPane scrollPane3 = new JScrollPane();
+		panelContentLoca.add(scrollPane3);
 		
 		jListLocations = new JList();
-		scrollPane_3.setViewportView(jListLocations);
+		scrollPane3.setViewportView(jListLocations);
 		setJListLocations();
 		jListLocations.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent evt) {
@@ -383,8 +383,8 @@ public class Accueil extends JFrame implements ActionListener, MouseListener {
 		JLayeredPane layeredPane = new JLayeredPane();
 		contentPane.add(layeredPane, BorderLayout.CENTER);
 		
-		JLayeredPane layeredPane_1 = new JLayeredPane();
-		contentPane.add(layeredPane_1, BorderLayout.CENTER);
+		JLayeredPane layeredPane1 = new JLayeredPane();
+		contentPane.add(layeredPane1, BorderLayout.CENTER);
 		
 		this.layeredDocuments = new JLayeredPane();
 		this.layeredDocuments.setBorder(new EmptyBorder(0, 5, 0, 5));

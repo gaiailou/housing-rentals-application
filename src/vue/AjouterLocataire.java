@@ -138,21 +138,21 @@ public class AjouterLocataire extends JInternalFrame {
 		labelId.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panelType.add(labelId, BorderLayout.NORTH);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelType.add(panel_4);
-		panel_4.setLayout(new BoxLayout(panel_4, BoxLayout.X_AXIS));
+		JPanel panel4 = new JPanel();
+		panel4.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelType.add(panel4);
+		panel4.setLayout(new BoxLayout(panel4, BoxLayout.X_AXIS));
 		
-		JPanel panel_7 = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panel_7.getLayout();
+		JPanel panel7 = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel7.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
-		panel_4.add(panel_7);
+		panel4.add(panel7);
 		
 		this.lblIdLoc = new JLabel("Identifiant du locataire  ");
-		panel_7.add(this.lblIdLoc);
+		panel7.add(this.lblIdLoc);
 		
 		this.textId = new JTextField();
-		panel_7.add(this.textId);
+		panel7.add(this.textId);
 		this.textId.setColumns(10);
 		
 		JPanel panelInfoPerso = new JPanel();
@@ -160,19 +160,19 @@ public class AjouterLocataire extends JInternalFrame {
 		panelInfoPerso.setBorder(new EmptyBorder(10, 0, 0, 0));
 		panelInfoPerso.setLayout(new BorderLayout(0, 0));
 		
-		JLabel LabelInfoPerso = new JLabel("Informations Personnelles");
-		LabelInfoPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panelInfoPerso.add(LabelInfoPerso, BorderLayout.NORTH);
+		JLabel lblInfoPerso = new JLabel("Informations Personnelles");
+		lblInfoPerso.setFont(new Font("Tahoma", Font.BOLD, 11));
+		panelInfoPerso.add(lblInfoPerso, BorderLayout.NORTH);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelInfoPerso.add(panel_5);
-		panel_5.setLayout(new GridLayout(0, 2, 0, 0));
+		JPanel panel5 = new JPanel();
+		panel5.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelInfoPerso.add(panel5);
+		panel5.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel panelCivilite = new JPanel();
 		FlowLayout fl_panelCivilite = (FlowLayout) panelCivilite.getLayout();
 		fl_panelCivilite.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelCivilite);
+		panel5.add(panelCivilite);
 		
 		JLabel labelCivilite = new JLabel("Civilité");
 		panelCivilite.add(labelCivilite);
@@ -184,7 +184,7 @@ public class AjouterLocataire extends JInternalFrame {
 		JPanel panelDateNaissance = new JPanel();
 		FlowLayout fl_panelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
 		fl_panelDateNaissance.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelDateNaissance);
+		panel5.add(panelDateNaissance);
 		
 		JLabel labelDateDeNaissance = new JLabel("Date de naissance    ");
 		panelDateNaissance.add(labelDateDeNaissance);
@@ -197,7 +197,7 @@ public class AjouterLocataire extends JInternalFrame {
 		JPanel panelNom = new JPanel();
 		FlowLayout fl_panelNom = (FlowLayout) panelNom.getLayout();
 		fl_panelNom.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelNom);
+		panel5.add(panelNom);
 		
 		JLabel labelNom = new JLabel("Nom                      ");
 		panelNom.add(labelNom);
@@ -209,7 +209,7 @@ public class AjouterLocataire extends JInternalFrame {
 		JPanel panelPrenom = new JPanel();
 		FlowLayout fl_panelPrenom = (FlowLayout) panelPrenom.getLayout();
 		fl_panelPrenom.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelPrenom);
+		panel5.add(panelPrenom);
 		
 		JLabel labelPrenom = new JLabel("Pr\u00E9nom                     ");
 		panelPrenom.add(labelPrenom);
@@ -221,12 +221,12 @@ public class AjouterLocataire extends JInternalFrame {
 		JPanel panelId = new JPanel();
 		FlowLayout flowLayout_3 = (FlowLayout) panelId.getLayout();
 		flowLayout_3.setAlignment(FlowLayout.LEADING);
-		panel_5.add(panelId);
+		panel5.add(panelId);
 		
 		JPanel panelCarteId = new JPanel();
 		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
-		panel_5.add(panelCarteId);
+		panel5.add(panelCarteId);
 		
 		JLabel labelDocument = new JLabel("Document d'identit\u00E9 ");
 		panelCarteId.add(labelDocument);
