@@ -6,16 +6,17 @@ import java.util.Objects;
 import modele.dao.requete.RequeteInsert;
 
 public class Immeuble {
-	private char[] idImmeuble = new char[10];
-	private int numeroAdresseLogement;
+	private String idImmeuble;
+	private String numeroAdresseLogement;
 	private String nomRueAdresseLogement;
-	private char[] anneeConstructionImmeuble = new char[4];
-	private char[] cpVille = new char[5];
+	private String anneeConstructionImmeuble;
+	private String nomVille;
+	private String cpVille;
 	private boolean coPropriete;
 	
-	public Immeuble(char[] idImmeuble, int numeroAdresseLogement, String nomRueAdresseLogement,
-					char[] anneeConstructionImmeuble, char[] cpVille, boolean coPropriete) {
-		super();
+	public Immeuble(String idImmeuble, String numeroAdresseLogement, String nomRueAdresseLogement,
+					String anneeConstructionImmeuble,String nomVille, String cpVille, boolean coPropriete) {
+		this.nomVille= nomVille;
 		this.idImmeuble = idImmeuble;
 		this.numeroAdresseLogement = numeroAdresseLogement;
 		this.nomRueAdresseLogement = nomRueAdresseLogement;
@@ -28,9 +29,9 @@ public class Immeuble {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(anneeConstructionImmeuble);
-		result = prime * result + Arrays.hashCode(cpVille);
-		result = prime * result + Arrays.hashCode(idImmeuble);
+		result = prime * result + Objects.hashCode(anneeConstructionImmeuble);
+		result = prime * result + Objects.hashCode(cpVille);
+		result = prime * result + Objects.hashCode(idImmeuble);
 		result = prime * result + Objects.hash(coPropriete, nomRueAdresseLogement, numeroAdresseLogement);
 		return result;
 	}
@@ -44,22 +45,22 @@ public class Immeuble {
 			return false;
 		}
 		Immeuble other = (Immeuble) obj;
-		return Arrays.equals(anneeConstructionImmeuble, other.anneeConstructionImmeuble)
-				&& coPropriete == other.coPropriete && Arrays.equals(cpVille, other.cpVille)
-				&& Arrays.equals(idImmeuble, other.idImmeuble)
+		return Objects.equals(anneeConstructionImmeuble, other.anneeConstructionImmeuble)
+				&& coPropriete == other.coPropriete && Objects.equals(cpVille, other.cpVille)
+				&& Objects.equals(idImmeuble, other.idImmeuble)
 				&& Objects.equals(nomRueAdresseLogement, other.nomRueAdresseLogement)
 				&& numeroAdresseLogement == other.numeroAdresseLogement;
 	}
-	public char[] getIdImmeuble() {
+	public String getIdImmeuble() {
 		return idImmeuble;
 	}
-	public void setIdImmeuble(char[] idImmeuble) {
+	public void setIdImmeuble(String idImmeuble) {
 		this.idImmeuble = idImmeuble;
 	}
-	public int getNumeroAdresseLogement() {
+	public String getNumeroAdresseLogement() {
 		return numeroAdresseLogement;
 	}
-	public void setNumeroAdresseLogement(int numeroAdresseLogement) {
+	public void setNumeroAdresseLogement(String numeroAdresseLogement) {
 		this.numeroAdresseLogement = numeroAdresseLogement;
 	}
 	public String getNomRueAdresseLogement() {
@@ -68,17 +69,24 @@ public class Immeuble {
 	public void setNomRueAdresseLogement(String nomRueAdresseLogement) {
 		this.nomRueAdresseLogement = nomRueAdresseLogement;
 	}
-	public char[] getAnneeConstructionImmeuble() {
+	public String getAnneeConstructionImmeuble() {
 		return anneeConstructionImmeuble;
 	}
-	public void setAnneeConstructionImmeuble(char[] anneeConstructionImmeuble) {
+	public void setAnneeConstructionImmeuble(String anneeConstructionImmeuble) {
 		this.anneeConstructionImmeuble = anneeConstructionImmeuble;
 	}
-	public char[] getCpVille() {
+	public String getCpVille() {
 		return cpVille;
 	}
-	public void setCpVille(char[] cpVille) {
+	public void setCpVille(String cpVille) {
 		this.cpVille = cpVille;
+	}
+	public String getNomVille() {
+		return nomVille;
+	}
+
+	public void setNomVille(String nomVille) {
+		this.nomVille = nomVille;
 	}
 	public boolean isCoPropriete() {
 		return coPropriete;

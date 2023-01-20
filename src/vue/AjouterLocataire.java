@@ -167,6 +167,7 @@ public class AjouterLocataire extends JInternalFrame {
 		panelCivilite.add(this.comboCivilite);
 		
 		JPanel panelDateNaissance = new JPanel();
+
 		FlowLayout flPanelDateNaissance = (FlowLayout) panelDateNaissance.getLayout();
 		flPanelDateNaissance.setAlignment(FlowLayout.LEFT);
 		panel5.add(panelDateNaissance);
@@ -180,8 +181,10 @@ public class AjouterLocataire extends JInternalFrame {
 		this.textDateNaissance.setColumns(10);
 		
 		JPanel panelNom = new JPanel();
+
 		FlowLayout flpanelNom = (FlowLayout) panelNom.getLayout();
 		flpanelNom.setAlignment(FlowLayout.LEFT);
+
 		panel5.add(panelNom);
 		
 		JLabel labelNom = new JLabel("Nom                      ");
@@ -192,8 +195,10 @@ public class AjouterLocataire extends JInternalFrame {
 		this.textNom.setColumns(10);
 		
 		JPanel panelPrenom = new JPanel();
+
 		FlowLayout flPanelPrenom = (FlowLayout) panelPrenom.getLayout();
 		flPanelPrenom.setAlignment(FlowLayout.LEFT);
+
 		panel5.add(panelPrenom);
 		
 		JLabel labelPrenom = new JLabel("Pr\u00E9nom                     ");
@@ -204,6 +209,7 @@ public class AjouterLocataire extends JInternalFrame {
 		this.textPrenom.setColumns(10);
 		
 		JPanel panelId = new JPanel();
+
 		FlowLayout fl3 = (FlowLayout) panelId.getLayout();
 		fl3.setAlignment(FlowLayout.LEADING);
 		panel5.add(panelId);
@@ -211,6 +217,15 @@ public class AjouterLocataire extends JInternalFrame {
 		JPanel panelCarteId = new JPanel();
 		FlowLayout fl4 = (FlowLayout) panelCarteId.getLayout();
 		fl4.setAlignment(FlowLayout.LEFT);
+
+		FlowLayout flowLayout_3 = (FlowLayout) panelId.getLayout();
+		flowLayout_3.setAlignment(FlowLayout.LEADING);
+		panel5.add(panelId);
+		
+	
+		FlowLayout flowLayout_4 = (FlowLayout) panelCarteId.getLayout();
+		flowLayout_4.setAlignment(FlowLayout.LEFT);
+
 		panel5.add(panelCarteId);
 		
 		JLabel labelDocument = new JLabel("Document d'identit\u00E9 ");
