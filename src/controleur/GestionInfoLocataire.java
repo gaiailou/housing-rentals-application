@@ -24,7 +24,6 @@ public class GestionInfoLocataire implements ActionListener {
 				break;
 			case"Supprimer":
 				try {
-					System.out.println("wesh");
 					int res = JOptionPane.showConfirmDialog(this.il, "Voulez-vous vraiment supprimer un locataire ?");
 				    if(res == JOptionPane.YES_OPTION){
 				      this.il.getLocataireSelected().deleteLocataire();

@@ -12,19 +12,19 @@ import java.sql.SQLException;
 
 public class RequeteSelect {
 
-	public static ArrayList<Logement> SelectLogement() throws SQLException {
-
+	/**
+	 * 
+	 * @return ArrayList<Logement> liste des logements
+	 * @throws SQLException
+	 */
+	public static ArrayList<Logement> selectLogement() throws SQLException {
         ArrayList<Logement> liste = new ArrayList<Logement>();
 		Connection cn = ConnexionBD.getConnectionBase();
-
-        String req = "SELECT * FROM BSJ3657A.logement";
-        
         try {
             Statement st = cn.createStatement();
-            ResultSet curseurLogement = st.executeQuery(req);
+            ResultSet curseurLogement = st.executeQuery("SELECT * FROM BSJ3657A.logement");
             boolean enregistrementExiste = curseurLogement.next();
             while (enregistrementExiste) {
-            	 
                 liste.add(new Logement(curseurLogement.getString("IdLogement"),
                 		curseurLogement.getString("superficieLogement"),
                 		curseurLogement.getString("complementAdresseLogement"),
@@ -42,30 +42,27 @@ public class RequeteSelect {
                 		curseurLogement.getString("Idproprietaire")));
                 enregistrementExiste = curseurLogement.next();
             }
-            System.out.println("Fin de la liste des logements");
             curseurLogement.close();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
             ex.printStackTrace();
-            throw ex;
         }
 		return liste;
 	
 	}
 	
-	public static ArrayList<Locataire> SelectLocataire() throws SQLException {
-		
+	/**
+	 * 
+	 * @return ArrayList<Locataire> liste des locataires
+	 * @throws SQLException
+	 */
+	public static ArrayList<Locataire> selectLocataire() throws SQLException {
 		ArrayList<Locataire> liste = new ArrayList<Locataire>();
 		Connection cn = ConnexionBD.getConnectionBase();
-
-        String req = "SELECT * FROM BSJ3657A.locataire";
-        
         try {
             Statement st = cn.createStatement();
-            ResultSet curseurLocataire = st.executeQuery(req);
+            ResultSet curseurLocataire = st.executeQuery("SELECT * FROM BSJ3657A.locataire");
             boolean enregistrementExiste = curseurLocataire.next();
             while (enregistrementExiste) {
-            	 
                 liste.add (new Locataire(curseurLocataire.getString("id_LOCATAIRE"),
                 		curseurLocataire.getString("NOM_LOCATAIRE"),
                 		curseurLocataire.getString("PRENOM_LOCATAIRE"),
@@ -77,29 +74,26 @@ public class RequeteSelect {
                 		curseurLocataire.getString("piece_identite_LOCATAIRE")));
                 enregistrementExiste = curseurLocataire.next();
             }
-            System.out.println("Fin de la liste des locataires");
             curseurLocataire.close();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
             ex.printStackTrace();
-            throw ex;
         }
 		return liste;
 	}
 	
-	public static ArrayList<Location> SelectLocation() throws SQLException {
-
+	/**
+	 * 
+	 * @return ArrayList<Location> liste des locations
+	 * @throws SQLException
+	 */
+	public static ArrayList<Location> selectLocation() throws SQLException {
         ArrayList<Location> liste = new ArrayList<Location>();
 		Connection cn = ConnexionBD.getConnectionBase();
-
-        String req = "SELECT * FROM BSJ3657A.location";
-        
         try {
             Statement st = cn.createStatement();
-            ResultSet curseurLocation = st.executeQuery(req);
+            ResultSet curseurLocation = st.executeQuery("SELECT * FROM BSJ3657A.location");
             boolean enregistrementExiste = curseurLocation.next();
             while (enregistrementExiste) {
-            	 
                 liste.add(new Location(
                 		curseurLocation.getString("idlogement"), 
                 		curseurLocation.getString("id_locataire"), 
@@ -118,15 +112,11 @@ public class RequeteSelect {
                 		curseurLocation.getString("fichierBail"),
                 		curseurLocation.getString("fichierQuittanceLoyer"), 
                 		curseurLocation.getString("idcontrat")));
-                
                 enregistrementExiste = curseurLocation.next();
             }
-            System.out.println("Fin de la liste des locations�");
             curseurLocation.close();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
             ex.printStackTrace();
-            throw ex;
         }
 		return liste;
 	
