@@ -19,9 +19,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import controleur.GestionAjouterLocation;
+import modele.Immeuble;
+import modele.Locataire;
 import modele.Location;
+import modele.Logement;
 import modele.dao.requete.RequeteFonction;
+import modele.dao.requete.RequeteSelect;
 import modele.dao.requete.RequetesAjouterLocation;
+import oracle.jdbc.internal.Monitor.CloseableLock;
 import rapport.Rapport;
 
 import java.awt.event.ActionListener;
@@ -508,8 +513,21 @@ public class InfoLocation extends JInternalFrame implements ActionListener {
 					this.dispose();
 					break;
 				case"Generer une quittance":
+					Locataire leLoc = null;
+					Logement leLog = null;
+					Immeuble limmeuble = null;
 					try {
-						new Rapport().creerUneQuittanceLoyer(locationSelected.getLocataire(),java.time.LocalDate.now().toString(), "Mr.Milan", "1 rue des professeur", locationSelected.getLocataire(), locationSelected.getLogement(), locationSelected.getLogement(), locationSelected.getMontantLoyerLocation(), locationSelected.getMontantChargesLocation());
+						
+						leLog = new RequeteSelect().selectLogementById(locationSelected.getLogement());
+						leLoc = new RequeteSelect().selectLocataireById(locationSelected.getLocataire());
+						limmeuble = new RequeteSelect().selectImmeubleById(leLog.getImmeuble());
+					} catch (SQLException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+					try {
+						String adresse = limmeuble.getNumeroAdresseLogement()+" "+limmeuble.getNomRueAdresseLogement()+" , "+leLog.getComplementAdresseLogement()+" , "+limmeuble.getCpVille()+" "+limmeuble.getNomVille();
+						new Rapport().creerUneQuittanceLoyer(leLoc.getIdLocataire(),java.time.LocalDate.now().toString(), "Mr.Milan", "1 rue des professeur", leLoc.getNomLocataire()+" "+leLoc.getPrenomLocataire(), adresse , adresse, locationSelected.getMontantLoyerLocation(), locationSelected.getMontantChargesLocation());
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
